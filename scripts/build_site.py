@@ -214,10 +214,9 @@ def cell(it, cls=""):
 
 def board(items, quotes=True):
     if not items:
-        return ('<div class="empty"><b>Пока пусто.</b> Робот приносит материалы в папку '
-                '<code>queue</code> раз в час. Поменяйте в нужном файле '
-                '<code>status: draft</code> на <code>published</code> — и он появится здесь '
-                'через минуту.</div>')
+        return ('<div class="empty"><b>Nothing here yet.</b> Stories land in this section '
+                'as soon as they are published. Check back shortly, or take '
+                '<a href="index.html" style="color:var(--red)">today\'s board</a>.</div>')
     out, n = [], 0
     lead = len(items) >= 4
     for i, it in enumerate(items):
@@ -261,10 +260,11 @@ def page_article(it, items):
     relhtml = "".join(f'''<a class="rel" href="{r['url']}">{img_tag(r)}
 <div><h4>{r['title']}</h4><div class="m">{r.get('source','')} &middot;
 {fmt_date(r.get('date',''))}</div></div></a>''' for r in rel)
-    credit = (f'<div class="credit">Фото: {it.get("source","")} &mdash; '
-              f'<a href="{it.get("link","#")}" target="_blank" rel="noopener">оригинал</a></div>'
+    credit = (f'<div class="credit">Photo: {it.get("source","")} &mdash; '
+              f'<a href="{it.get("link","#")}" target="_blank" rel="noopener">see original</a></div>'
               if it["hotlink"] else
-              '<figcaption>Иллюстрация редакции. Фото источника в ленте не было.</figcaption>')
+              '<figcaption>Illustration by Inflight Digest &mdash; no photograph '
+              'was supplied in the source feed.</figcaption>')
     rest = "".join(f"<p>{p}</p>" for p in it["rest"])
     return (head(f"{it['title']} — Inflight Digest", it["url"], it["stand"][:180])
             + header(it["rubric"])
@@ -337,7 +337,8 @@ def main():
     write["jobs.html"] = page_jobs()
     write["events.html"] = page_simple(
         "events", "Events",
-        "AIX, APEX, WTCE, FTE and the rest of the calendar. Заполняется вручную.", "events")
+        "AIX, APEX, WTCE, FTE and the rest of the industry calendar. "
+        "This page is compiled by hand — coming soon.", "events")
     write["404.html"] = page_simple(
         "404", "404",
         'That page has taken off without us. Try <a href="index.html" '
