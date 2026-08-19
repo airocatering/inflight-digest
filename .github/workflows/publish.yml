@@ -1,0 +1,53 @@
+name: Fetch feeds and rebuild site
+
+on:
+  schedule:
+    - cron: "17 * * * *"        # каждый час, на 17-й минуте (UTC)
+  workflow_dispatch:             # кнопка «запустить сейчас» на вкладке Actions
+  push:
+    branches: [main]
+    paths:                       # ваши правки в очереди и данных — пересобрать
+      - "queue/**"
+      - "posts/**"
+      - "data/**"
+      - "scripts/**"
+      - "assets/**"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install --quiet feedparser
+
+      - name: Fetch feeds
+        if: github.event_name != 'push'
+        run: python scripts/fetch_feeds.py
+
+      - name: Build site
+        run: python scripts/build_site.py
+
+      - name: Commit and push
+        run: |
+          git config user.name  "inflight-digest-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Нечего коммитить — изменений нет."
+          else
+            git commit -m "auto: fetch feeds and rebuild ($(date -u +'%Y-%m-%d %H:%M UTC'))"
+            git push
+          fi
