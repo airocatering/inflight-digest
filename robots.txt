@@ -4,4 +4,4 @@
 User-agent: *
 Disallow: /
 
-Sitemap: https://YOUR-USERNAME.github.io/inflight-digest/sitemap.xml
+Sitemap: https://airocatering.github.io/inflight-digest/sitemap.xml
