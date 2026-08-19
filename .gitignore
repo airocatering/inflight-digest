@@ -1,0 +1,11 @@
+# внутренние памятки — не для публичного репозитория
+DEPLOY-GH.md
+КАК-ВЫЛОЖИТЬ.md
+ЗАДАНИЕ-ДЛЯ-CLAUDE-CODE.md
+*.zip
+
+# мусор Dropbox и системы
+desktop.ini
+.dropbox*
+Thumbs.db
+.DS_Store
