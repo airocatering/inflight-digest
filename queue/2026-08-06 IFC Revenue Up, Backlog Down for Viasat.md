@@ -5,6 +5,7 @@ link: https://paxex.aero/ifc-revenue-up-backlog-down-for-viasat/
 date: 2026-08-06
 rubric: connectivity
 image: https://paxex.aero/wp-content/uploads/2026/04/viasat-3-f3-launch0falcon-heavy-spacex-scaled.jpg
+slug: 2026-08-06-ifc-revenue-up-backlog-down-for-viasat
 status: draft
 ---
 

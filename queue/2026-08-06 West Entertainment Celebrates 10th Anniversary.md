@@ -5,6 +5,7 @@ link: https://apex.aero/articles/west-entertainment-celebrates-10th-anniversary/
 date: 2026-08-06
 rubric: entertainment
 image: https://apex.aero/wp-content/uploads/2026/08/Screenshot-2026-08-06-13.28.37-1-1024x702.png
+slug: 2026-08-06-west-entertainment-celebrates-10th-anniversary
 status: draft
 ---
 

@@ -56,8 +56,19 @@ def clean(text, limit=260):
 
 
 def slug(text, n=60):
+    """Адрес страницы на сайте — только латиница, цифры и дефисы."""
     text = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
     return text[:n].rstrip("-") or "story"
+
+
+def filename_title(text, n=80):
+    """Имя файла — как заголовок, чтобы в колонке Name на GitHub читалось
+    глазами. Убираем только то, что запрещено в именах файлов Windows."""
+    text = re.sub(r'[\\/:*?"<>|#]', "", text)
+    text = re.sub(r"\s+", " ", text).strip(" .")
+    if len(text) > n:
+        text = text[:n].rsplit(" ", 1)[0].rstrip(" ,.;:-")
+    return text or "story"
 
 
 def pick_image(entry):
@@ -144,7 +155,8 @@ def main():
             if date < cutoff:
                 continue
 
-            name = f"{date.isoformat()}-{slug(title)}.md"
+            stem = f"{date.isoformat()}-{slug(title)}"          # адрес на сайте
+            name = f"{date.isoformat()} {filename_title(title)}.md"   # имя файла
             if name in have:
                 seen_links.add(link)
                 continue
@@ -160,6 +172,7 @@ link: {link}
 date: {date.isoformat()}
 rubric: {rubric}
 image: {image}
+slug: {stem}
 status: draft
 ---
 

@@ -5,6 +5,7 @@ link: https://paxex.aero/skyfive-bluebox-team-for-inflight-digital-boost/
 date: 2026-08-13
 rubric: connectivity
 image: https://paxex.aero/wp-content/uploads/2026/08/Blueview-Cloud-screen-designs.png
+slug: 2026-08-13-skyfive-bluebox-team-for-inflight-digital-boost
 status: draft
 ---
 

@@ -96,7 +96,10 @@ def parse_md(path):
     body = re.sub(r"<!--.*?-->", "", m.group(2), flags=re.S).strip()
     meta["body"] = body
     meta["file"] = os.path.basename(path)
-    meta["url"] = meta["file"][:-3] + ".html"
+    # адрес страницы берём из поля slug; если его нет (старые файлы) —
+    # выводим из имени файла, как раньше
+    stem = meta.get("slug") or re.sub(r"[^a-z0-9]+", "-", meta["file"][:-3].lower()).strip("-")
+    meta["url"] = stem + ".html"
     meta.setdefault("rubric", "cabin-seating")
     meta.setdefault("image", "")
     if meta.get("rubric") not in RUB_TITLE:

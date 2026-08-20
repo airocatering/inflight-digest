@@ -5,6 +5,7 @@ link: https://moodiedavittreport.com/reigniting-growth-asia-travel-retail-recove
 date: 2026-08-19
 rubric: duty-free
 image: https://moodiedavittreport.com/wp-content/uploads/2026/08/Stephane-de-la-Faverie-.png
+slug: 2026-08-19-reigniting-growth-asia-travel-retail-recovery-buoys-the-est
 status: draft
 ---
 

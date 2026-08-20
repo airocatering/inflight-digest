@@ -5,6 +5,7 @@ link: https://paxex.aero/american-airlines-ife-screens/
 date: 2026-08-18
 rubric: entertainment
 image: https://paxex.aero/wp-content/uploads/2026/08/american-airlines-Seatback-IFE-02.jpg
+slug: 2026-08-18-screens-coming-back-to-american-airlines
 status: draft
 ---
 

@@ -5,6 +5,7 @@ link: https://runwaygirlnetwork.com/2026/08/ifpl-celebrates-30-years-of-engineer
 date: 2026-08-18
 rubric: cabin-seating
 image: https://runwaygirlnetwork.com/wp-content/uploads/2016/05/RWGPRHub-1.jpg
+slug: 2026-08-18-press-release-ifpl-celebrates-30-years-of-engineering-excell
 status: draft
 ---
 

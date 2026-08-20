@@ -5,6 +5,7 @@ link: https://runwaygirlnetwork.com/2026/08/american-talks-rfp-as-it-readies-to-
 date: 2026-08-18
 rubric: entertainment
 image: https://runwaygirlnetwork.com/wp-content/uploads/2026/08/American-Airlines-premium-seatback-IFE-2-1024x576.jpg
+slug: 2026-08-18-american-talks-rfp-as-it-readies-to-bring-screens-to-narrowb
 status: draft
 ---
 

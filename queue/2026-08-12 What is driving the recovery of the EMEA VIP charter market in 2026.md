@@ -5,6 +5,7 @@ link: https://www.aircraftinteriorsinternational.com/industry-opinion/what-is-dr
 date: 2026-08-12
 rubric: cabin-seating
 image: 
+slug: 2026-08-12-what-is-driving-the-recovery-of-the-emea-vip-charter-market
 status: draft
 ---
 

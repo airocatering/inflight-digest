@@ -5,6 +5,7 @@ link: https://runwaygirlnetwork.com/2026/08/skyband-develops-leo-powered-pnt-uni
 date: 2026-08-16
 rubric: connectivity
 image: https://runwaygirlnetwork.com/wp-content/uploads/2026/08/Screenshot-2026-08-12-at-12.11.30-PM-1024x584.jpeg
+slug: 2026-08-16-skyband-develops-leo-powered-pnt-unit-to-validate-gps-on-air
 status: draft
 ---
 

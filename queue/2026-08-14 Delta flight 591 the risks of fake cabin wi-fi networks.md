@@ -5,6 +5,7 @@ link: https://www.aircraftinteriorsinternational.com/industry-opinion/delta-flig
 date: 2026-08-14
 rubric: connectivity
 image: 
+slug: 2026-08-14-delta-flight-591-the-risks-of-fake-cabin-wi-fi-networks
 status: draft
 ---
 

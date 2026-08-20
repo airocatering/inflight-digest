@@ -5,6 +5,7 @@ link: https://moodiedavittreport.com/qatar-duty-free-brings-exclusive-kitkat-jap
 date: 2026-08-19
 rubric: duty-free
 image: https://moodiedavittreport.com/wp-content/uploads/2026/08/QDF-Kitkat-Japan-Hamad-19aug26-1.jpg
+slug: 2026-08-19-qatar-duty-free-and-nestl-reveal-exclusive-kitkat-japan-expe
 status: draft
 ---
 

@@ -5,6 +5,7 @@ link: https://www.aircraftinteriorsinternational.com/news/airframer-news/comacs-
 date: 2026-08-19
 rubric: onboard-service
 image: 
+slug: 2026-08-19-comac-s-in-service-fleet-will-soar-by-2030
 status: draft
 ---
 

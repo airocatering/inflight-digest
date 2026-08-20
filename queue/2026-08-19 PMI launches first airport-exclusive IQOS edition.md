@@ -5,6 +5,7 @@ link: https://www.trbusiness.com/regional-news/international/pmi-launches-first-
 date: 2026-08-19
 rubric: cabin-seating
 image: https://d24chjhol3kq77.cloudfront.net/trbusiness.com/wp-content/uploads/2026/08/IQOS-Syylands-460.png
+slug: 2026-08-19-pmi-launches-first-airport-exclusive-iqos-edition
 status: draft
 ---
 

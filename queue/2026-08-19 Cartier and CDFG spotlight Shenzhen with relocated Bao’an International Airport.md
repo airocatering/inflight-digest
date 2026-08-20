@@ -5,6 +5,7 @@ link: https://moodiedavittreport.com/cartier-and-cdfg-bring-shenzhens-spirit-to-
 date: 2026-08-19
 rubric: duty-free
 image: https://moodiedavittreport.com/wp-content/uploads/2026/08/Cartier-CDFG-Shenzhen-Baoan-Airport-19.8.2026-1.jpg
+slug: 2026-08-19-cartier-and-cdfg-spotlight-shenzhen-with-relocated-bao-an-in
 status: draft
 ---
 

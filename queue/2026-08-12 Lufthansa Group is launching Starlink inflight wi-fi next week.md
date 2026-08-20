@@ -5,6 +5,7 @@ link: https://www.aircraftinteriorsinternational.com/news/inflight-connectivity/
 date: 2026-08-12
 rubric: connectivity
 image: 
+slug: 2026-08-12-lufthansa-group-is-launching-starlink-inflight-wi-fi-next-we
 status: draft
 ---
 

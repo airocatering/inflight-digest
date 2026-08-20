@@ -5,6 +5,7 @@ link: https://paxex.aero/lufthansa-sets-starlink-service-start-schedule/
 date: 2026-08-11
 rubric: connectivity
 image: https://paxex.aero/wp-content/uploads/2026/08/lufthansa-starlink-panel.jpg
+slug: 2026-08-11-lufthansa-sets-starlink-service-start-schedule
 status: draft
 ---
 

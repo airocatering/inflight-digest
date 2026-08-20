@@ -5,6 +5,7 @@ link: https://www.trbusiness.com/regional-news/middle-east/qdf-launches-kitkat-j
 date: 2026-08-19
 rubric: duty-free
 image: https://d24chjhol3kq77.cloudfront.net/trbusiness.com/wp-content/uploads/2026/08/Qatar-DF-x-Kit-Kat-460-1.png
+slug: 2026-08-19-qdf-launches-kitkat-japan-activation-at-hamad-international
 status: draft
 ---
 

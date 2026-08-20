@@ -5,6 +5,7 @@ link: https://www.aircraftinteriorsinternational.com/news/accessibility/a-new-to
 date: 2026-08-14
 rubric: cabin-seating
 image: 
+slug: 2026-08-14-a-new-tool-to-help-airlines-assess-if-they-meet-dot-aisle-ch
 status: draft
 ---
 

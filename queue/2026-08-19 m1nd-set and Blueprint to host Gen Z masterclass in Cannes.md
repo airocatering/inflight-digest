@@ -5,6 +5,7 @@ link: https://www.trbusiness.com/channel-news/other-stores/m1nd-set-and-blueprin
 date: 2026-08-19
 rubric: duty-free
 image: https://d24chjhol3kq77.cloudfront.net/trbusiness.com/wp-content/uploads/2026/08/Blueprint-m1nd-set-Gen-z-workshop.jpg
+slug: 2026-08-19-m1nd-set-and-blueprint-to-host-gen-z-masterclass-in-cannes
 status: draft
 ---
 

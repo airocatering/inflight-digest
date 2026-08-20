@@ -5,6 +5,7 @@ link: https://moodiedavittreport.com/images-of-the-day-areas-iberia-captures-the
 date: 2026-08-19
 rubric: catering
 image: https://moodiedavittreport.com/wp-content/uploads/2024/10/IMAGE-OF-THE-DAY-CONTENT-HEADER15.png
+slug: 2026-08-19-images-of-the-day-areas-iberia-captures-the-mallorca-vibe-wi
 status: draft
 ---
 

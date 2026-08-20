@@ -5,6 +5,7 @@ link: https://www.aircraftinteriorsinternational.com/news/inflight-entertainment
 date: 2026-08-14
 rubric: entertainment
 image: 
+slug: 2026-08-14-virgin-atlantic-adds-dementia-friendly-options-to-its-entert
 status: draft
 ---
 

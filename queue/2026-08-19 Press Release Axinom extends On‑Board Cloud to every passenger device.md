@@ -5,6 +5,7 @@ link: https://runwaygirlnetwork.com/2026/08/axinom-extends-on-board-cloud-to-eve
 date: 2026-08-19
 rubric: cabin-seating
 image: https://runwaygirlnetwork.com/wp-content/uploads/2016/05/RWGPRHub-1.jpg
+slug: 2026-08-19-press-release-axinom-extends-on-board-cloud-to-every-passeng
 status: draft
 ---
 

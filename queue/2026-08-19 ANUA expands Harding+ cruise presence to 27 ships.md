@@ -5,6 +5,7 @@ link: https://www.trbusiness.com/regional-news/international/anua-expands-hardin
 date: 2026-08-19
 rubric: duty-free
 image: https://d24chjhol3kq77.cloudfront.net/trbusiness.com/wp-content/uploads/2026/08/Anua-460.png
+slug: 2026-08-19-anua-expands-harding-cruise-presence-to-27-ships
 status: draft
 ---
 
