@@ -179,25 +179,81 @@ STOPWORDS = {
  "they", "his", "her", "their", "more", "than", "but", "not", "new", "now",
 }
 
+# Слова, которые есть в половине ленты: для сходства бесполезны, потому что
+# «airline catering» встречается и в жалобе на антисанитарию, и в контракте.
+DOMAIN_STOP = {
+ "airline", "airlines", "aviation", "aircraft", "flight", "flights", "inflight",
+ "cabin", "airport", "airports", "air", "catering", "carrier", "carriers",
+ "passenger", "passengers", "onboard", "board", "industry", "company", "group",
+ "facility", "plant", "site", "service", "services", "report", "reports",
+ "found", "seen", "say", "file", "filed", "sees", "reveal", "reveals", "amid",
+}
+
+# Тематические кусты. Один сюжет почти всегда бьёт в один куст.
+CONCEPTS = {
+ "sanitation": {"maggot", "roach", "cockroach", "mold", "mould", "vermin", "rodent",
+                "unsanitary", "infestation", "filth", "hygiene", "contamination",
+                "salmonella", "listeria", "insect", "pest"},
+ "labour": {"worker", "union", "strike", "walkout", "complaint", "alleg", "grievance",
+            "layoff", "redundanc", "staff", "employee"},
+ "legal": {"lawsuit", "sue", "court", "fine", "penalty", "probe", "investigation",
+           "violation", "regulator", "inspection", "subpoena"},
+ "deal": {"contract", "deal", "partnership", "agreement", "tender", "acquisition",
+          "merger", "stake", "joint"},
+}
+
+
+def _stem(w):
+    """Грубая нормализация: alleging/alleged/allege → alleg."""
+    for suf in ("ations", "ation", "ings", "ing", "ies", "ied", "ed", "es", "s"):
+        if len(w) > len(suf) + 3 and w.endswith(suf):
+            return w[: -len(suf)]
+    return w
+
 
 def title_tokens(title):
     words = re.findall(r"[a-z0-9]+", title.lower())
     return {w for w in words if len(w) > 2 and w not in STOPWORDS}
 
 
+def salient_tokens(title):
+    """Только различающие слова: без служебных и без отраслевых."""
+    words = re.findall(r"[a-z0-9]+", title.lower())
+    return {_stem(w) for w in words
+            if len(w) > 2 and w not in STOPWORDS and w not in DOMAIN_STOP}
+
+
+def concepts_of(tokens):
+    hit = set()
+    for name, words in CONCEPTS.items():
+        if any(any(t.startswith(w) or w.startswith(t) for w in words) for t in tokens):
+            hit.add(name)
+    return hit
+
+
 def is_duplicate(tokens, seen_sets, threshold=0.55):
-    """Похож ли заголовок на уже виденный. Считаем долю общих слов."""
+    """Похож ли заголовок на уже виденный.
+
+    Две проверки. Первая ловит перепечатки одного дня — почти дословные
+    заголовки. Вторая ловит развитие сюжета за неделю: формулировки разные,
+    но различающие слова те же и тема одна.
+    """
     if len(tokens) < 3:
         return None
+    sal = salient_tokens(" ".join(tokens))
+    con = concepts_of(sal)
     for old in seen_sets:
         if not old:
             continue
         common = len(tokens & old)
-        if not common:
-            continue
-        union = len(tokens | old)
-        smaller = min(len(tokens), len(old))
-        if common / union >= threshold or common / smaller >= 0.8:
+        if common:
+            union = len(tokens | old)
+            smaller = min(len(tokens), len(old))
+            if common / union >= threshold or common / smaller >= 0.8:
+                return old
+        old_sal = salient_tokens(" ".join(old))
+        shared = sal & old_sal
+        if len(shared) >= 2 and con & concepts_of(old_sal):
             return old
     return None
 
