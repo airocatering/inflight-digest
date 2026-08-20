@@ -1,5 +1,5 @@
 ---
-title: Cartier celebrates opening of its relocated Shenzhen boutique
+title: Shenzhen airport gets Cartier's relocated boutique
 source: TRBusiness
 link: https://www.trbusiness.com/regional-news/asia-pacific/cartier-celebrates-opening-of-its-relocated-shenzhen-boutique/282606
 date: 2026-08-19
