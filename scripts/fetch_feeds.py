@@ -204,11 +204,9 @@ CONCEPTS = {
 
 
 def _stem(w):
-    """Грубая нормализация: alleging/alleged/allege → alleg."""
-    for suf in ("ations", "ation", "ings", "ing", "ies", "ied", "ed", "es", "s"):
-        if len(w) > len(suf) + 3 and w.endswith(suf):
-            return w[: -len(suf)]
-    return w
+    """Грубая нормализация по началу слова: alleging / alleged / allege → alleg,
+    conditions / condition → condi. Точность не нужна, нужна устойчивость."""
+    return w[:5]
 
 
 def title_tokens(title):
@@ -229,6 +227,17 @@ def concepts_of(tokens):
         if any(any(t.startswith(w) or w.startswith(t) for w in words) for t in tokens):
             hit.add(name)
     return hit
+
+
+# Слова, которые описывают ТИП события, а не конкретное событие. Их совпадение
+# ничего не доказывает: «workers file complaint» пишут и про JFK, и про
+# Сингапур. Опознают сюжет имена собственные — LAX, JFK, Gate Gourmet, SATS.
+GENERIC_SALIENT = {_stem(w) for words in CONCEPTS.values() for w in words} | {
+ _stem(w) for w in (
+   "unsafe", "condition", "conditions", "pay", "wage", "wages", "safety", "health",
+   "claim", "claims", "accuse", "accuses", "concerns", "issues", "problems",
+   "workers", "worker", "employees", "management", "response", "responds",
+   "investigation", "review", "reviews", "warning", "warns", "risk", "risks")}
 
 
 def is_duplicate(tokens, seen_sets, threshold=0.55):
@@ -253,7 +262,15 @@ def is_duplicate(tokens, seen_sets, threshold=0.55):
                 return old
         old_sal = salient_tokens(" ".join(old))
         shared = sal & old_sal
-        if len(shared) >= 2 and con & concepts_of(old_sal):
+        if not (shared and con & concepts_of(old_sal)):
+            continue
+        # среди общих слов должно быть хоть одно опознающее — имя компании,
+        # аэропорта, города. Иначе это просто похожая по типу новость.
+        anchors = shared - GENERIC_SALIENT
+        if len(shared) >= 2 and anchors:
+            return old
+        # либо общих слов так много, что это пересказ того же самого
+        if len(shared) >= 4:
             return old
     return None
 
@@ -430,6 +447,10 @@ def main():
             if dup:
                 dropped_dupes += 1
                 seen_links.add(link)
+                # отброшенный заголовок остаётся в пуле сравнения: он мост
+                # между ранними и поздними формулировками сюжета. Без него
+                # цепочка рвётся — A похож на B, B на C, а A и C напрямую нет
+                seen_titles.append(tokens)
                 print(f"  = повтор сюжета: {title[:64]}")
                 continue
 
