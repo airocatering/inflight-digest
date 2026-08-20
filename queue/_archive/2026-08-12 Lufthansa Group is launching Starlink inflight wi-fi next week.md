@@ -1,16 +1,14 @@
 ---
-title: Lufthansa Group is launching Starlink inflight wi-fi next week
-source: Aircraft Interiors International
-link: https://www.aircraftinteriorsinternational.com/news/inflight-connectivity/next-week-will-see-the-first-lufthansa-group-flight-take-off-with-starlink-inflight-wi-fi-on-board.html
-date: 2026-08-12
+title:  Starlink Wi-Fi goes live on Lufthansa
+source: Lufthansa group
+link: https://newsroom.lufthansagroup.com/en/lufthansa-takes-off-with-starlink-high-speed-internet-for-the-first-time/
+date: 2026-08-19
 rubric: connectivity
-image: 
-slug: 2026-08-12-lufthansa-group-is-launching-starlink-inflight-wi-fi-next-we
-status: draft
+image: https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iwj_Ik1jS0cg/v1/-1x-1.webp
+slug: 2026-08-19-lufthansa-starlink-high-speed-internet-first-flight
+status: published
 ---
 
-Next week will see the first Lufthansa Group flight take off with Starlink inflight connectivity services available on board The post Lufthansa Group is launching Starlink inflight wi-fi next week appeared first on Aircraft Interiors International .
-
-<!-- Ваш абзац. Что это значит для отрасли — два-три предложения.
-     Без него материал выглядит как перепечатка. Строку с комментарием
-     можно удалить. -->
+Lufthansa Group will equip around 850 aircraft with SpaceX’s Starlink high-speed internet, with the rollout planned across the group’s airlines by 2029.
+The inaugural flight took place on 19 August 2026, from Frankfurt to Rome.
+Starlink will provide passengers with fast, reliable inflight connectivity, reinforcing Lufthansa Group’s premium travel experience.
