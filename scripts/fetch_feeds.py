@@ -7,6 +7,13 @@ status: draft — пока вы не поменяете его на published, �
 import json, os, re, html, hashlib, datetime as dt
 import feedparser
 
+# feedparser по умолчанию представляется как "feedparser/x.x" — с общих
+# дата-центровых IP (GitHub Actions) Google News на такой User-Agent часто
+# отдаёт страницу-заглушку вместо ленты. Похоже на обычный браузер — проходит.
+feedparser.USER_AGENT = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                          "AppleWebKit/537.36 (KHTML, like Gecko) "
+                          "Chrome/124.0.0.0 Safari/537.36")
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 QUEUE = os.path.join(ROOT, "queue")
