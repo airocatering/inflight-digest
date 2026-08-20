@@ -1,5 +1,5 @@
 ---
-title: Qatar Duty Free turns KitKat into a collectable
+title: KitKat Japan flavours arrive at Qatar Duty Free
 source: Moodie Davitt Report
 link: https://moodiedavittreport.com/qatar-duty-free-brings-exclusive-kitkat-japan-experience-to-hamad-international-airport/
 date: 2026-08-19
