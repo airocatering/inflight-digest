@@ -3,10 +3,13 @@ title: Qatar Duty Free turns KitKat into a collectable
 source: Moodie Davitt Report
 link: https://moodiedavittreport.com/qatar-duty-free-brings-exclusive-kitkat-japan-experience-to-hamad-international-airport/
 date: 2026-08-19
+added: 2026-08-19T20:39:00Z
 rubric: duty-free
 image: https://moodiedavittreport.com/wp-content/uploads/2026/08/QDF-Kitkat-Japan-Hamad-19aug26-3.jpg
 slug: 2026-08-19-qatar-duty-free-and-nestl-reveal-exclusive-kitkat-japan-expe
 status: published
+---
+
 Qatar Duty Free and Nestlé International Travel Retail have opened a three-month
 KitKat "Taste of Japan" pop-up at Hamad International, running across the South
 Node, North Node and Central concourses since 10 August.
