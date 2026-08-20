@@ -21,6 +21,37 @@ CSS += """
 .empty{background:#fff;border-left:3px solid var(--red);padding:22px 24px;margin:26px 0 46px;
 font-size:15px;line-height:1.6;color:#555}
 .empty b{color:var(--ink)}
+
+/* узкая сетка: на широком экране не растягиваем одну карточку на всю ширину,
+   на планшете и телефоне — наоборот, отдаём всю */
+.board.n1{grid-template-columns:1fr;max-width:33.4%}
+.board.n2{grid-template-columns:repeat(2,1fr);max-width:66.8%}
+@media(max-width:980px){
+  .board.n1{max-width:50%}
+  .board.n2{max-width:100%}
+}
+@media(max-width:640px){
+  .board.n1,.board.n2{grid-template-columns:1fr;max-width:100%}
+}
+
+/* телефон: плитка = фото + заголовок. Анонс убираем, он тут только удлиняет
+   бесконечную ленту и всё равно повторяется на странице материала */
+@media(max-width:640px){
+  .cell p{display:none}
+  .cell .bd{padding:14px 16px 16px}
+  .cell h3,.cell.big h3{font-size:20px;line-height:1.22}
+  .cell .ph,.cell.big .ph{aspect-ratio:16/9}
+  .cell.ink{min-height:0;padding:24px 20px}
+  .cell.ink .q{font-size:21px}
+  .lead{margin-top:22px}
+  .board{margin:18px 0 32px}
+}
+
+/* подсказка, что меню прокручивается вбок */
+nav .wrap{position:relative}
+nav .links{-webkit-mask-image:linear-gradient(to right,#000 88%,transparent);
+mask-image:linear-gradient(to right,#000 88%,transparent)}
+@media(min-width:900px){nav .links{-webkit-mask-image:none;mask-image:none}}
 """
 
 RUBRICS = [
@@ -229,10 +260,10 @@ def board(items, quotes=True):
             out.append('<div class="cell ink"><div class="q serif">Every story here was read '
                        'by a human before it went live.</div>'
                        '<div class="who">Editorial policy</div></div>')
-    style = ""
-    if len(items) < 3:
-        style = f' style="grid-template-columns:repeat({max(len(items),1)},1fr);max-width:{max(len(items),1)*33.4:.0f}%"'
-    return f'<div class="board"{style}>{"".join(out)}</div>'
+    # узкая сетка задаётся классом, а не инлайн-стилем: инлайн перебивает
+    # медиазапросы и ломает вёрстку на телефоне
+    cls = f" n{len(items)}" if len(items) < 3 else ""
+    return f'<div class="board{cls}">{"".join(out)}</div>'
 
 
 # ---------------------------------------------------------------- страницы
