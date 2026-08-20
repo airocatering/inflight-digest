@@ -167,11 +167,16 @@ def main():
         print("вёрстка письма записана в digest-preview.html, отправка пропущена")
         return
 
-    host, port = os.environ.get("SMTP_HOST"), int(os.environ.get("SMTP_PORT", "465"))
+    # пустой GitHub Secret приходит как "", а не отсутствующая переменная —
+    # os.environ.get(..., "465") тогда не подставит дефолт, и int("") упадёт
+    # раньше проверки ниже. Поэтому сверяем сырые строки первым делом.
+    host = os.environ.get("SMTP_HOST")
+    port_raw = os.environ.get("SMTP_PORT") or "465"
     user, pwd = os.environ.get("SMTP_USER"), os.environ.get("SMTP_PASS")
-    to = os.environ.get("MAIL_TO", user)
+    to = os.environ.get("MAIL_TO") or user
     if not (host and user and pwd and to):
         sys.exit("не заданы SMTP_HOST / SMTP_USER / SMTP_PASS / MAIL_TO")
+    port = int(port_raw)
 
     msg = EmailMessage()
     msg["Subject"] = f"Inflight Digest — {len(fresh)} в очереди, {today}"
