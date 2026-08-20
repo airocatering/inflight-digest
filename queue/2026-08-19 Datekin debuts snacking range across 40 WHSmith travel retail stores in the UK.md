@@ -5,6 +5,7 @@ link: https://moodiedavittreport.com/datekin-debuts-snacking-range-across-40-whs
 date: 2026-08-19
 rubric: duty-free
 image: https://moodiedavittreport.com/wp-content/uploads/2026/08/Datekin-WHSmith-Launch-19.8.26.jpg
+slug: 2026-08-19-datekin-debuts-snacking-range-across-40-whsmith-travel-retai
 status: draft
 ---
 

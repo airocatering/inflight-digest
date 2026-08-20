@@ -5,6 +5,7 @@ link: https://runwaygirlnetwork.com/2026/08/delta-concierge-expands-to-all-skymi
 date: 2026-08-11
 rubric: cabin-seating
 image: https://runwaygirlnetwork.com/wp-content/uploads/2016/05/RWGPRHub-1.jpg
+slug: 2026-08-11-press-release-delta-concierge-expands-to-all-skymiles-member
 status: draft
 ---
 

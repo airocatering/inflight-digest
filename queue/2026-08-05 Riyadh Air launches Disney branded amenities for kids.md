@@ -5,6 +5,7 @@ link: https://www.aircraftinteriorsinternational.com/news/inflight-amenities/riy
 date: 2026-08-05
 rubric: duty-free
 image: 
+slug: 2026-08-05-riyadh-air-launches-disney-branded-amenities-for-kids
 status: draft
 ---
 

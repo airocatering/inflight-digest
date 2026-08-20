@@ -5,6 +5,7 @@ link: https://runwaygirlnetwork.com/2026/08/how-anuvu-is-using-ai-to-make-the-wo
 date: 2026-08-11
 rubric: entertainment
 image: https://runwaygirlnetwork.com/wp-content/uploads/2026/02/ThinKom-Multi-Orbit-Gigabit-Speed-Inflight-Connectivity-square.gif
+slug: 2026-08-11-how-anuvu-is-using-ai-to-make-the-world-s-content-fly
 status: draft
 ---
 

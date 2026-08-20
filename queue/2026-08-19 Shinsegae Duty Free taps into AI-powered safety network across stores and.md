@@ -5,6 +5,7 @@ link: https://moodiedavittreport.com/shinsegae-duty-free-taps-into-ai-powered-sa
 date: 2026-08-19
 rubric: connectivity
 image: https://moodiedavittreport.com/wp-content/uploads/2026/08/Shinsegae-DF-AI-Smart-CCTV-19.08.26-300x225.jpg
+slug: 2026-08-19-shinsegae-duty-free-taps-into-ai-powered-safety-network-acro
 status: draft
 ---
 

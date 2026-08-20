@@ -5,6 +5,7 @@ link: https://www.trbusiness.com/regional-news/international/datekin-secures-wh-
 date: 2026-08-18
 rubric: duty-free
 image: https://d24chjhol3kq77.cloudfront.net/trbusiness.com/wp-content/uploads/2026/08/Datekin-460.png
+slug: 2026-08-18-datekin-secures-wh-smith-travel-retail-listing
 status: draft
 ---
 

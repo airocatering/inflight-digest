@@ -5,6 +5,7 @@ link: https://www.trbusiness.com/regional-news/asia-pacific/shinsegae-duty-free-
 date: 2026-08-18
 rubric: connectivity
 image: https://d24chjhol3kq77.cloudfront.net/trbusiness.com/wp-content/uploads/2026/08/Shinsegae-AI-460.png
+slug: 2026-08-18-shinsegae-duty-free-deploys-ai-powered-safety-network
 status: draft
 ---
 

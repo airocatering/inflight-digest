@@ -5,6 +5,7 @@ link: https://www.aircraftinteriorsinternational.com/news/inflight-entertainment
 date: 2026-08-12
 rubric: cabin-seating
 image: 
+slug: 2026-08-12-flightpath3d-s-growth-strategy-recognised-in-2026-inc-5000-l
 status: draft
 ---
 

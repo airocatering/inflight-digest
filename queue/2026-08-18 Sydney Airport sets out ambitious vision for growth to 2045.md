@@ -5,6 +5,7 @@ link: https://moodiedavittreport.com/sydney-airport-sets-out-ambitious-vision-fo
 date: 2026-08-18
 rubric: onboard-service
 image: https://moodiedavittreport.com/wp-content/uploads/2026/08/Sydney-Airports-Master-Plan-2045-19.8.26-300x189.jpeg
+slug: 2026-08-18-sydney-airport-sets-out-ambitious-vision-for-growth-to-2045
 status: draft
 ---
 

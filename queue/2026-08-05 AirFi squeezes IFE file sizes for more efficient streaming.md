@@ -5,6 +5,7 @@ link: https://www.aircraftinteriorsinternational.com/news/inflight-entertainment
 date: 2026-08-05
 rubric: entertainment
 image: 
+slug: 2026-08-05-airfi-squeezes-ife-file-sizes-for-more-efficient-streaming
 status: draft
 ---
 

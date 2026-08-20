@@ -5,6 +5,7 @@ link: https://moodiedavittreport.com/duty-free-americas-strikes-deal-to-acquire-
 date: 2026-08-19
 rubric: duty-free
 image: https://moodiedavittreport.com/wp-content/uploads/2026/08/Zayed-Airport-19.8.26-300x217.jpeg
+slug: 2026-08-19-falic-group-strikes-deal-to-acquire-dfs-group-s-luxury-busin
 status: draft
 ---
 

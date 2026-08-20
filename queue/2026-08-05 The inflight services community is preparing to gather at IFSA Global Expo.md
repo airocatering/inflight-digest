@@ -5,6 +5,7 @@ link: https://www.aircraftinteriorsinternational.com/news/catering-onboard/the-i
 date: 2026-08-05
 rubric: catering
 image: 
+slug: 2026-08-05-the-inflight-services-community-is-preparing-to-gather-at-if
 status: draft
 ---
 

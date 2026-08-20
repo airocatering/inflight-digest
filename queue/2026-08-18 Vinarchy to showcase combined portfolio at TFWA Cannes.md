@@ -5,6 +5,7 @@ link: https://www.trbusiness.com/regional-news/international/vinarchy-to-showcas
 date: 2026-08-18
 rubric: cabin-seating
 image: https://d24chjhol3kq77.cloudfront.net/trbusiness.com/wp-content/uploads/2026/08/Vinarchy-TFWA-460.png
+slug: 2026-08-18-vinarchy-to-showcase-combined-portfolio-at-tfwa-cannes
 status: draft
 ---
 

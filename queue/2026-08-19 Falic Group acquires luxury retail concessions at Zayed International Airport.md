@@ -5,6 +5,7 @@ link: https://www.trbusiness.com/regional-news/middle-east/falic-group-acquires-
 date: 2026-08-19
 rubric: duty-free
 image: https://d24chjhol3kq77.cloudfront.net/trbusiness.com/wp-content/uploads/2026/08/Zayed-International-Airport.jpg
+slug: 2026-08-19-falic-group-acquires-luxury-retail-concessions-at-zayed-inte
 status: draft
 ---
 

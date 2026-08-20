@@ -5,6 +5,7 @@ link: https://runwaygirlnetwork.com/2026/08/allegiant-extra-previews-the-airline
 date: 2026-08-13
 rubric: cabin-seating
 image: https://runwaygirlnetwork.com/wp-content/uploads/2021/05/nose-to-tail-banner-728x90-1.jpg
+slug: 2026-08-13-allegiant-extra-previews-the-airline-s-premium-future
 status: draft
 ---
 

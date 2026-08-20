@@ -5,6 +5,7 @@ link: https://runwaygirlnetwork.com/2026/08/avolon-agrees-sale-and-leaseback-of-
 date: 2026-08-14
 rubric: cabin-seating
 image: https://runwaygirlnetwork.com/wp-content/uploads/2016/05/RWGPRHub-1.jpg
+slug: 2026-08-14-press-release-avolon-agrees-sale-leaseback-of-seven-akasa-73
 status: draft
 ---
 
