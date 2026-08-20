@@ -9,4 +9,4 @@ status: published
 ---
 Cartier has reopened its Shenzhen boutique at a new location, TRBusiness reports.
 
-Shenzhen sits on the Hong Kong border, which makes any luxury opening there a signal about where Chinese buyers are spending — onshore or across the checkpoint. For duty free and onboard retail buyers the read-across is straightforward: brands are following domestic demand inland, and travel retail increasingly competes with a store the customer can reach without flying.
+Airport retail keeps drifting from counters to addresses. A brand with its own store in a terminal is no longer renting shelf space between flights — it is treating the airport as a high street, and travellers as customers rather than passengers.
