@@ -64,8 +64,8 @@ RUBRICS = [
     ("onboard-service", "Onboard Service",
      "Cabin crew service models, accessibility, amenity and the passenger-facing experience."),
     ("cabin-interior", "Cabin Interior",
-     "Seats, monuments, bins and lavatories — the cabin as a physical product, "
-     "from retrofit programmes to certification."),
+     "Seats, galleys and trolleys — new cabin products and the suppliers "
+     "behind them."),
     ("duty-free", "Duty Free",
      "Onboard and airport retail, ancillary revenue, travel retail brands and buyers."),
 ]
