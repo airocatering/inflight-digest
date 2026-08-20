@@ -1,16 +1,24 @@
 ---
-title: Qatar Duty Free and Nestlé reveal exclusive Kitkat Japan experience
+title: Qatar Duty Free turns KitKat into a collectable
 source: Moodie Davitt Report
 link: https://moodiedavittreport.com/qatar-duty-free-brings-exclusive-kitkat-japan-experience-to-hamad-international-airport/
 date: 2026-08-19
 rubric: duty-free
-image: https://moodiedavittreport.com/wp-content/uploads/2026/08/QDF-Kitkat-Japan-Hamad-19aug26-1.jpg
+image: https://moodiedavittreport.com/wp-content/uploads/2026/08/QDF-Kitkat-Japan-Hamad-19aug26-3.jpg
 slug: 2026-08-19-qatar-duty-free-and-nestl-reveal-exclusive-kitkat-japan-expe
-status: draft
----
+status: published
+Qatar Duty Free and Nestlé International Travel Retail have opened a three-month
+KitKat "Taste of Japan" pop-up at Hamad International, running across the South
+Node, North Node and Central concourses since 10 August.
 
-Japanese design, destination-led flavours and an interactive Gachapon mechanic combine across three airport locations, creating a playful confectionery experience for travellers passing through Doha.
+The line-up is built on flavours that do not reach Western shelves — Matcha,
+Blueberry Cheesecake, Tokyo Shima Lemon, Otona no Amasa dark chocolate. Buy any
+two and you get a Gachapon token, redeemable for a collectable modelled on
+Japanese capsule-toy machines.
 
-<!-- Ваш абзац. Что это значит для отрасли — два-три предложения.
-     Без него материал выглядит как перепечатка. Строку с комментарием
-     можно удалить. -->
+That token is the whole point. Confectionery is travel retail's most dependable
+impulse category and its least differentiated one: every terminal sells the same
+bars at the same duty free discount. Attaching a redemption mechanic moves the
+job from discounting to collecting — it lifts the basket from one unit to two,
+and it gives a chocolate bar the one property a souvenir needs, which is that you
+cannot buy it at home.
