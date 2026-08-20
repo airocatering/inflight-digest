@@ -2,7 +2,7 @@ name: Fetch feeds and rebuild site
 
 on:
   schedule:
-    - cron: "17 * * * *"        # каждый час, на 17-й минуте (UTC)
+    - cron: "17 */4 * * *"      # каждые 4 часа (UTC) — 16 лент, ежечасно много шума
   workflow_dispatch:             # кнопка «запустить сейчас» на вкладке Actions
   push:
     branches: [main]
