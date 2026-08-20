@@ -388,6 +388,53 @@ def existing_keys():
     return keys
 
 
+
+
+# --------------------------------------------------------- уборка в очереди
+def archive_old_drafts(days):
+    """Черновик, до которого не дошли руки, уезжает в queue/_archive.
+    Не удаляем: адрес уже в списке виденного, повторно робот его не принесёт,
+    а значит удаление означало бы потерю. status: hold оставляет файл в очереди.
+    """
+    if not days or not os.path.isdir(QUEUE):
+        return 0
+    archive = os.path.join(QUEUE, "_archive")
+    cutoff = dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=days)
+    moved = 0
+    for name in sorted(os.listdir(QUEUE)):
+        if not name.endswith(".md"):
+            continue
+        path = os.path.join(QUEUE, name)
+        raw = open(path, encoding="utf-8").read()
+
+        status = re.search(r"^status:\s*(\S+)", raw, re.M)
+        if not status or status.group(1).lower() != "draft":
+            continue                       # hold и published не трогаем
+
+        stamp = re.search(r"^added:\s*(\S+)", raw, re.M)
+        if stamp:
+            try:
+                when = dt.datetime.strptime(stamp.group(1), "%Y-%m-%dT%H:%M:%SZ").replace(
+                    tzinfo=dt.timezone.utc)
+            except ValueError:
+                continue
+        else:                              # старые файлы без отметки — по дате новости
+            d = re.search(r"^date:\s*(\S+)", raw, re.M)
+            if not d:
+                continue
+            try:
+                when = dt.datetime.fromisoformat(d.group(1)).replace(tzinfo=dt.timezone.utc)
+            except ValueError:
+                continue
+
+        if when < cutoff:
+            os.makedirs(archive, exist_ok=True)
+            os.replace(path, os.path.join(archive, name))
+            moved += 1
+            print(f"  ~ в архив ({(dt.datetime.now(dt.timezone.utc) - when).days} дн.): {name[:60]}")
+    return moved
+
+
 def main():
     cfg = json.load(open(os.path.join(HERE, "feeds.json")))
     seen = load_seen()
@@ -468,6 +515,7 @@ title: {title}
 source: {source_name}
 link: {link}
 date: {date.isoformat()}
+added: {dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")}
 rubric: {rubric}
 image: {image}
 slug: {stem}
@@ -502,6 +550,10 @@ status: draft
     print(f"\nИтого новых материалов в очереди: {added}")
     print(f"Отсеяно как проходное: {skipped}")
     print(f"Отсеяно как повтор сюжета: {dropped_dupes}")
+
+    archived = archive_old_drafts(cfg.get("archive_after_days", 7))
+    if archived:
+        print(f"Убрано в архив как несвежее: {archived}")
 
 
 if __name__ == "__main__":

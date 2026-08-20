@@ -9,3 +9,6 @@ desktop.ini
 .dropbox*
 Thumbs.db
 .DS_Store
+
+# локальный превью письма (DRY_RUN=1 python scripts/send_digest.py)
+digest-preview.html
