@@ -7,12 +7,12 @@ status: draft — пока вы не поменяете его на published, �
 import json, os, re, html, hashlib, datetime as dt
 import feedparser
 
-# feedparser по умолчанию представляется как "feedparser/x.x" — с общих
-# дата-центровых IP (GitHub Actions) Google News на такой User-Agent часто
-# отдаёт страницу-заглушку вместо ленты. Похоже на обычный браузер — проходит.
+# Google News отдаёт заглушку вместо ленты, если запрос приходит с
+# дата-центрового адреса под клиентским User-Agent библиотеки. На раннерах
+# GitHub Actions адреса именно такие, поэтому представляемся браузером.
 feedparser.USER_AGENT = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                          "AppleWebKit/537.36 (KHTML, like Gecko) "
-                          "Chrome/124.0.0.0 Safari/537.36")
+                         "AppleWebKit/537.36 (KHTML, like Gecko) "
+                         "Chrome/127.0.0.0 Safari/537.36")
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -124,11 +124,20 @@ SIGNAL_WORDS = {
  3: ["wins contract", "awarded", "signs", "signed", "acquires", "acquisition", "merger",
      "takeover", "joint venture", "tender", "appoints", "appointed", "steps down",
      "resigns", "strike", "lawsuit", "recall", "investigation", "bankruptcy",
-     "first delivery", "certification", "approval"],
+     "first delivery", "certification", "approval",
+     # происшествия и надзор — для отраслевого издания это новость не хуже контракта
+     "allege", "alleges", "alleged", "allegation", "complaint", "complaints",
+     "unsanitary", "contamination", "contaminated", "food safety", "outbreak",
+     "violation", "violations", "inspection", "fined", "penalty", "probe",
+     "whistleblower", "walkout", "grounded", "suspended", "shut down", "closure",
+     "layoffs", "redundancies", "salmonella", "listeria", "infestation",
+     "maggots", "roaches", "cockroaches", "rodent", "vermin"],
  2: ["contract", "deal", "partnership", "agreement", "launches", "unveils", "introduces",
      "debuts", "rolls out", "expands", "opens", "invests", "investment", "stake",
      "results", "revenue", "profit", "earnings", "guidance", "retrofit", "orders",
-     "selects", "chooses", "replaces", "trials", "pilot programme"],
+     "selects", "chooses", "replaces", "trials", "pilot programme",
+     "union", "dispute", "audit", "warns", "warning", "delays", "cancels",
+     "apologises", "apologizes", "criticised", "criticized", "faces"],
  1: ["new", "adds", "upgrade", "redesign", "returns", "resumes", "extends"],
 }
 NOISE_WORDS = ["webinar", "sponsored", "advertorial", "promoted", "in pictures",
@@ -154,6 +163,43 @@ def signal_score(title, summary=""):
         elif w in s:
             score -= 1
     return score
+
+
+
+
+# ----------------------------------------------------- повторы одного сюжета
+# Крупная новость расходится по двум десяткам изданий. Google News приносит
+# их все. Сравниваем заголовки по значимым словам и берём только первый —
+# ленты обходятся по порядку, поэтому первым обычно оказывается отраслевое
+# издание, а не перепечатка.
+STOPWORDS = {
+ "a", "an", "the", "at", "in", "on", "of", "for", "to", "and", "or", "with", "as",
+ "its", "is", "are", "was", "were", "be", "after", "over", "from", "by", "into",
+ "amid", "says", "said", "how", "why", "what", "that", "this", "it", "he", "she",
+ "they", "his", "her", "their", "more", "than", "but", "not", "new", "now",
+}
+
+
+def title_tokens(title):
+    words = re.findall(r"[a-z0-9]+", title.lower())
+    return {w for w in words if len(w) > 2 and w not in STOPWORDS}
+
+
+def is_duplicate(tokens, seen_sets, threshold=0.55):
+    """Похож ли заголовок на уже виденный. Считаем долю общих слов."""
+    if len(tokens) < 3:
+        return None
+    for old in seen_sets:
+        if not old:
+            continue
+        common = len(tokens & old)
+        if not common:
+            continue
+        union = len(tokens | old)
+        smaller = min(len(tokens), len(old))
+        if common / union >= threshold or common / smaller >= 0.8:
+            return old
+    return None
 
 
 # ---------------------------------------------------------------- утилиты
@@ -238,6 +284,25 @@ def load_seen():
     return {"links": []}
 
 
+def existing_titles():
+    """Заголовки всего, что уже лежит в очереди и в архиве."""
+    out = []
+    for folder in (QUEUE, POSTS):
+        if not os.path.isdir(folder):
+            continue
+        for name in os.listdir(folder):
+            if not name.endswith(".md"):
+                continue
+            try:
+                head = open(os.path.join(folder, name), encoding="utf-8").read(600)
+            except OSError:
+                continue
+            m = re.search(r"^title:\s*(.+)$", head, re.M)
+            if m:
+                out.append(title_tokens(m.group(1)))
+    return out
+
+
 def existing_keys():
     """Всё, что уже лежит в очереди или опубликовано — второй раз не приносим."""
     keys = set()
@@ -255,6 +320,9 @@ def main():
     seen = load_seen()
     seen_links = set(seen["links"])
     have = existing_keys()
+    seen_titles = [set(t.split()) for t in seen.get("titles", [])]
+    seen_titles.extend(existing_titles())
+    dropped_dupes = 0
     os.makedirs(QUEUE, exist_ok=True)
     os.makedirs(os.path.dirname(SEEN), exist_ok=True)
 
@@ -301,6 +369,14 @@ def main():
 
             summary = clean(entry.get("summary", "") or entry.get("description", ""))
 
+            tokens = title_tokens(title)
+            dup = is_duplicate(tokens, seen_titles)
+            if dup:
+                dropped_dupes += 1
+                seen_links.add(link)
+                print(f"  = повтор сюжета: {title[:64]}")
+                continue
+
             sig = signal_score(title, summary)
             if sig < feed.get("min_signal", min_signal_default):
                 skipped += 1
@@ -331,6 +407,7 @@ status: draft
                 f.write(body)
             have.add(name)
             seen_links.add(link)
+            seen_titles.append(tokens)
             taken += 1
             added += 1
             print(f"  + [{rubric}] сигнал {sig}: {title[:60]}")
@@ -341,11 +418,13 @@ status: draft
             break
 
     seen["links"] = list(seen_links)[-4000:]
+    seen["titles"] = [" ".join(sorted(t)) for t in seen_titles][-800:]
     with open(SEEN, "w") as f:
         json.dump(seen, f, ensure_ascii=False, indent=1)
 
     print(f"\nИтого новых материалов в очереди: {added}")
     print(f"Отсеяно как проходное: {skipped}")
+    print(f"Отсеяно как повтор сюжета: {dropped_dupes}")
 
 
 if __name__ == "__main__":
