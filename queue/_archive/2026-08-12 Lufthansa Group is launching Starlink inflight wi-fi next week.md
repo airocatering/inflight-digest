@@ -3,6 +3,7 @@ title:  Starlink Wi-Fi goes live on Lufthansa
 source: Lufthansa group
 link: https://newsroom.lufthansagroup.com/en/lufthansa-takes-off-with-starlink-high-speed-internet-for-the-first-time/
 date: 2026-08-19
+added: 2026-08-19T22:39:00Z
 rubric: connectivity
 image: https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iwj_Ik1jS0cg/v1/-1x-1.webp
 slug: 2026-08-19-lufthansa-starlink-high-speed-internet-first-flight
