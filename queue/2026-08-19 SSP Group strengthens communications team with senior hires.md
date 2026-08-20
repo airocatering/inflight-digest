@@ -3,7 +3,7 @@ title: SSP Group strengthens communications team with senior hires
 source: TRBusiness
 link: https://www.trbusiness.com/regional-news/international/ssp-group-strengthens-communications-team-with-senior-hires/282594
 date: 2026-08-19
-rubric: cabin-seating
+rubric: cabin-interior
 image: https://d24chjhol3kq77.cloudfront.net/trbusiness.com/wp-content/uploads/2026/08/SSP-Nina-Arnott-Emily-Baker.png
 slug: 2026-08-19-ssp-group-strengthens-communications-team-with-senior-hires
 status: draft

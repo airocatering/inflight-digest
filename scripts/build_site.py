@@ -63,8 +63,9 @@ RUBRICS = [
      "Satellite Wi-Fi, LEO constellations, antennas, and cabin network security."),
     ("onboard-service", "Onboard Service",
      "Cabin crew service models, accessibility, amenity and the passenger-facing experience."),
-    ("cabin-seating", "Cabin &amp; Seating",
-     "Seats, interiors, cabin retrofits, certification and the airframers driving them."),
+    ("cabin-interior", "Cabin Interior",
+     "Seats, monuments, bins and lavatories — the cabin as a physical product, "
+     "from retrofit programmes to certification."),
     ("duty-free", "Duty Free",
      "Onboard and airport retail, ancillary revenue, travel retail brands and buyers."),
 ]
@@ -131,10 +132,10 @@ def parse_md(path):
     # выводим из имени файла, как раньше
     stem = meta.get("slug") or re.sub(r"[^a-z0-9]+", "-", meta["file"][:-3].lower()).strip("-")
     meta["url"] = stem + ".html"
-    meta.setdefault("rubric", "cabin-seating")
+    meta.setdefault("rubric", "cabin-interior")
     meta.setdefault("image", "")
     if meta.get("rubric") not in RUB_TITLE:
-        meta["rubric"] = "cabin-seating"
+        meta["rubric"] = "cabin-interior"
     meta["img"] = meta["image"] or placeholder(meta["file"])
     meta["hotlink"] = bool(meta["image"])
     paras = [p.strip() for p in body.split("\n\n") if p.strip()]

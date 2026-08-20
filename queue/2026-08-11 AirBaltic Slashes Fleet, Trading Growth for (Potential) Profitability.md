@@ -3,7 +3,7 @@ title: AirBaltic Slashes Fleet, Trading Growth for (Potential) Profitability
 source: PaxEx.aero
 link: https://paxex.aero/airbaltic-slashes-fleet-trading-growth-for-potential-profitability/
 date: 2026-08-11
-rubric: cabin-seating
+rubric: cabin-interior
 image: https://paxex.aero/wp-content/uploads/2025/01/2025_01_29_airBaltic_Strategic-Partnership_1-scaled.jpg
 slug: 2026-08-11-airbaltic-slashes-fleet-trading-growth-for-potential-profita
 status: draft

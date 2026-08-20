@@ -70,7 +70,7 @@ RUBRIC_WORDS = {
        "blanket", "pillow", "slippers"],
    1: ["service", "passenger", "comfort"],
  },
- "cabin-seating": {
+ "cabin-interior": {
    3: ["business class seat", "first class suite", "lie-flat", "cabin retrofit",
        "seat certification", "aircraft interiors", "cabin interior", "overhead bin",
        "lavatory", "galley monument", "seat manufacturer"],
@@ -79,7 +79,7 @@ RUBRIC_WORDS = {
    1: ["airbus", "boeing", "comac", "embraer", "certification", "aircraft"],
  },
 }
-DEFAULT_RUBRIC = "cabin-seating"
+DEFAULT_RUBRIC = "cabin-interior"
 
 
 _WORD_RE = {}

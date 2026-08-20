@@ -3,7 +3,7 @@ title: Vienna Airport warns of competitiveness challenge despite first-half prof
 source: Moodie Davitt Report
 link: https://moodiedavittreport.com/vienna-airport-warns-of-competitiveness-challenge-despite-first-half-profits-increase/
 date: 2026-08-19
-rubric: cabin-seating
+rubric: cabin-interior
 image: https://moodiedavittreport.com/wp-content/uploads/2026/08/Vienna-Airport-H1-19.8.26-2-300x230.png
 slug: 2026-08-19-vienna-airport-warns-of-competitiveness-challenge-despite-fi
 status: draft

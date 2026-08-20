@@ -3,7 +3,7 @@ title: WestJet finalises in-flight experience transformation of all-economy airc
 source: Inflight
 link: https://www.inflight-online.com/westjet-finalises-in-flight-experience-transformation-of-all-economy-aircraft/
 date: 2026-08-19
-rubric: cabin-seating
+rubric: cabin-interior
 image: https://www.inflight-online.com/wp-content/uploads/2026/08/image-1.png
 slug: 2026-08-19-westjet-finalises-in-flight-experience-transformation-of-all
 status: draft

@@ -3,7 +3,7 @@ title: Press Release: Air Canada secures $2.5B minority investment in Aeroplan
 source: Runway Girl Network
 link: https://runwaygirlnetwork.com/2026/08/air-canada-aeroplan-blackstone-la-caisse/
 date: 2026-08-11
-rubric: cabin-seating
+rubric: cabin-interior
 image: https://runwaygirlnetwork.com/wp-content/uploads/2016/05/RWGPRHub-1.jpg
 slug: 2026-08-11-press-release-air-canada-secures-2-5b-minority-investment-in
 status: draft

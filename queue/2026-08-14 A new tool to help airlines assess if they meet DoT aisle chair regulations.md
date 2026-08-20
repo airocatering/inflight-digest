@@ -3,7 +3,7 @@ title: A new tool to help airlines assess if they meet DoT aisle chair regulatio
 source: Aircraft Interiors International
 link: https://www.aircraftinteriorsinternational.com/news/accessibility/a-new-tool-to-help-airlines-assess-if-they-meet-dot-aisle-chair-regulations.html
 date: 2026-08-14
-rubric: cabin-seating
+rubric: cabin-interior
 image: 
 slug: 2026-08-14-a-new-tool-to-help-airlines-assess-if-they-meet-dot-aisle-ch
 status: draft

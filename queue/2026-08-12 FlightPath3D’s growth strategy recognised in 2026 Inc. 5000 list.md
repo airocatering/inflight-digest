@@ -3,7 +3,7 @@ title: FlightPath3D’s growth strategy recognised in 2026 Inc. 5000 list
 source: Aircraft Interiors International
 link: https://www.aircraftinteriorsinternational.com/news/inflight-entertainment/flightpath3ds-growth-strategy-recognised-in-2026-inc-5000-list.html
 date: 2026-08-12
-rubric: cabin-seating
+rubric: cabin-interior
 image: 
 slug: 2026-08-12-flightpath3d-s-growth-strategy-recognised-in-2026-inc-5000-l
 status: draft

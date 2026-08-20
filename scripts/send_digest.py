@@ -28,7 +28,7 @@ HOURS = int(os.environ.get("DIGEST_HOURS", "24"))
 RUB_TITLE = {
     "catering": "Airline Catering", "entertainment": "Entertainment",
     "connectivity": "Connectivity", "onboard-service": "Onboard Service",
-    "cabin-seating": "Cabin &amp; Seating", "duty-free": "Duty Free",
+    "cabin-interior": "Cabin Interior", "duty-free": "Duty Free",
 }
 INK, RED, MUTED, LINE = "#141414", "#E1251B", "#75716A", "#DFDCD5"
 
@@ -80,7 +80,7 @@ def edit_url(name):
 def build_html(fresh, total_queue, today):
     by_rub = {}
     for it in fresh:
-        by_rub.setdefault(it.get("rubric", "cabin-seating"), []).append(it)
+        by_rub.setdefault(it.get("rubric", "cabin-interior"), []).append(it)
 
     blocks = []
     for rub, items in sorted(by_rub.items(), key=lambda kv: -len(kv[1])):

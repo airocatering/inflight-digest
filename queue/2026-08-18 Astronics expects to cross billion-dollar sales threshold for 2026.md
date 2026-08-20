@@ -3,7 +3,7 @@ title: Astronics expects to cross billion-dollar sales threshold for 2026
 source: Runway Girl Network
 link: https://runwaygirlnetwork.com/2026/08/astronics-expects-to-cross-billion-dollar-sales-threshold-for-2026/
 date: 2026-08-18
-rubric: cabin-seating
+rubric: cabin-interior
 image: https://runwaygirlnetwork.com/wp-content/uploads/2026/02/ThinKom-Multi-Orbit-Gigabit-Speed-Inflight-Connectivity-square.gif
 slug: 2026-08-18-astronics-expects-to-cross-billion-dollar-sales-threshold-fo
 status: draft

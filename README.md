@@ -33,7 +33,7 @@ source: Aircraft Interiors International
 link: https://www.aircraftinteriorsinternational.com/...
 date: 2026-08-12
 rubric: connectivity          # catering | entertainment | connectivity |
-image: https://...            # onboard-service | cabin-seating | duty-free
+image: https://...            # onboard-service | cabin-interior | duty-free
 status: draft                 # ← меняем на published
 ---
 

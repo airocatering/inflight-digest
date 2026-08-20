@@ -3,7 +3,7 @@ title: The Jessica’s Secret Index cross-category ratings for July 2026
 source: Moodie Davitt Report
 link: https://moodiedavittreport.com/the-jessicas-secret-index-cross-category-ratings-for-july-2026/
 date: 2026-08-19
-rubric: cabin-seating
+rubric: cabin-interior
 image: https://moodiedavittreport.com/wp-content/uploads/2023/07/Wines_Spirits_Ranking.png
 slug: 2026-08-19-the-jessica-s-secret-index-cross-category-ratings-for-july-2
 status: draft

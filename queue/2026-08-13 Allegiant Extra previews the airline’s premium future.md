@@ -3,7 +3,7 @@ title: Allegiant Extra previews the airline’s premium future
 source: Runway Girl Network
 link: https://runwaygirlnetwork.com/2026/08/allegiant-extra-previews-the-airlines-premium-future/
 date: 2026-08-13
-rubric: cabin-seating
+rubric: cabin-interior
 image: https://runwaygirlnetwork.com/wp-content/uploads/2021/05/nose-to-tail-banner-728x90-1.jpg
 slug: 2026-08-13-allegiant-extra-previews-the-airline-s-premium-future
 status: draft

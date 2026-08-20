@@ -3,7 +3,7 @@ title: What is driving the recovery of the EMEA VIP charter market in 2026?
 source: Aircraft Interiors International
 link: https://www.aircraftinteriorsinternational.com/industry-opinion/what-is-driving-the-recovery-of-the-emea-vip-charter-market-in-2026.html
 date: 2026-08-12
-rubric: cabin-seating
+rubric: cabin-interior
 image: 
 slug: 2026-08-12-what-is-driving-the-recovery-of-the-emea-vip-charter-market
 status: draft

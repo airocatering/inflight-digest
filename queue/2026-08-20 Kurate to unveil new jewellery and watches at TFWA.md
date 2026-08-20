@@ -3,7 +3,7 @@ title: Kurate to unveil new jewellery and watches at TFWA
 source: TRBusiness
 link: https://www.trbusiness.com/regional-news/international/kurate-to-unveil-new-jewellery-and-watches-at-tfwa/282641
 date: 2026-08-20
-rubric: cabin-seating
+rubric: cabin-interior
 image: https://d24chjhol3kq77.cloudfront.net/trbusiness.com/wp-content/uploads/2026/08/Curate-International-TFWA.png
 slug: 2026-08-20-kurate-to-unveil-new-jewellery-and-watches-at-tfwa
 status: draft

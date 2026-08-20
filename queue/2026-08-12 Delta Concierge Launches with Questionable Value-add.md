@@ -3,7 +3,7 @@ title: Delta Concierge Launches with Questionable Value-add
 source: PaxEx.aero
 link: https://paxex.aero/delta-concierge-launches-with-questionable-value-add/
 date: 2026-08-12
-rubric: cabin-seating
+rubric: cabin-interior
 image: https://paxex.aero/wp-content/uploads/2026/08/delta-concierge-promo-shot.png
 slug: 2026-08-12-delta-concierge-launches-with-questionable-value-add
 status: draft
