@@ -220,7 +220,7 @@ def footer():
 <div class="fcols">
 <div><h4>About</h4><ul><li><a href="#">Editorial policy</a></li>
 <li><a href="#">Sources &amp; attribution</a></li><li><a href="advertise.html">Advertise</a></li>
-<li><a href="#">Contact</a></li></ul></div>
+<li><a href="contact.html">Contact</a></li></ul></div>
 <div><h4>Sections</h4><ul>{rubs}</ul></div>
 <div><h4>More</h4><ul><li><a href="jobs.html">Top Jobs Worldwide</a></li>
 <li><a href="events.html">Events</a></li><li><a href="#">RSS</a></li></ul></div></div>
@@ -352,7 +352,11 @@ below, it runs for 30 days.</p>
 
 
 def page_simple(key, title, text, active=None):
-    return (head(f"{title} — Inflight Digest", f"{key}.html", re.sub("<[^>]+>", "", text)[:180])
+    # для description режем по границе слова, иначе можно разрубить &mdash;
+    plain = " ".join(re.sub("<[^>]+>", " ", text).split())
+    if len(plain) > 180:
+        plain = plain[:180].rsplit(" ", 1)[0] + "…"
+    return (head(f"{title} — Inflight Digest", f"{key}.html", plain)
             + header(active) + f'''<div class="wrap"><section class="rubhead">
 <h1 class="serif">{title}</h1><p>{text}</p></section></div>'''
             + SUBSCRIBE + footer())
@@ -374,6 +378,28 @@ def main():
         "events", "Events",
         "AIX, APEX, WTCE, FTE and the rest of the industry calendar. "
         "This page is compiled by hand — coming soon.", "events")
+    write["contact.html"] = page_simple(
+        "contact", "Contact",
+        'Inflight Digest is written and edited by Vlad Mazur in Kyiv, Ukraine. '
+        'Story tips, corrections, a right of reply, press releases and '
+        'advertising enquiries all reach the same desk &mdash; and get an answer.'
+        '<br><br>'
+        '<b>Email</b> &mdash; <a href="mailto:vladyslav.mazur@gmail.com" '
+        'style="color:var(--red)">vladyslav.mazur@gmail.com</a><br>'
+        '<b>Phone</b> &mdash; <a href="tel:+380913057585" '
+        'style="color:var(--red)">+380 91 305 7585</a> '
+        '(also WhatsApp, Viber, Telegram)<br>'
+        '<b>Advertising</b> &mdash; rates and formats on the '
+        '<a href="advertise.html" style="color:var(--red)">Advertise</a> page<br>'
+        '<b>Jobs</b> &mdash; send the role, see the bar on the '
+        '<a href="jobs.html" style="color:var(--red)">Top Jobs Worldwide</a> page'
+        '<br><br>'
+        '<b>Publisher</b><br>'
+        'Vladyslav Mazur, individual entrepreneur (FOP), registered in Ukraine<br>'
+        '14A Polovetska St, Kyiv 04107, Ukraine'
+        '<br><br>'
+        'Spotted a mistake? Write in &mdash; corrections are published on the '
+        'story itself, not buried.')
     write["404.html"] = page_simple(
         "404", "404",
         'That page has taken off without us. Try <a href="index.html" '
