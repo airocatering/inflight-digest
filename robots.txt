@@ -1,4 +1,4 @@
-# Draft site â€” nothing here should be indexed yet.
+# Draft site — nothing here should be indexed yet.
 User-agent: *
 Disallow: /
 
