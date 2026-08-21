@@ -2,7 +2,11 @@ name: Morning digest
 
 on:
   schedule:
-    - cron: "0 2 * * *"        # 02:00 UTC = 05:00 в Киеве летом (UTC+3)
+    # 02:04 UTC = 05:04 в Киеве летом (UTC+3). Минута :04 (не :00) намеренно —
+    # тот же урок из ryanair-monitor: GitHub Actions чаще теряет
+    # scheduled-запуски на круглые минуты из-за общей перегрузки. На :00 этот
+    # workflow не сработал вообще ни разу с момента создания.
+    - cron: "4 2 * * *"
   workflow_dispatch:            # кнопка «прислать сейчас»
 
 permissions:
