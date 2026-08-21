@@ -1,16 +1,15 @@
 ---
-title: Datekin secures WH Smith travel retail listing
-source: TRBusiness
-link: https://www.trbusiness.com/regional-news/international/datekin-secures-wh-smith-travel-retail-listing/282580
-date: 2026-08-18
-rubric: duty-free
-image: https://d24chjhol3kq77.cloudfront.net/trbusiness.com/wp-content/uploads/2026/08/Datekin-460.png
-slug: 2026-08-18-datekin-secures-wh-smith-travel-retail-listing
-status: draft
+title: China’s Frozen Airline Meal Specialist: Nanjing Weizhou Airline Food
+source: SATS (Singapore)
+link: https://www.sats.com.sg/media/latest-news/2026/sats-acquires-controlling-stake-in-nanjing-weizhou-airline-food-
+date: 2026-05-06
+added: 2026-05-06T20:39:00Z
+rubric: catering
+image: https://media.asianaviation.com/uploads/SATS-Culinary-Team-serves-up-a-smorgasbord-of-alternative-protein-dishes-tailored-for-Asian-palates-scaled.jpg
+slug: 2026-08-18-nanjing-weizhou-airline-food-frozen-meals
+status: published
 ---
 
-Image Credit: Datekin Datekin will be available across WHSmith stores in rail and airport locations. UK date snacking brand Datekin has secured a major listing with WH Smith, which will see its products roll out across more than 40 travel stores in the UK and…
+SATS has taken control of Nanjing Weizhou Airline Food, increasing its stake in the Chinese aviation meal producer to 90%. The company, based in Nanjing, is one of China’s leading producers of frozen aviation meals, supplying airlines with frozen meals, snacks and food components.
 
-<!-- Ваш абзац. Что это значит для отрасли — два-три предложения.
-     Без него материал выглядит как перепечатка. Строку с комментарием
-     можно удалить. -->
+SATS first invested in Weizhou in 2019 to gain expertise in frozen aviation meals. Since then, the company has more than doubled its revenue as Chinese airlines increasingly adopt frozen meals for domestic operations. The deal gives SATS control of a rapidly growing segment of China’s inflight catering market.
