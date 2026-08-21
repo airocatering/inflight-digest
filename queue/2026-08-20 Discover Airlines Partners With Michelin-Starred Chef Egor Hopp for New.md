@@ -1,17 +1,15 @@
 ---
-title: Discover Airlines Partners With Michelin-Starred Chef Egor Hopp for New Business Class Menu
-source: APEX
-link: https://apex.aero/articles/discover-airlines-partners-with-michelin-starred-chef-egor-hopp-for-new-business-class-menu/
-date: 2026-08-20
-added: 2026-08-20T16:53:16Z
+title: China’s Frozen Airline Meal Specialist: Nanjing Weizhou Airline Food
+source: Asian Aviation
+link: https://asianaviation.com/posts/singapores-sats-buys-control-of-nanjing-weizhou-airline-food
+date: 2026-05-06
+added: 2026-05-06T16:53:16Z
 rubric: catering
-image: https://apex.aero/wp-content/uploads/2026/08/Screenshot-2026-08-20-at-8.28.41-AM-1024x575.png
-slug: 2026-08-20-discover-airlines-partners-with-michelin-starred-chef-egor-h
-status: draft
+image: https://media.asianaviation.com/uploads/SATS-Culinary-Team-serves-up-a-smorgasbord-of-alternative-protein-dishes-tailored-for-Asian-palates-scaled.jpg
+slug: 2026-08-20-nanjing-weizhou-airline-food-frozen-meals
+status: published
 ---
 
-Discover Airlines has partnered with Michelin-starred chef Egor Hopp to introduce a new Business Class menu across its short- and long-haul network. The dishes have been available since August 1 on flights departing from Frankfurt and Munich and will remain…
+SATS has taken control of Nanjing Weizhou Airline Food, increasing its stake in the Chinese aviation meal producer to 90%. The company, based in Nanjing, is one of China’s leading producers of frozen aviation meals, supplying airlines with frozen meals, snacks and food components.
 
-<!-- Ваш абзац. Что это значит для отрасли — два-три предложения.
-     Без него материал выглядит как перепечатка. Строку с комментарием
-     можно удалить. -->
+SATS first invested in Weizhou in 2019 to gain expertise in frozen aviation meals. Since then, the company has more than doubled its revenue as Chinese airlines increasingly adopt frozen meals for domestic operations. The deal gives SATS control of a rapidly growing segment of China’s inflight catering market.
