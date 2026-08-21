@@ -46,12 +46,6 @@ font-size:15px;line-height:1.6;color:#555}
   .lead{margin-top:22px}
   .board{margin:18px 0 32px}
 }
-
-/* подсказка, что меню прокручивается вбок */
-nav .wrap{position:relative}
-nav .links{-webkit-mask-image:linear-gradient(to right,#000 88%,transparent);
-mask-image:linear-gradient(to right,#000 88%,transparent)}
-@media(min-width:900px){nav .links{-webkit-mask-image:none;mask-image:none}}
 """
 
 RUBRICS = [
