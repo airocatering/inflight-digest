@@ -100,9 +100,121 @@
       "enabled": true,
       "max_items": 3,
       "max_age_days": 21
+    },
+    {
+      "name": "Google News — Qatar Airways",
+      "url": "https://news.google.com/rss/search?q=%22Qatar%20Airways%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true,
+      "max_items": 2,
+      "max_age_days": 14
+    },
+    {
+      "name": "Google News — Singapore Airlines",
+      "url": "https://news.google.com/rss/search?q=%22Singapore%20Airlines%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true,
+      "max_items": 2,
+      "max_age_days": 14
+    },
+    {
+      "name": "Google News — Cathay Pacific",
+      "url": "https://news.google.com/rss/search?q=%22Cathay%20Pacific%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true,
+      "max_items": 2,
+      "max_age_days": 14
+    },
+    {
+      "name": "Google News — Emirates",
+      "url": "https://news.google.com/rss/search?q=%22Emirates%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true,
+      "max_items": 2,
+      "max_age_days": 14
+    },
+    {
+      "name": "Google News — All Nippon Airways",
+      "url": "https://news.google.com/rss/search?q=%22All%20Nippon%20Airways%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true,
+      "max_items": 2,
+      "max_age_days": 14
+    },
+    {
+      "name": "Google News — Turkish Airlines",
+      "url": "https://news.google.com/rss/search?q=%22Turkish%20Airlines%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true,
+      "max_items": 2,
+      "max_age_days": 14
+    },
+    {
+      "name": "Google News — Korean Air",
+      "url": "https://news.google.com/rss/search?q=%22Korean%20Air%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true,
+      "max_items": 2,
+      "max_age_days": 14
+    },
+    {
+      "name": "Google News — Air France",
+      "url": "https://news.google.com/rss/search?q=%22Air%20France%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true,
+      "max_items": 2,
+      "max_age_days": 14
+    },
+    {
+      "name": "Google News — Japan Airlines",
+      "url": "https://news.google.com/rss/search?q=%22Japan%20Airlines%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true,
+      "max_items": 2,
+      "max_age_days": 14
+    },
+    {
+      "name": "Google News — SWISS",
+      "url": "https://news.google.com/rss/search?q=%28%22Swiss%20International%20Air%20Lines%22%20OR%20%22SWISS%20Air%20Lines%22%29%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true,
+      "max_items": 2,
+      "max_age_days": 14
+    },
+    {
+      "name": "Google News — EVA Air",
+      "url": "https://news.google.com/rss/search?q=%22EVA%20Air%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true,
+      "max_items": 2,
+      "max_age_days": 14
+    },
+    {
+      "name": "Google News — British Airways",
+      "url": "https://news.google.com/rss/search?q=%22British%20Airways%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true,
+      "max_items": 2,
+      "max_age_days": 14
+    },
+    {
+      "name": "Google News — Qantas",
+      "url": "https://news.google.com/rss/search?q=%22Qantas%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true,
+      "max_items": 2,
+      "max_age_days": 14
+    },
+    {
+      "name": "Google News — Lufthansa",
+      "url": "https://news.google.com/rss/search?q=%22Lufthansa%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true,
+      "max_items": 2,
+      "max_age_days": 14
+    },
+    {
+      "name": "Google News — Ryanair",
+      "url": "https://news.google.com/rss/search?q=%22Ryanair%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true,
+      "max_items": 2,
+      "max_age_days": 14
+    },
+    {
+      "name": "Google News — Wizz Air",
+      "url": "https://news.google.com/rss/search?q=%22Wizz%20Air%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true,
+      "max_items": 2,
+      "max_age_days": 14
     }
   ],
-  "max_new_per_run": 30,
+  "max_new_per_run": 45,
   "min_signal": 2,
   "_signal": "Порог «интересности». 2 — отсекает юбилеи, фотогалереи и спонсорское. 0 — берём всё. Можно переопределить у конкретной ленты полем min_signal.",
   "archive_after_days": 0,
