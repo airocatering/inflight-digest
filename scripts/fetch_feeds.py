@@ -3,8 +3,14 @@
 
 Ничего не публикует. Каждая новость становится отдельным файлом со статусом
 status: draft — пока вы не поменяете его на published, на сайте её нет.
+
+Без потолков на объём (max_new_per_run/max_per_feed_per_run) — берётся всё,
+что отдают ленты. Но с фильтром "интересности" (signal_score/NOISE_WORDS) и
+дедупом по смыслу (is_duplicate) — без них через узкие Google News-запросы
+проходит и светская хроника, и статьи, случайно зацепившиеся за однословный
+запрос (проверено вживую).
 """
-import json, os, re, html, hashlib, datetime as dt
+import json, os, re, html, datetime as dt
 import feedparser
 
 # Google News отдаёт заглушку вместо ленты, если запрос приходит с
@@ -115,11 +121,10 @@ def guess_rubric(title, summary=""):
     return best
 
 
-
-
 # ------------------------------------------------------- «интересно или нет»
 # Отраслевые ленты гонят много проходного: анонсы вебинаров, фотогалереи,
-# юбилеи, спонсорские материалы. Ниже — попытка отделить события от шума.
+# юбилеи, спонсорские материалы, светская хроника, случайно зацепившаяся
+# за однословный запрос. Ниже — попытка отделить события от шума.
 SIGNAL_WORDS = {
  3: ["wins contract", "awarded", "signs", "signed", "acquires", "acquisition", "merger",
      "takeover", "joint venture", "tender", "appoints", "appointed", "steps down",
@@ -128,7 +133,7 @@ SIGNAL_WORDS = {
      # происшествия и надзор — для отраслевого издания это новость не хуже контракта
      "allege", "alleges", "alleged", "allegation", "complaint", "complaints",
      "unsanitary", "contamination", "contaminated", "food safety", "outbreak",
-     "violation", "violations", "inspection", "fined", "penalty", "probe",
+     "violation", "violations", "inspection", "fined", "probe",
      "whistleblower", "walkout", "grounded", "suspended", "shut down", "closure",
      "layoffs", "redundancies", "salmonella", "listeria", "infestation",
      "maggots", "roaches", "cockroaches", "rodent", "vermin"],
@@ -136,7 +141,7 @@ SIGNAL_WORDS = {
      "debuts", "rolls out", "expands", "opens", "invests", "investment", "stake",
      "results", "revenue", "profit", "earnings", "guidance", "retrofit", "orders",
      "selects", "chooses", "replaces", "trials", "pilot programme",
-     "union", "dispute", "audit", "warns", "warning", "delays", "cancels",
+     "dispute", "audit", "warns", "warning", "delays", "cancels",
      "apologises", "apologizes", "criticised", "criticized", "faces"],
  1: ["new", "adds", "upgrade", "redesign", "returns", "resumes", "extends"],
 }
@@ -144,7 +149,7 @@ NOISE_WORDS = ["webinar", "sponsored", "advertorial", "promoted", "in pictures",
                "photo gallery", "gallery", "podcast", "watch:", "video:", "opinion:",
                "comment:", "top 10", "top ten", "best of", "roundup", "round-up",
                "week in review", "newsletter", "subscribe", "anniversary", "celebrates",
-               "congratulates", "wishes", "season's greetings"]
+               "congratulates", "wishes", "season's greetings", "birthday"]
 
 
 def signal_score(title, summary=""):
@@ -163,8 +168,6 @@ def signal_score(title, summary=""):
         elif w in s:
             score -= 1
     return score
-
-
 
 
 # ----------------------------------------------------- повторы одного сюжета
@@ -388,53 +391,6 @@ def existing_keys():
     return keys
 
 
-
-
-# --------------------------------------------------------- уборка в очереди
-def archive_old_drafts(days):
-    """Черновик, до которого не дошли руки, уезжает в queue/_archive.
-    Не удаляем: адрес уже в списке виденного, повторно робот его не принесёт,
-    а значит удаление означало бы потерю. status: hold оставляет файл в очереди.
-    """
-    if not days or not os.path.isdir(QUEUE):
-        return 0
-    archive = os.path.join(QUEUE, "_archive")
-    cutoff = dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=days)
-    moved = 0
-    for name in sorted(os.listdir(QUEUE)):
-        if not name.endswith(".md"):
-            continue
-        path = os.path.join(QUEUE, name)
-        raw = open(path, encoding="utf-8").read()
-
-        status = re.search(r"^status:\s*(\S+)", raw, re.M)
-        if not status or status.group(1).lower() != "draft":
-            continue                       # hold и published не трогаем
-
-        stamp = re.search(r"^added:\s*(\S+)", raw, re.M)
-        if stamp:
-            try:
-                when = dt.datetime.strptime(stamp.group(1), "%Y-%m-%dT%H:%M:%SZ").replace(
-                    tzinfo=dt.timezone.utc)
-            except ValueError:
-                continue
-        else:                              # старые файлы без отметки — по дате новости
-            d = re.search(r"^date:\s*(\S+)", raw, re.M)
-            if not d:
-                continue
-            try:
-                when = dt.datetime.fromisoformat(d.group(1)).replace(tzinfo=dt.timezone.utc)
-            except ValueError:
-                continue
-
-        if when < cutoff:
-            os.makedirs(archive, exist_ok=True)
-            os.replace(path, os.path.join(archive, name))
-            moved += 1
-            print(f"  ~ в архив ({(dt.datetime.now(dt.timezone.utc) - when).days} дн.): {name[:60]}")
-    return moved
-
-
 def main():
     cfg = json.load(open(os.path.join(HERE, "feeds.json")))
     seen = load_seen()
@@ -447,9 +403,7 @@ def main():
     os.makedirs(os.path.dirname(SEEN), exist_ok=True)
 
     added = 0
-    per_feed_default = cfg.get("max_per_feed_per_run", 6)
     age_default = cfg.get("max_age_days", 14)
-    total_cap = cfg.get("max_new_per_run", 30)      # страховка от лавины
     min_signal_default = cfg.get("min_signal", 2)   # ниже порога — не берём
     skipped = 0
 
@@ -465,13 +419,10 @@ def main():
             print(f"  ! {feed['name']}: лента не разобралась")
             continue
 
-        per_feed = feed.get("max_items", per_feed_default)
         cutoff = dt.date.today() - dt.timedelta(days=feed.get("max_age_days", age_default))
 
         taken = 0
         for entry in parsed.entries:
-            if taken >= per_feed or added >= total_cap:
-                break
             link = (entry.get("link") or "").split("?utm")[0].strip()
             title = clean(entry.get("title", ""), 200)
             title, source_name = split_gnews_title(title, feed["name"], entry)
@@ -538,22 +489,15 @@ status: draft
             print(f"  + [{rubric}] сигнал {sig}: {title[:60]}")
 
         print(f"{feed['name']}: взято {taken}")
-        if added >= total_cap:
-            print(f"  ! достигнут потолок {total_cap} материалов за прогон, остальное в следующий раз")
-            break
 
-    seen["links"] = list(seen_links)[-4000:]
-    seen["titles"] = [" ".join(sorted(t)) for t in seen_titles][-800:]
+    seen["links"] = list(seen_links)[-8000:]
+    seen["titles"] = [" ".join(sorted(t)) for t in seen_titles][-1500:]
     with open(SEEN, "w") as f:
         json.dump(seen, f, ensure_ascii=False, indent=1)
 
     print(f"\nИтого новых материалов в очереди: {added}")
     print(f"Отсеяно как проходное: {skipped}")
     print(f"Отсеяно как повтор сюжета: {dropped_dupes}")
-
-    archived = archive_old_drafts(cfg.get("archive_after_days", 7))
-    if archived:
-        print(f"Убрано в архив как несвежее: {archived}")
 
 
 if __name__ == "__main__":

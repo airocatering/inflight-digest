@@ -1,222 +1,213 @@
 {
-  "_comment": "Отраслевые ленты + запросы Google News. enabled: false отключает источник. max_items и max_age_days переопределяют общие настройки для конкретной ленты.",
-  "max_per_feed_per_run": 6,
+  "_comment": "Отраслевые ленты + запросы Google News. enabled: false отключает источник.",
   "max_age_days": 14,
+  "min_signal": 2,
+  "_signal": "Порог «интересности». 2 — отсекает юбилеи, фотогалереи, светскую хронику и спонсорское. 0 — берём всё. Можно переопределить у конкретной ленты полем min_signal.",
   "feeds": [
-    {
-      "name": "Runway Girl Network",
-      "url": "https://runwaygirlnetwork.com/feed/",
-      "enabled": true
-    },
-    {
-      "name": "Aircraft Interiors International",
-      "url": "https://www.aircraftinteriorsinternational.com/news/feed",
-      "enabled": true
-    },
-    {
-      "name": "PaxEx.aero",
-      "url": "https://paxex.aero/feed",
-      "enabled": true
-    },
-    {
-      "name": "APEX",
-      "url": "https://apex.aero/articles/feed/",
-      "enabled": true,
-      "min_signal": 0
-    },
-    {
-      "name": "Inflight",
-      "url": "https://www.inflight-online.com/feed/",
-      "enabled": true,
-      "min_signal": 0
-    },
-    {
-      "name": "TRBusiness",
-      "url": "https://www.trbusiness.com/feed/",
-      "enabled": true
-    },
-    {
-      "name": "Moodie Davitt Report",
-      "url": "https://moodiedavittreport.com/feed/",
-      "enabled": true
-    },
-    {
-      "name": "TheDesignAir",
-      "url": "https://www.thedesignair.net/feed/",
-      "enabled": true
-    },
-    {
-      "name": "Google News — airline catering",
-      "url": "https://news.google.com/rss/search?q=%22airline%20catering%22%20OR%20%22inflight%20catering%22%20OR%20%22flight%20kitchen%22&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true,
-      "max_items": 4,
-      "max_age_days": 14
-    },
-    {
-      "name": "Google News — inflight entertainment",
-      "url": "https://news.google.com/rss/search?q=%22inflight%20entertainment%22%20OR%20%22in-flight%20entertainment%22%20OR%20%22inflight%20connectivity%22&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true,
-      "max_items": 4,
-      "max_age_days": 14
-    },
-    {
-      "name": "Google News — люди и назначения",
-      "url": "https://news.google.com/rss/search?q=%28%22gategroup%22%20OR%20%22Gate%20Gourmet%22%20OR%20%22LSG%20Sky%20Chefs%22%20OR%20%22dnata%22%20OR%20%22Newrest%22%20OR%20%22Do%20%26%20Co%22%20OR%20%22Emirates%20Flight%20Catering%22%20OR%20%22SATS%22%29%20AND%20%28appoints%20OR%20appointed%20OR%20names%20OR%20%22new%20CEO%22%20OR%20%22managing%20director%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true,
-      "max_items": 3,
-      "max_age_days": 21
-    },
-    {
-      "name": "Google News — назначения в авиакомпаниях",
-      "url": "https://news.google.com/rss/search?q=%28%22Emirates%22%20OR%20%22Qatar%20Airways%22%20OR%20%22Singapore%20Airlines%22%20OR%20%22Lufthansa%22%20OR%20%22Air%20France%22%20OR%20%22British%20Airways%22%20OR%20%22Delta%20Air%20Lines%22%20OR%20%22United%20Airlines%22%20OR%20%22American%20Airlines%22%20OR%20%22Turkish%20Airlines%22%20OR%20%22Cathay%20Pacific%22%20OR%20%22ANA%22%20OR%20%22Qantas%22%20OR%20%22Etihad%22%20OR%20%22KLM%22%29%20AND%20%28%22head%20of%20catering%22%20OR%20%22inflight%20service%22%20OR%20%22onboard%20product%22%20OR%20%22customer%20experience%22%29%20AND%20%28appoints%20OR%20appointed%20OR%20names%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true,
-      "max_items": 3,
-      "max_age_days": 21
-    },
-    {
-      "name": "Google News — сделки с брендами напитков и еды",
-      "url": "https://news.google.com/rss/search?q=%28%22Emirates%22%20OR%20%22Qatar%20Airways%22%20OR%20%22Singapore%20Airlines%22%20OR%20%22Lufthansa%22%20OR%20%22Air%20France%22%20OR%20%22British%20Airways%22%20OR%20%22Delta%20Air%20Lines%22%20OR%20%22United%20Airlines%22%20OR%20%22American%20Airlines%22%20OR%20%22Turkish%20Airlines%22%20OR%20%22Cathay%20Pacific%22%20OR%20%22ANA%22%20OR%20%22Qantas%22%20OR%20%22Etihad%22%20OR%20%22KLM%22%29%20AND%20%28%22Coca-Cola%22%20OR%20%22PepsiCo%22%20OR%20Pepsi%20OR%20Nestl%C3%A9%20OR%20Starbucks%20OR%20%22Illy%22%20OR%20%22Lavazza%22%20OR%20%22Heineken%22%29%20AND%20%28partnership%20OR%20deal%20OR%20onboard%20OR%20menu%20OR%20serve%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true,
-      "max_items": 3,
-      "max_age_days": 21
-    },
-    {
-      "name": "Google News — бортовое меню лоукостеров",
-      "url": "https://news.google.com/rss/search?q=%28%22buy%20on%20board%22%20OR%20%22onboard%20menu%22%20OR%20%22inflight%20menu%22%20OR%20%22cabin%20retail%22%29%20AND%20%28Ryanair%20OR%20easyJet%20OR%20%22Wizz%20Air%22%20OR%20AirAsia%20OR%20IndiGo%20OR%20%22Southwest%20Airlines%22%20OR%20%22Spirit%20Airlines%22%20OR%20Vueling%20OR%20Jetstar%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true,
-      "max_items": 3,
-      "max_age_days": 21
-    },
-    {
-      "name": "Google News — Китай, производство для борта",
-      "url": "https://news.google.com/rss/search?q=China%20AND%20%28%22airline%20catering%22%20OR%20%22inflight%20catering%22%20OR%20%22cabin%20products%22%20OR%20%22amenity%20kit%22%20OR%20%22galley%20cart%22%20OR%20%22meal%20tray%22%20OR%20%22inflight%20supplies%22%29%20AND%20%28manufacturer%20OR%20supplier%20OR%20export%20OR%20factory%20OR%20OEM%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true,
-      "max_items": 4,
-      "max_age_days": 30
-    },
-    {
-      "name": "Google News — бортовые расходники и оборудование",
-      "url": "https://news.google.com/rss/search?q=%28%22amenity%20kits%22%20OR%20%22galley%20cart%22%20OR%20%22meal%20tray%22%20OR%20%22casserole%20dish%22%20OR%20%22inflight%20blanket%22%20OR%20%22cabin%20headsets%22%20OR%20%22onboard%20tableware%22%29%20AND%20%28airline%20OR%20aviation%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true,
-      "max_items": 3,
-      "max_age_days": 21
-    },
-    {
-      "name": "Google News — Qatar Airways",
-      "url": "https://news.google.com/rss/search?q=%22Qatar%20Airways%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true,
-      "max_items": 2,
-      "max_age_days": 14
-    },
-    {
-      "name": "Google News — Singapore Airlines",
-      "url": "https://news.google.com/rss/search?q=%22Singapore%20Airlines%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true,
-      "max_items": 2,
-      "max_age_days": 14
-    },
-    {
-      "name": "Google News — Cathay Pacific",
-      "url": "https://news.google.com/rss/search?q=%22Cathay%20Pacific%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true,
-      "max_items": 2,
-      "max_age_days": 14
-    },
-    {
-      "name": "Google News — Emirates",
-      "url": "https://news.google.com/rss/search?q=%22Emirates%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true,
-      "max_items": 2,
-      "max_age_days": 14
-    },
     {
       "name": "Google News — All Nippon Airways",
       "url": "https://news.google.com/rss/search?q=%22All%20Nippon%20Airways%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true,
-      "max_items": 2,
-      "max_age_days": 14
-    },
-    {
-      "name": "Google News — Turkish Airlines",
-      "url": "https://news.google.com/rss/search?q=%22Turkish%20Airlines%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true,
-      "max_items": 2,
-      "max_age_days": 14
-    },
-    {
-      "name": "Google News — Korean Air",
-      "url": "https://news.google.com/rss/search?q=%22Korean%20Air%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true,
-      "max_items": 2,
-      "max_age_days": 14
-    },
-    {
-      "name": "Google News — Air France",
-      "url": "https://news.google.com/rss/search?q=%22Air%20France%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true,
-      "max_items": 2,
-      "max_age_days": 14
-    },
-    {
-      "name": "Google News — Japan Airlines",
-      "url": "https://news.google.com/rss/search?q=%22Japan%20Airlines%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true,
-      "max_items": 2,
-      "max_age_days": 14
-    },
-    {
-      "name": "Google News — SWISS",
-      "url": "https://news.google.com/rss/search?q=%28%22Swiss%20International%20Air%20Lines%22%20OR%20%22SWISS%20Air%20Lines%22%29%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true,
-      "max_items": 2,
-      "max_age_days": 14
-    },
-    {
-      "name": "Google News — EVA Air",
-      "url": "https://news.google.com/rss/search?q=%22EVA%20Air%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true,
-      "max_items": 2,
-      "max_age_days": 14
+      "enabled": true
     },
     {
       "name": "Google News — British Airways",
       "url": "https://news.google.com/rss/search?q=%22British%20Airways%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true,
-      "max_items": 2,
-      "max_age_days": 14
+      "enabled": true
+    },
+    {
+      "name": "Google News — Cathay Pacific",
+      "url": "https://news.google.com/rss/search?q=%22Cathay%20Pacific%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Delta",
+      "url": "https://news.google.com/rss/search?q=Delta%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — EL AL",
+      "url": "https://news.google.com/rss/search?q=%22EL%20AL%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Emirates",
+      "url": "https://news.google.com/rss/search?q=Emirates%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Etihad",
+      "url": "https://news.google.com/rss/search?q=Etihad%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — EVA Air",
+      "url": "https://news.google.com/rss/search?q=%22EVA%20Air%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Japan Airlines",
+      "url": "https://news.google.com/rss/search?q=%22Japan%20Airlines%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
     },
     {
       "name": "Google News — Qantas",
-      "url": "https://news.google.com/rss/search?q=%22Qantas%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true,
-      "max_items": 2,
-      "max_age_days": 14
-    },
-    {
-      "name": "Google News — Lufthansa",
-      "url": "https://news.google.com/rss/search?q=%22Lufthansa%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true,
-      "max_items": 2,
-      "max_age_days": 14
+      "url": "https://news.google.com/rss/search?q=Qantas%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
     },
     {
       "name": "Google News — Ryanair",
-      "url": "https://news.google.com/rss/search?q=%22Ryanair%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true,
-      "max_items": 2,
-      "max_age_days": 14
+      "url": "https://news.google.com/rss/search?q=Ryanair%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
     },
     {
-      "name": "Google News — Wizz Air",
-      "url": "https://news.google.com/rss/search?q=%22Wizz%20Air%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true,
-      "max_items": 2,
-      "max_age_days": 14
+      "name": "Google News — Singapore Airlines",
+      "url": "https://news.google.com/rss/search?q=%22Singapore%20Airlines%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Swiss Air Lines",
+      "url": "https://news.google.com/rss/search?q=%22Swiss%20Air%20Lines%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Turkish Airlines",
+      "url": "https://news.google.com/rss/search?q=%22Turkish%20Airlines%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Virgin Atlantic",
+      "url": "https://news.google.com/rss/search?q=%22Virgin%20Atlantic%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Qatar Airways",
+      "url": "https://news.google.com/rss/search?q=%22Qatar%20Airways%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Lufthansa",
+      "url": "https://news.google.com/rss/search?q=Lufthansa%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — KLM",
+      "url": "https://news.google.com/rss/search?q=KLM%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Korean Air",
+      "url": "https://news.google.com/rss/search?q=%22Korean%20Air%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — United Airlines",
+      "url": "https://news.google.com/rss/search?q=%22United%20Airlines%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — American Airlines",
+      "url": "https://news.google.com/rss/search?q=%22American%20Airlines%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Air Canada",
+      "url": "https://news.google.com/rss/search?q=%22Air%20Canada%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Air France",
+      "url": "https://news.google.com/rss/search?q=%22Air%20France%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Korita Aviation",
+      "url": "https://news.google.com/rss/search?q=%22Korita%20Aviation%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Zhengzhou Laiwosi Aluminum",
+      "url": "https://news.google.com/rss/search?q=%22Zhengzhou%20Laiwosi%20Aluminum%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Wessco International",
+      "url": "https://news.google.com/rss/search?q=%22Wessco%20International%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Shaoxing Guan Yi Feng Textile",
+      "url": "https://news.google.com/rss/search?q=%22Shaoxing%20Guan%20Yi%20Feng%20Textile%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — deSter",
+      "url": "https://news.google.com/rss/search?q=%22deSter%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Guangdong Eurohome Porcelain",
+      "url": "https://news.google.com/rss/search?q=%22Guangdong%20Eurohome%20Porcelain%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — gategroup",
+      "url": "https://news.google.com/rss/search?q=%22gategroup%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — LSG Sky Chefs",
+      "url": "https://news.google.com/rss/search?q=%22LSG%20Sky%20Chefs%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — dNata",
+      "url": "https://news.google.com/rss/search?q=%22dNata%20catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Newrest",
+      "url": "https://news.google.com/rss/search?q=%22Newrest%20catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Do & Co",
+      "url": "https://news.google.com/rss/search?q=%22Do%20%26%20Co%20catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — WTCE",
+      "url": "https://news.google.com/rss/search?q=%22wtce%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Aeromar",
+      "url": "https://news.google.com/rss/search?q=%22Aeromar%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Connectivity и развлечения",
+      "url": "https://news.google.com/rss/search?q=%22airline%20Starlink%22%20OR%20%22inflight%20entertainment%20connectivity%22%20OR%20%22In-Flight%20Entertainment%22%20OR%20%22inflight%20gambling%22%20OR%20%22inflight%20games%22%20OR%20%22inflight%20internet%22%20OR%20%22inflight%20movies%22%20OR%20%22inflight%20amenity%22%20OR%20%22inflight%20advertising%22%20OR%20%22airline%20Wi-Fi%22%20OR%20%22Inflight%20Services%22%20OR%20%22airline%20movies%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Расходники и оборудование",
+      "url": "https://news.google.com/rss/search?q=%22airline%20galley%20equipment%22%20OR%20%22airline%20blankets%22%20OR%20%22airlines%20cutlery%22%20OR%20%22airlines%20plastic%20cups%22%20OR%20%22airlines%20utensils%22%20OR%20%22airlines%20dinnerware%22%20OR%20%22airlines%20headphones%22%20OR%20%22airlines%20water%20bottles%22%20OR%20%22airlines%20paper%20cups%22%20OR%20%22airlines%20pillows%22%20OR%20%22airline%20napkins%22%20OR%20%22airlines%20tableware%22%20OR%20%22airlines%20trolleys%22%20OR%20%22airlines%20catering%20equipment%22%20OR%20%22airline%20kitchen%22%20OR%20%22airport%20kitchen%22%20OR%20%22airlines%20toiletries%22%20OR%20%22airlines%20catering%20china%22%20OR%20%22airline%20uniform%22%20OR%20%22airlines%20towels%22%20OR%20%22airlines%20coffee%20cups%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Напитки и бренды",
+      "url": "https://news.google.com/rss/search?q=%22airline%20pepsi%22%20OR%20%22airline%20coca-cola%22%20OR%20%22airlines%20caviar%22%20OR%20%22airlines%20vodka%22%20OR%20%22airlines%20champagne%22%20OR%20%22airline%20tea%22%20OR%20%22airlines%20coffee%22%20OR%20%22airlines%20juice%22%20OR%20%22airlines%20hot%20drinks%22%20OR%20%22airlines%20wine%22%20OR%20%22airline%20alcohol%22%20OR%20%22airlines%20drinks%22%20OR%20%22airlines%20beer%22%20OR%20%22airlines%20kosher%22%20OR%20%22airlines%20bread%22%20OR%20%22airline%20culinary%22%20OR%20%22airline%20beverages%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Бизнес-термины кейтеринга",
+      "url": "https://news.google.com/rss/search?q=%22airline%20catering%20supplier%22%20OR%20%22airline%20catering%20provider%22%20OR%20%22airline%20catering%20logistics%22%20OR%20%22airlines%20catering%20agreement%22%20OR%20%22airport%20catering%20investors%22%20OR%20%22aviation%20sustainability%20catering%22%20OR%20%22airline%20onboard%20services%22%20OR%20%22airline%20passenger%20experience%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Еда и питание в полёте",
+      "url": "https://news.google.com/rss/search?q=%22airline%20hot%20meals%22%20OR%20%22inflight%20catering%22%20OR%20%22airline%20food%22%20OR%20%22airline%20meal%22%20OR%20%22inflight%20meal%22%20OR%20%22airlines%20meals%22%20OR%20%22buy%20on%20board%20menu%22%20OR%20%22buy%20on%20board%20food%22%20OR%20%22airline%20menu%22%20OR%20%22airlines%20menu%22%20OR%20%22inflight%20dining%22%20OR%20%22budget%20airlines%20food%22%20OR%20%22cabin%20crew%20meals%22%20OR%20%22airlines%20special%20meals%22%20OR%20%22airlines%20frozen%20food%22%20OR%20%22airlines%20frozen%20meals%22%20OR%20%22onboard%20meal%20service%22%20OR%20%22airline%20snacks%22%20OR%20%22airlines%20sandwiches%22%20OR%20%22airline%20pre-order%20meals%22%20OR%20%22airline%20catering%22%20OR%20%22airport%20catering%22%20OR%20%22inflight%20duty%20free%22%20OR%20%22airlines%20duty%20free%22%20OR%20%22airline%20amenities%22%20OR%20%22airline%20chef%22%20OR%20%22China%20airline%20catering%22%20OR%20%22hong%20kong%20airport%20catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
     }
-  ],
-  "max_new_per_run": 45,
-  "min_signal": 2,
-  "_signal": "Порог «интересности». 2 — отсекает юбилеи, фотогалереи и спонсорское. 0 — берём всё. Можно переопределить у конкретной ленты полем min_signal.",
-  "archive_after_days": 0,
-  "_archive": "Через сколько дней неразобранный черновик уезжает в queue/_archive. 0 — не убирать. status: hold в файле оставляет его в очереди навсегда."
+  ]
 }
