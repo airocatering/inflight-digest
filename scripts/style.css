@@ -195,6 +195,43 @@ background:var(--red)}
 font-size:11px}
 .job .why{margin-top:8px;font-size:13.5px;color:#4d4d4d;line-height:1.5;max-width:78ch}
 .job .why b{color:var(--ink);font-weight:600}
+/* ---- календарь выставок ---- */
+.evhead{grid-template-columns:1fr}
+.evhead p{max-width:74ch}
+.evs{margin:26px 0 30px;border-top:1px solid var(--ink)}
+.ev{display:grid;grid-template-columns:78px 1fr auto;gap:22px;align-items:start;
+    padding:22px 0;border-bottom:1px solid var(--line)}
+.ev.big{background:#fff;padding:22px 20px;margin:0 -20px;border-bottom:1px solid var(--line)}
+@media(max-width:640px){.ev{grid-template-columns:60px 1fr;gap:14px}
+  .ev.big{margin:0;padding:20px 0}}
+.ev .when{text-align:center;border-right:1px solid var(--line);padding-right:16px;
+    line-height:1}
+@media(max-width:640px){.ev .when{padding-right:10px}}
+.ev .when .m{display:block;font-size:10.5px;font-weight:700;letter-spacing:.12em;
+    color:var(--red)}
+.ev .when .d{display:block;font-family:"Instrument Serif",Georgia,serif;font-size:34px;
+    margin:3px 0 2px}
+.ev .when .y{display:block;font-size:11px;color:var(--muted);letter-spacing:.04em}
+.ev h3{margin:0 0 6px;font-size:20px;font-weight:600;letter-spacing:-.01em;line-height:1.25}
+.ev.big h3{font-size:24px}
+.ev h3 a{color:inherit}
+.ev h3 a:hover{color:var(--red)}
+.ev .meta{font-size:13px;color:var(--muted);margin-bottom:8px}
+.ev p{margin:0 0 10px;font-size:14px;color:#4d4d4d;line-height:1.5;max-width:74ch}
+.ev .tags{display:flex;gap:6px;flex-wrap:wrap}
+.et{font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+    border:1px solid var(--line);padding:3px 8px;color:var(--muted)}
+.et.tbc{border-style:dashed}
+.ev .flag{white-space:nowrap}
+@media(max-width:640px){.ev .flag{grid-column:2;margin-top:-4px}}
+.soon{font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+    padding:4px 9px;border:1px solid var(--ink)}
+.soon.now{background:var(--red);color:#fff;border-color:var(--red)}
+.evnote{font-size:12.5px;color:var(--muted);margin:0 0 44px;max-width:70ch}
+.evnote b{color:var(--ink);font-weight:600}
+.evnote a{color:var(--red)}
+.evnote a:hover{text-decoration:underline}
+
 .jfilter{display:flex;gap:8px;flex-wrap:wrap;padding:22px 0 4px}
 .jfilter a{font-size:12px;font-weight:600;padding:7px 13px;border:1px solid var(--line);
 background:#fff}

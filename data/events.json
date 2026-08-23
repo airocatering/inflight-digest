@@ -1,0 +1,178 @@
+{
+  "_comment": "Календарь выставок. Прошедшие события скрываются автоматически по полю end при каждой сборке — удалять их руками не нужно, но раз в год стоит подчистить. Даты сверены с сайтами организаторов, дата сверки в поле checked.",
+  "checked": "2026-08-23",
+  "intro": "Where this industry actually meets: catering and onboard service, cabin interiors, IFEC and travel retail. Trade shows and conferences only — no webinars, no awards dinners. Past events drop off this page on their own.",
+  "events": [
+    {
+      "name": "IFSA Global EXPO / FTE Global",
+      "start": "2026-09-08",
+      "end": "2026-09-10",
+      "venue": "Gaylord Texan Resort & Convention Center",
+      "city": "Grapevine, Texas",
+      "country": "USA",
+      "url": "https://ifsa.aero/",
+      "tags": ["Catering", "Onboard Service"],
+      "note": "The main North American gathering for onboard food, service ware and hospitality, co-located with FTE Global on passenger experience and technology. IFSA exhibition floor runs 9–10 September.",
+      "featured": true
+    },
+    {
+      "name": "Aircraft Cabin Air Conference",
+      "start": "2026-09-22",
+      "end": "2026-09-23",
+      "venue": "",
+      "city": "London",
+      "country": "UK",
+      "url": "https://www.aircraftcabinair.com/",
+      "tags": ["Cabin Interior"],
+      "note": "Technical conference on cabin air quality, bleed air, ventilation and filtration. Narrow, engineering-led, and the only regular event on the subject."
+    },
+    {
+      "name": "TFWA World Exhibition & Conference",
+      "start": "2026-09-27",
+      "end": "2026-10-01",
+      "venue": "Palais des Festivals",
+      "city": "Cannes",
+      "country": "France",
+      "url": "https://www.tfwa.com/",
+      "tags": ["Duty Free"],
+      "note": "The largest duty free and travel retail event in the world. Where airport and inflight retail ranges for the following year are actually negotiated."
+    },
+    {
+      "name": "MEADFA Conference",
+      "start": "2026-11-15",
+      "end": "2026-11-17",
+      "venue": "",
+      "city": "Rabat",
+      "country": "Morocco",
+      "url": "https://www.tfwa.com/",
+      "tags": ["Duty Free"],
+      "note": "Middle East and Africa duty free association — the regional counterpart to Cannes, smaller and more deal-focused."
+    },
+    {
+      "name": "APEX/FTE EXPO Asia",
+      "start": "2026-11-18",
+      "end": "2026-11-19",
+      "venue": "Marina Bay Sands",
+      "city": "Singapore",
+      "country": "Singapore",
+      "url": "https://apex.aero/events",
+      "tags": ["Entertainment", "Connectivity", "Onboard Service"],
+      "note": "Asia's main inflight entertainment and connectivity show, with a dedicated IFSA Inflight Services Zone for catering and onboard product.",
+      "featured": true
+    },
+    {
+      "name": "APEX TECH",
+      "start": "2027-02-02",
+      "end": "2027-02-03",
+      "venue": "",
+      "city": "Los Angeles, California",
+      "country": "USA",
+      "url": "https://apex.aero/events",
+      "tags": ["Entertainment", "Connectivity"],
+      "note": "Engineering-side counterpart to the APEX expos: IFE hardware, connectivity standards and certification, not a sales floor."
+    },
+    {
+      "name": "Aircraft Interiors Middle East (AIME) / MRO Middle East",
+      "start": "2027-02-02",
+      "end": "2027-02-03",
+      "venue": "Dubai World Trade Centre",
+      "city": "Dubai",
+      "country": "UAE",
+      "url": "https://mromiddleeast.aviationweek.com/",
+      "tags": ["Cabin Interior", "Entertainment"],
+      "note": "The Gulf's cabin interiors show — seats, monuments, IFE retrofit — running alongside MRO Middle East. Premium-cabin heavy, which is what the Gulf carriers buy."
+    },
+    {
+      "name": "HOTELEX Shanghai",
+      "start": "2027-03-30",
+      "end": "2027-04-02",
+      "venue": "National Exhibition & Convention Center",
+      "city": "Shanghai",
+      "country": "China",
+      "url": "https://en.hotelex.cn/",
+      "tags": ["Catering", "Onboard Service"],
+      "note": "Not an aviation show — a 4,000-exhibitor hospitality and foodservice fair. It earns its place because this is where the Chinese factories behind airline tableware, portion packaging, textiles and chilled ready meals actually exhibit. Ends three days before Hamburg opens."
+    },
+    {
+      "name": "Passenger Experience Week — PEC, AIX and WTCE",
+      "start": "2027-04-05",
+      "end": "2027-04-08",
+      "venue": "Hamburg Messe",
+      "city": "Hamburg",
+      "country": "Germany",
+      "url": "https://www.aircraftinteriorsexpo.com/",
+      "tags": ["Catering", "Cabin Interior", "Entertainment", "Onboard Service"],
+      "note": "The one week that matters. Passenger Experience Conference on Monday 5 April; then Aircraft Interiors Expo and the World Travel Catering & Onboard Services Expo run together 6–8 April — cabin and seating in one hall, catering, service ware, textiles and crew uniforms in the other.",
+      "featured": true
+    },
+    {
+      "name": "APEX Content Market",
+      "start": "2027-04-28",
+      "end": "2027-04-29",
+      "venue": "",
+      "city": "Athens",
+      "country": "Greece",
+      "url": "https://apex.aero/events",
+      "tags": ["Entertainment"],
+      "note": "Where airlines and studios trade the film and TV rights that end up in the seat-back catalogue."
+    },
+    {
+      "name": "TFWA Asia Pacific Exhibition & Conference",
+      "start": "2027-05-09",
+      "end": "2027-05-13",
+      "venue": "",
+      "city": "Singapore",
+      "country": "Singapore",
+      "url": "https://www.tfwa.com/",
+      "tags": ["Duty Free"],
+      "note": "The Asian leg of TFWA. Matters for anyone selling into Asian carriers' onboard and airport ranges."
+    },
+    {
+      "name": "Aviation Festival Americas",
+      "start": "2027-05-12",
+      "end": "2027-05-13",
+      "venue": "Miami Beach Convention Center",
+      "city": "Miami",
+      "country": "USA",
+      "url": "https://www.terrapinn.com/conference/aviation-festival-americas/",
+      "tags": ["Onboard Service"],
+      "note": "Commercial and IT side of the airline business — pre-order meal platforms, retailing and loyalty software rather than physical product."
+    },
+    {
+      "name": "FTE APEX EMEA / Ancillary & Retailing",
+      "start": "2027-06-15",
+      "end": "2027-06-17",
+      "venue": "RDS",
+      "city": "Dublin",
+      "country": "Ireland",
+      "url": "https://www.futuretravelexperience.com/events/",
+      "tags": ["Onboard Service", "Entertainment"],
+      "note": "European edition, with the onboard retail and ancillary revenue track running alongside.",
+      "unconfirmed": true
+    },
+    {
+      "name": "Aircraft Interiors Expo — Aerospace Tech Expo China",
+      "start": "2027-07-02",
+      "end": "2027-07-04",
+      "venue": "China National Convention Center",
+      "city": "Beijing",
+      "country": "China",
+      "url": "https://aerospacetech-expo.com/event/65.html",
+      "tags": ["Cabin Interior"],
+      "note": "Cabin materials, components and manufacturing technology for Chinese civil aviation, inside the wider Aerospace Tech Expo. Supplier-side rather than airline-side.",
+      "unconfirmed": true
+    },
+    {
+      "name": "AIE China — Shanghai International Aircraft Interiors Exhibition",
+      "start": "2027-07-07",
+      "end": "2027-07-09",
+      "venue": "Shanghai New International Expo Centre",
+      "city": "Shanghai",
+      "country": "China",
+      "url": "https://www.aircraftinteriorsinternational.com/event/shanghai-international-aircraft-interiors-exhibition-aie-china",
+      "tags": ["Cabin Interior", "Entertainment"],
+      "note": "Asia's only show devoted purely to cabin interiors: seats, galley inserts, lighting, IFE, plus the fabrics, carpets and synthetic leather behind them. The 10th edition, after the 2026 date was moved.",
+      "unconfirmed": true
+    }
+  ]
+}

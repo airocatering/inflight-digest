@@ -354,6 +354,94 @@ below, it runs for 30 days.</p>
 <div class="jobs">{rows}</div></div>''' + SUBSCRIBE + footer())
 
 
+MONTHS = ("JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+          "JUL", "AUG", "SEP", "OCT", "NOV", "DEC")
+
+
+def ev_dates(start, end):
+    """«8–10 Sep 2026», «27 Sep – 1 Oct 2026», «2 Feb 2027»."""
+    a = dt.date.fromisoformat(start)
+    b = dt.date.fromisoformat(end) if end else a
+    if a == b:
+        return f"{a.day} {MONTHS[a.month - 1].title()} {a.year}"
+    if (a.month, a.year) == (b.month, b.year):
+        return f"{a.day}–{b.day} {MONTHS[a.month - 1].title()} {a.year}"
+    if a.year == b.year:
+        return (f"{a.day} {MONTHS[a.month - 1].title()} – "
+                f"{b.day} {MONTHS[b.month - 1].title()} {a.year}")
+    return (f"{a.day} {MONTHS[a.month - 1].title()} {a.year} – "
+            f"{b.day} {MONTHS[b.month - 1].title()} {b.year}")
+
+
+def page_events():
+    data = json.load(open(os.path.join(ROOT, "data", "events.json"), encoding="utf-8"))
+    today = dt.date.today()
+
+    # Прошедшее уходит со страницы само: сравниваем с датой окончания, поэтому
+    # выставка висит до последнего своего дня включительно, а не пропадает
+    # утром первого. Сборка идёт каждые 4 часа, так что страница не устареет.
+    upcoming = []
+    for e in data["events"]:
+        end = dt.date.fromisoformat(e.get("end") or e["start"])
+        if end >= today:
+            upcoming.append(e)
+    upcoming.sort(key=lambda e: (e["start"], e["name"]))
+
+    if not upcoming:
+        rows = ('<div class="notice">The calendar is being rebuilt — '
+                'next season\'s dates go up as organisers confirm them.</div>')
+    else:
+        cells = []
+        for e in upcoming:
+            start = dt.date.fromisoformat(e["start"])
+            days = (start - today).days
+            if days <= 0:
+                soon = '<span class="soon now">On now</span>'
+            elif days == 1:
+                soon = '<span class="soon next">Tomorrow</span>'
+            elif days <= 45:
+                soon = f'<span class="soon next">In {days} days</span>'
+            else:
+                soon = ""
+            # «Singapore · Singapore» — город-государство, страну не повторяем
+            place = [e.get("venue"), e.get("city")]
+            if e.get("country") and e.get("country") != e.get("city"):
+                place.append(e["country"])
+            where = " &middot; ".join(x for x in place if x)
+            tags = "".join(f'<span class="et">{t}</span>' for t in e.get("tags", []))
+            if e.get("unconfirmed"):
+                tags += '<span class="et tbc">Dates to confirm</span>'
+            name = e["name"]
+            if e.get("url"):
+                name = (f'<a href="{e["url"]}" target="_blank" '
+                        f'rel="noopener">{name}</a>')
+            cells.append(f'''<div class="ev{' big' if e.get('featured') else ''}">
+<div class="when"><span class="m">{MONTHS[start.month - 1]}</span>
+<span class="d">{start.day}</span><span class="y">{start.year}</span></div>
+<div class="what"><h3>{name}</h3>
+<div class="meta">{ev_dates(e["start"], e.get("end"))} &middot; {where}</div>
+<p>{e.get("note", "")}</p><div class="tags">{tags}</div></div>
+<div class="flag">{soon}</div></div>''')
+        rows = f'<div class="evs">{"".join(cells)}</div>'
+
+    checked = data.get("checked", "")
+    foot = (f'<p class="evnote">Checked against the organisers&rsquo; own sites'
+            f'{" on " + fmt_date(checked) if checked else ""}. Entries marked '
+            f'<b>dates to confirm</b> come from trade databases only &mdash; the '
+            f'organiser publishes no English page we could read, so treat those '
+            f'dates as indicative. Organisers move things: check before you book a '
+            f'flight. Running something we have missed? '
+            f'<a href="contact.html">Tell us</a>.</p>')
+
+    return (head("Events — Inflight Digest", "events.html",
+                 "Trade shows and conferences in airline catering, cabin interiors, "
+                 "IFEC and travel retail. Past events drop off automatically.")
+            + header("events")
+            + f'''<div class="wrap"><section class="jobhead evhead">
+<div><h1 class="serif">Events</h1><p>{data["intro"]}</p></div></section>
+{rows}{foot}</div>''' + SUBSCRIBE + footer())
+
+
 def page_simple(key, title, text, active=None):
     # для description режем по границе слова, иначе можно разрубить &mdash;
     plain = " ".join(re.sub("<[^>]+>", " ", text).split())
@@ -377,10 +465,7 @@ def main():
     for it in items:
         write[it["url"]] = page_article(it, items)
     write["jobs.html"] = page_jobs()
-    write["events.html"] = page_simple(
-        "events", "Events",
-        "AIX, APEX, WTCE, FTE and the rest of the industry calendar. "
-        "This page is compiled by hand — coming soon.", "events")
+    write["events.html"] = page_events()
     write["contact.html"] = page_simple(
         "contact", "Contact",
         'Inflight Digest is written and edited by Vlad Mazur in Kyiv, Ukraine. '
