@@ -1,5 +1,4 @@
-# Draft site — nothing here should be indexed yet.
 User-agent: *
-Disallow: /
+Allow: /
 
 Sitemap: https://airocatering.github.io/inflight-digest/sitemap.xml
