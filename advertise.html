@@ -92,15 +92,13 @@ font-size:12px;color:rgba(255,255,255,.5);display:flex;justify-content:space-bet
 flex-wrap:wrap;gap:12px}
 </style>
 <!-- js --><script>(function(){
-  var KEY="id-consent", ID="G-W2BDQ3VTLM", MAIL="vladyslav.mazur@gmail.com", v=null;
-  try{ v=localStorage.getItem(KEY); }catch(e){}
+  var ID="G-W2BDQ3VTLM", MAIL="vladyslav.mazur@gmail.com";
   function ready(fn){
     if(document.readyState!=="loading") fn();
     else document.addEventListener("DOMContentLoaded", fn);
   }
-  /* ---------- согласие на аналитику ---------- */
-  function loadGA(){
-    if(!ID || window.__gaOn) return; window.__gaOn=1;
+  /* ---------- аналитика ---------- */
+  if(ID){
     var s=document.createElement("script");
     s.async=true; s.src="https://www.googletagmanager.com/gtag/js?id="+ID;
     document.head.appendChild(s);
@@ -109,35 +107,6 @@ flex-wrap:wrap;gap:12px}
     gtag("js", new Date());
     gtag("config", ID);
   }
-  function banner(){
-    if(document.getElementById("cbar")) return;
-    var d=document.createElement("div");
-    d.id="cbar"; d.setAttribute("role","dialog");
-    d.setAttribute("aria-label","Cookies and privacy");
-    d.innerHTML='<div class="cwrap"><div><b>Cookies &amp; Privacy</b>'
-      +'<p>Inflight Digest uses Google Analytics to understand how visitors use the '
-      +'website and to improve its content. Analytics cookies are optional and are '
-      +'only used with your consent.</p></div>'
-      +'<div class="cbtn"><button type="button" id="cyes">Accept analytics</button>'
-      +'<button type="button" id="cno">Reject</button></div></div>';
-    document.body.appendChild(d);
-    document.getElementById("cyes").onclick=function(){
-      try{ localStorage.setItem(KEY,"yes"); }catch(e){}
-      d.remove(); loadGA();
-    };
-    document.getElementById("cno").onclick=function(){
-      try{ localStorage.setItem(KEY,"no"); }catch(e){}
-      d.remove();
-    };
-  }
-  if(ID){
-    if(v==="yes") loadGA();
-    else if(v!=="no") ready(banner);
-  }
-  ready(function(){
-    var l=document.getElementById("cookie-settings");
-    if(l) l.onclick=function(e){ e.preventDefault(); banner(); };
-  });
   /* ---------- формы: отправка без ухода со страницы ---------- */
   function bindForm(f){
     f.addEventListener("submit", function(e){
@@ -267,6 +236,5 @@ data-done="Thank you &mdash; the media kit is on its way. We reply the same work
       <circle cx="597.25" cy="540.79" r="2.34"/>
   </g>
 </svg>
-<div class="fb"><span>&copy; 2026 Inflight Digest &middot; headlines link to the original publishers
-&middot; <a id="cookie-settings" href="#cbar" style="color:rgba(255,255,255,.5)">Cookies</a></span>
+<div class="fb"><span>&copy; 2026 Inflight Digest &middot; headlines link to the original publishers</span>
 <span>Kyiv, Ukraine</span></div></div></footer></body></html>

@@ -244,15 +244,13 @@ def robots_tag():
 
 SITE_JS = """
 (function(){
-  var KEY="id-consent", ID="GA_MEASUREMENT_ID", MAIL="CONTACT_EMAIL", v=null;
-  try{ v=localStorage.getItem(KEY); }catch(e){}
+  var ID="GA_MEASUREMENT_ID", MAIL="CONTACT_EMAIL";
   function ready(fn){
     if(document.readyState!=="loading") fn();
     else document.addEventListener("DOMContentLoaded", fn);
   }
-  /* ---------- согласие на аналитику ---------- */
-  function loadGA(){
-    if(!ID || window.__gaOn) return; window.__gaOn=1;
+  /* ---------- аналитика ---------- */
+  if(ID){
     var s=document.createElement("script");
     s.async=true; s.src="https://www.googletagmanager.com/gtag/js?id="+ID;
     document.head.appendChild(s);
@@ -261,35 +259,6 @@ SITE_JS = """
     gtag("js", new Date());
     gtag("config", ID);
   }
-  function banner(){
-    if(document.getElementById("cbar")) return;
-    var d=document.createElement("div");
-    d.id="cbar"; d.setAttribute("role","dialog");
-    d.setAttribute("aria-label","Cookies and privacy");
-    d.innerHTML='<div class="cwrap"><div><b>Cookies &amp; Privacy</b>'
-      +'<p>Inflight Digest uses Google Analytics to understand how visitors use the '
-      +'website and to improve its content. Analytics cookies are optional and are '
-      +'only used with your consent.</p></div>'
-      +'<div class="cbtn"><button type="button" id="cyes">Accept analytics</button>'
-      +'<button type="button" id="cno">Reject</button></div></div>';
-    document.body.appendChild(d);
-    document.getElementById("cyes").onclick=function(){
-      try{ localStorage.setItem(KEY,"yes"); }catch(e){}
-      d.remove(); loadGA();
-    };
-    document.getElementById("cno").onclick=function(){
-      try{ localStorage.setItem(KEY,"no"); }catch(e){}
-      d.remove();
-    };
-  }
-  if(ID){
-    if(v==="yes") loadGA();
-    else if(v!=="no") ready(banner);
-  }
-  ready(function(){
-    var l=document.getElementById("cookie-settings");
-    if(l) l.onclick=function(e){ e.preventDefault(); banner(); };
-  });
   /* ---------- формы: отправка без ухода со страницы ---------- */
   function bindForm(f){
     f.addEventListener("submit", function(e){
@@ -320,10 +289,10 @@ SITE_JS = """
 })();
 """
 def site_js():
-    """Один скрипт на все страницы: согласие на аналитику и отправка форм
-    без ухода со страницы. Обёрнут маркерами, чтобы сборка могла заменить блок
-    во вручную свёрстанной advertise.html.
-    Счётчик грузится ТОЛЬКО после согласия — тега gtag в разметке нет."""
+    """Один скрипт на все страницы: аналитика и отправка форм без ухода со
+    страницы. Обёрнут маркерами, чтобы сборка могла заменить блок во вручную
+    свёрстанной advertise.html. GA грузится сразу, без баннера согласия —
+    отключено по решению пользователя 2026-08-23, см. CLAUDE.md."""
     if not (GA_ID or FORM_LIVE):
         return ""
     return ("<!-- js --><script>"
@@ -394,8 +363,7 @@ def footer():
 <div><h4>Sections</h4><ul>{rubs}</ul></div>
 <div><h4>More</h4><ul><li><a href="jobs.html">Top Jobs Worldwide</a></li>
 <li><a href="events.html">Events</a></li>
-<li><a href="feed.xml">RSS feed</a></li>
-<li><a id="cookie-settings" href="#cbar">Cookies</a></li></ul></div></div>
+<li><a href="feed.xml">RSS feed</a></li></ul></div></div>
 <div class="fb"><span>&copy; {dt.date.today().year} Inflight Digest &middot;
 headlines link to the original publishers</span><span>Kyiv, Ukraine</span></div>
 </div></footer></body></html>'''

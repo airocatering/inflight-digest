@@ -201,26 +201,6 @@ font-size:11px}
 .ferr{margin-top:10px;font-size:12.5px;color:#ff8b84}
 .sub input[name="_gotcha"],form input[name="_gotcha"]{position:absolute;left:-9999px;
        width:1px;height:1px;opacity:0;pointer-events:none}
-/* ---- полоса согласия на аналитику ---- */
-#cbar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--ink);color:#fff;
-      border-top:3px solid var(--red);box-shadow:0 -10px 30px rgba(0,0,0,.18)}
-#cbar .cwrap{max-width:1300px;margin:0 auto;padding:18px 24px;display:flex;gap:28px;
-      align-items:center;justify-content:space-between}
-#cbar b{display:block;font-size:12px;font-weight:700;letter-spacing:.12em;
-      text-transform:uppercase;color:#fff;margin-bottom:6px}
-#cbar p{margin:0;font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.72);max-width:78ch}
-#cbar .cbtn{display:flex;gap:10px;flex-shrink:0}
-#cbar button{font:inherit;font-size:12.5px;font-weight:700;letter-spacing:.06em;
-      padding:11px 20px;border-radius:2px;cursor:pointer;white-space:nowrap;
-      border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff}
-#cbar button:hover{border-color:#fff}
-#cbar #cyes{background:var(--red);border-color:var(--red)}
-#cbar #cyes:hover{background:#B81C13;border-color:#B81C13}
-@media(max-width:760px){
-  #cbar .cwrap{flex-direction:column;align-items:stretch;gap:14px;padding:16px 20px}
-  #cbar .cbtn button{flex:1}
-}
-
 /* заголовок для робота и экранных читалок, невидимый глазу.
    Не клоакинг: текст совпадает с тем, что нарисовано в логотипе */
 .vh{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;
