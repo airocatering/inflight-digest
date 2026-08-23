@@ -19,7 +19,7 @@ CONTACT_MAIL = "vladyslav.mazur@gmail.com"
 # ID формы Formspree. Пока стоит заглушка, форма подписки не рисуется вообще —
 # вместо неё кнопка «написать письмом». Лучше честная почта, чем поле ввода,
 # которое молча выбрасывает адреса подписчиков.
-FORM_ID = "YOUR-FORM-ID"
+FORM_ID = "mdenvndy"
 FORM_LIVE = bool(FORM_ID) and not FORM_ID.startswith("YOUR-")
 
 # Идентификатор потока Google Analytics 4, вида G-XXXXXXXXXX. Пустая строка —
@@ -242,16 +242,94 @@ def robots_tag():
             'max-snippet:-1,max-video-preview:-1">')
 
 
-def ga_snippet():
-    """Счётчик GA4. Обёрнут маркерами, чтобы сборка могла его найти и заменить
-    во вручную свёрстанной advertise.html — там же, где синхронизируется robots."""
-    if not GA_ID:
+SITE_JS = """
+(function(){
+  var KEY="id-consent", ID="GA_MEASUREMENT_ID", MAIL="CONTACT_EMAIL", v=null;
+  try{ v=localStorage.getItem(KEY); }catch(e){}
+  function ready(fn){
+    if(document.readyState!=="loading") fn();
+    else document.addEventListener("DOMContentLoaded", fn);
+  }
+  /* ---------- согласие на аналитику ---------- */
+  function loadGA(){
+    if(!ID || window.__gaOn) return; window.__gaOn=1;
+    var s=document.createElement("script");
+    s.async=true; s.src="https://www.googletagmanager.com/gtag/js?id="+ID;
+    document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];
+    window.gtag=function(){window.dataLayer.push(arguments);};
+    gtag("js", new Date());
+    gtag("config", ID);
+  }
+  function banner(){
+    if(document.getElementById("cbar")) return;
+    var d=document.createElement("div");
+    d.id="cbar"; d.setAttribute("role","dialog");
+    d.setAttribute("aria-label","Cookies and privacy");
+    d.innerHTML='<div class="cwrap"><div><b>Cookies &amp; Privacy</b>'
+      +'<p>Inflight Digest uses Google Analytics to understand how visitors use the '
+      +'website and to improve its content. Analytics cookies are optional and are '
+      +'only used with your consent.</p></div>'
+      +'<div class="cbtn"><button type="button" id="cyes">Accept analytics</button>'
+      +'<button type="button" id="cno">Reject</button></div></div>';
+    document.body.appendChild(d);
+    document.getElementById("cyes").onclick=function(){
+      try{ localStorage.setItem(KEY,"yes"); }catch(e){}
+      d.remove(); loadGA();
+    };
+    document.getElementById("cno").onclick=function(){
+      try{ localStorage.setItem(KEY,"no"); }catch(e){}
+      d.remove();
+    };
+  }
+  if(ID){
+    if(v==="yes") loadGA();
+    else if(v!=="no") ready(banner);
+  }
+  ready(function(){
+    var l=document.getElementById("cookie-settings");
+    if(l) l.onclick=function(e){ e.preventDefault(); banner(); };
+  });
+  /* ---------- формы: отправка без ухода со страницы ---------- */
+  function bindForm(f){
+    f.addEventListener("submit", function(e){
+      e.preventDefault();
+      var btn=f.querySelector('button[type="submit"]'), was=btn?btn.textContent:"";
+      if(btn){ btn.disabled=true; btn.textContent="Sending…"; }
+      fetch(f.action, {method:"POST", body:new FormData(f),
+                       headers:{"Accept":"application/json"}})
+        .then(function(r){ if(!r.ok) throw new Error("http"); return r; })
+        .then(function(){
+          var d=document.createElement("div");
+          d.className="fdone";
+          d.innerHTML=f.getAttribute("data-done")||"Thank you — message sent.";
+          f.parentNode.replaceChild(d, f);
+        })
+        .catch(function(){
+          if(btn){ btn.disabled=false; btn.textContent=was; }
+          var w=f.querySelector(".ferr");
+          if(!w){ w=document.createElement("div"); w.className="ferr"; f.appendChild(w); }
+          w.textContent="Could not send just now. Please email "+MAIL+" instead.";
+        });
+    });
+  }
+  ready(function(){
+    var fs=document.querySelectorAll("form[data-ajax]");
+    for(var i=0;i<fs.length;i++) bindForm(fs[i]);
+  });
+})();
+"""
+def site_js():
+    """Один скрипт на все страницы: согласие на аналитику и отправка форм
+    без ухода со страницы. Обёрнут маркерами, чтобы сборка могла заменить блок
+    во вручную свёрстанной advertise.html.
+    Счётчик грузится ТОЛЬКО после согласия — тега gtag в разметке нет."""
+    if not (GA_ID or FORM_LIVE):
         return ""
-    return (f'<!-- ga --><script async '
-            f'src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>'
-            f'<script>window.dataLayer=window.dataLayer||[];'
-            f'function gtag(){{dataLayer.push(arguments);}}'
-            f'gtag("js",new Date());gtag("config","{GA_ID}");</script><!-- /ga -->')
+    return ("<!-- js --><script>"
+            + SITE_JS.replace("GA_MEASUREMENT_ID", GA_ID)
+                     .replace("CONTACT_EMAIL", CONTACT_MAIL).strip()
+            + "</script><!-- /js -->")
 
 
 def head(title, path, desc, ld="", og_type="website", extra=""):
@@ -271,7 +349,7 @@ def head(title, path, desc, ld="", og_type="website", extra=""):
 <meta property="og:url" content="{url}"><meta property="og:image" content="{SITE_URL}/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="{url}">{ld}{FONT}<style>{CSS}</style>
-{ga_snippet()}</head><body>'''
+{site_js()}</head><body>'''
 
 
 def header(active=None):
@@ -285,11 +363,15 @@ def header(active=None):
 <a class="adv" href="advertise.html">Advertise</a></div></nav>'''
 
 
-_SUB_CTA = (f'''<form method="POST" action="https://formspree.io/f/{FORM_ID}">
+_SUB_CTA = (f'''<form method="POST" data-ajax
+action="https://formspree.io/f/{FORM_ID}"
+data-done="Thank you &mdash; you are on the list. The first Monday Digest arrives next Monday.">
 <input type="email" name="email" placeholder="you@airline.com" required>
+<input type="hidden" name="_subject" value="Monday Digest — new subscriber">
+<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
 <button type="submit">Subscribe</button></form>
-<div class="fine">Join <b>&mdash;</b> industry readers &middot; unsubscribe in one click &middot;
-we never share your address</div>''' if FORM_LIVE else f'''<a class="mailbtn"
+<div class="fine">One email a week, never more &middot; leave any time by replying
+&middot; we never share your address</div>''' if FORM_LIVE else f'''<a class="mailbtn"
 href="mailto:{CONTACT_MAIL}?subject=Subscribe%20to%20The%20Monday%20Digest">Email to subscribe</a>
 <div class="fine">One line is enough &mdash; we add you by hand and you can leave any time.</div>''')
 
@@ -312,7 +394,8 @@ def footer():
 <div><h4>Sections</h4><ul>{rubs}</ul></div>
 <div><h4>More</h4><ul><li><a href="jobs.html">Top Jobs Worldwide</a></li>
 <li><a href="events.html">Events</a></li>
-<li><a href="feed.xml">RSS feed</a></li></ul></div></div>
+<li><a href="feed.xml">RSS feed</a></li>
+<li><a id="cookie-settings" href="#cbar">Cookies</a></li></ul></div></div>
 <div class="fb"><span>&copy; {dt.date.today().year} Inflight Digest &middot;
 headlines link to the original publishers</span><span>Kyiv, Ukraine</span></div>
 </div></footer></body></html>'''
@@ -460,7 +543,7 @@ def page_jobs():
 <div class="postbox"><h3 class="serif">Hiring?</h3>
 <p>Reach people already working in this industry. Send the role &mdash; if it clears the bar
 below, it runs for 30 days.</p>
-<a href="mailto:jobs@inflightdigest.com?subject=Job%20posting">Submit a role</a></div></section>
+<a href="mailto:{CONTACT_MAIL}?subject=Job%20posting">Submit a role</a></div></section>
 <div class="criteria"><span><b>Selected on:</b></span><span>seniority &mdash; lead level and up</span>
 <span>named employer, no blind agency ads</span><span>salary band or a real market rate</span>
 <span>a role you cannot find on every board</span></div>
@@ -780,10 +863,10 @@ def main():
         # \n? в конце обязателен: без него перевод строки, добавленный при
         # вставке, остаётся в файле, и каждая пересборка копит по пустой
         # строке — файл меняется всегда, значит коммитится каждые 4 часа
-        cleaned = re.sub(r"<!-- ga -->.*?<!-- /ga -->\n?", "", cleaned, flags=re.S)
+        cleaned = re.sub(r"<!-- (?:ga|js) -->.*?<!-- /(?:ga|js) -->\n?", "", cleaned, flags=re.S)
         fixed = cleaned.replace("<title>", robots_tag() + "\n<title>", 1)
-        if ga_snippet():
-            fixed = fixed.replace("</head>", ga_snippet() + "\n</head>", 1)
+        if site_js():
+            fixed = fixed.replace("</head>", site_js() + "\n</head>", 1)
         # подчищаем пустые строки перед </head>: и как страховка от накопления,
         # и чтобы разово убрать то, что уже успело накопиться до этой правки
         fixed = re.sub(r"\n{2,}(?=</head>)", "\n", fixed)

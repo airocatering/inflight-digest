@@ -91,7 +91,81 @@ footer .fb{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,25
 font-size:12px;color:rgba(255,255,255,.5);display:flex;justify-content:space-between;
 flex-wrap:wrap;gap:12px}
 </style>
-<!-- ga --><script async src="https://www.googletagmanager.com/gtag/js?id=G-W2BDQ3VTLM"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-W2BDQ3VTLM");</script><!-- /ga -->
+<!-- js --><script>(function(){
+  var KEY="id-consent", ID="G-W2BDQ3VTLM", MAIL="vladyslav.mazur@gmail.com", v=null;
+  try{ v=localStorage.getItem(KEY); }catch(e){}
+  function ready(fn){
+    if(document.readyState!=="loading") fn();
+    else document.addEventListener("DOMContentLoaded", fn);
+  }
+  /* ---------- согласие на аналитику ---------- */
+  function loadGA(){
+    if(!ID || window.__gaOn) return; window.__gaOn=1;
+    var s=document.createElement("script");
+    s.async=true; s.src="https://www.googletagmanager.com/gtag/js?id="+ID;
+    document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];
+    window.gtag=function(){window.dataLayer.push(arguments);};
+    gtag("js", new Date());
+    gtag("config", ID);
+  }
+  function banner(){
+    if(document.getElementById("cbar")) return;
+    var d=document.createElement("div");
+    d.id="cbar"; d.setAttribute("role","dialog");
+    d.setAttribute("aria-label","Cookies and privacy");
+    d.innerHTML='<div class="cwrap"><div><b>Cookies &amp; Privacy</b>'
+      +'<p>Inflight Digest uses Google Analytics to understand how visitors use the '
+      +'website and to improve its content. Analytics cookies are optional and are '
+      +'only used with your consent.</p></div>'
+      +'<div class="cbtn"><button type="button" id="cyes">Accept analytics</button>'
+      +'<button type="button" id="cno">Reject</button></div></div>';
+    document.body.appendChild(d);
+    document.getElementById("cyes").onclick=function(){
+      try{ localStorage.setItem(KEY,"yes"); }catch(e){}
+      d.remove(); loadGA();
+    };
+    document.getElementById("cno").onclick=function(){
+      try{ localStorage.setItem(KEY,"no"); }catch(e){}
+      d.remove();
+    };
+  }
+  if(ID){
+    if(v==="yes") loadGA();
+    else if(v!=="no") ready(banner);
+  }
+  ready(function(){
+    var l=document.getElementById("cookie-settings");
+    if(l) l.onclick=function(e){ e.preventDefault(); banner(); };
+  });
+  /* ---------- формы: отправка без ухода со страницы ---------- */
+  function bindForm(f){
+    f.addEventListener("submit", function(e){
+      e.preventDefault();
+      var btn=f.querySelector('button[type="submit"]'), was=btn?btn.textContent:"";
+      if(btn){ btn.disabled=true; btn.textContent="Sending…"; }
+      fetch(f.action, {method:"POST", body:new FormData(f),
+                       headers:{"Accept":"application/json"}})
+        .then(function(r){ if(!r.ok) throw new Error("http"); return r; })
+        .then(function(){
+          var d=document.createElement("div");
+          d.className="fdone";
+          d.innerHTML=f.getAttribute("data-done")||"Thank you — message sent.";
+          f.parentNode.replaceChild(d, f);
+        })
+        .catch(function(){
+          if(btn){ btn.disabled=false; btn.textContent=was; }
+          var w=f.querySelector(".ferr");
+          if(!w){ w=document.createElement("div"); w.className="ferr"; f.appendChild(w); }
+          w.textContent="Could not send just now. Please email "+MAIL+" instead.";
+        });
+    });
+  }
+  ready(function(){
+    var fs=document.querySelectorAll("form[data-ajax]");
+    for(var i=0;i<fs.length;i++) bindForm(fs[i]);
+  });
+})();</script><!-- /js -->
 </head><body>
 <header><div class="wrap"><a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 932.2 572.7">
   <g fill="#111111">
@@ -158,11 +232,14 @@ exact rates and the media kit as a PDF. No agency in between &mdash; you talk to
 the editor directly.</p>
 <p>Rates are quoted in euros and invoiced monthly. First placement is always
 bookable for a single month, so you can test before committing.</p>
-<a class="mailto" href="mailto:advertise@inflightdigest.com?subject=Advertising%20enquiry%20%E2%80%94%20Inflight%20Digest">
-advertise@inflightdigest.com &rarr;</a></div>
+<a class="mailto" href="mailto:vladyslav.mazur@gmail.com?subject=Advertising%20enquiry">
+vladyslav.mazur@gmail.com &rarr;</a></div>
 
 <div class="r"><h3 class="serif" style="color:#fff">Request the media kit</h3>
-<form method="POST" action="https://formspree.io/f/YOUR-FORM-ID">
+<form method="POST" data-ajax action="https://formspree.io/f/xwlejenb"
+data-done="Thank you &mdash; the media kit is on its way. We reply the same working day.">
+<input type="hidden" name="_subject" value="Advertise — media kit request">
+<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
 <label for="c">Company</label><input id="c" name="company" placeholder="Airline, supplier, agency">
 <label for="e">Work email</label><input id="e" type="email" name="email" placeholder="you@company.com" required>
 <label for="f">Format of interest</label>
@@ -190,5 +267,6 @@ advertise@inflightdigest.com &rarr;</a></div>
       <circle cx="597.25" cy="540.79" r="2.34"/>
   </g>
 </svg>
-<div class="fb"><span>&copy; 2026 Inflight Digest &middot; headlines link to the original publishers</span>
+<div class="fb"><span>&copy; 2026 Inflight Digest &middot; headlines link to the original publishers
+&middot; <a id="cookie-settings" href="#cbar" style="color:rgba(255,255,255,.5)">Cookies</a></span>
 <span>Kyiv, Ukraine</span></div></div></footer></body></html>
