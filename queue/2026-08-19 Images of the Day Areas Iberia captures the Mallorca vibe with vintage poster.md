@@ -1,6 +1,6 @@
 ---
-title: Images of the Day: Areas Iberia captures the Mallorca vibe with vintage poster installation
-source: Moodie Davitt Report
+title: "Images of the Day: Areas Iberia captures the Mallorca vibe with vintage poster installation"
+source: "Moodie Davitt Report"
 link: https://moodiedavittreport.com/images-of-the-day-areas-iberia-captures-the-spirit-of-mallorca-with-vintage-poster-installation-at-palma-airport/
 date: 2026-08-19
 rubric: catering

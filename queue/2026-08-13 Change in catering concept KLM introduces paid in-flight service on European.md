@@ -1,6 +1,6 @@
 ---
-title: Change in catering concept: KLM introduces paid in-flight service on European flights
-source: Aviation.Direct
+title: "Change in catering concept: KLM introduces paid in-flight service on European flights"
+source: "Aviation.Direct"
 link: https://news.google.com/rss/articles/CBMitAFBVV95cUxPemNLZTFiNlU5S2lyQzJ6ZWxJN2VLN2NwSWJyRkFMX1JQaGFuYl9OTHAxaWxaZFdMeFA0anUxd2psUXV6RHVjOWVKYnNmSmtKYTdKYjdabXM2bVduOGNTUVVURlNmZ0lPY2V4OTRweDVIZXhNQ081bE50T25HZlBndm9UUlZmSVpLOVpZSXFfdTVFVmwza2hKVnFaaXptRHIwbThZUGFoWGVmSlpuRGFTVUd1NXg?oc=5
 date: 2026-08-13
 added: 2026-08-23T04:19:52Z

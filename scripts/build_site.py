@@ -109,6 +109,15 @@ def placeholder(seed, w=1200, h=800):
 
 
 # ---------------------------------------------------------------- материалы
+def unquote_yaml(v):
+    """title: "Country: subtitle" — сама сборка не ломается на кавычках
+    (это упрощённый парсер, не настоящий YAML), но снять их всё равно надо,
+    иначе на сайте заголовок будет буквально в кавычках."""
+    if len(v) >= 2 and v[0] == v[-1] == '"':
+        v = v[1:-1].replace('\\"', '"').replace("\\\\", "\\")
+    return v
+
+
 def parse_md(path):
     raw = open(path, encoding="utf-8").read()
     m = re.match(r"^---\s*\n(.*?)\n---\s*\n(.*)$", raw, re.S)
@@ -118,7 +127,7 @@ def parse_md(path):
     for line in m.group(1).splitlines():
         if ":" in line:
             k, v = line.split(":", 1)
-            meta[k.strip()] = v.strip()
+            meta[k.strip()] = unquote_yaml(v.strip())
     body = re.sub(r"<!--.*?-->", "", m.group(2), flags=re.S).strip()
     meta["body"] = body
     meta["file"] = os.path.basename(path)

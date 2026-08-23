@@ -1,6 +1,6 @@
 ---
-title: The house that jack built: IFPL Group at 30
-source: Inflight
+title: "The house that jack built: IFPL Group at 30"
+source: "Inflight"
 link: https://www.inflight-online.com/the-house-that-jack-built-ifpl-group-at-30/
 date: 2026-08-18
 rubric: cabin-interior

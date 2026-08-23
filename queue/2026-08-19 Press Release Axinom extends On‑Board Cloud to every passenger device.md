@@ -1,6 +1,6 @@
 ---
-title: Press Release: Axinom extends On‑Board Cloud to every passenger device
-source: Runway Girl Network
+title: "Press Release: Axinom extends On‑Board Cloud to every passenger device"
+source: "Runway Girl Network"
 link: https://runwaygirlnetwork.com/2026/08/axinom-extends-on-board-cloud-to-every-device-in-the-cabin/
 date: 2026-08-19
 rubric: cabin-interior

@@ -1,6 +1,6 @@
 ---
-title: Press Release: Report shows inflight battery incidents are rising
-source: Runway Girl Network
+title: "Press Release: Report shows inflight battery incidents are rising"
+source: "Runway Girl Network"
 link: https://runwaygirlnetwork.com/2026/08/new-report-shows-battery-incidents/
 date: 2026-08-13
 rubric: cabin-interior

@@ -1,6 +1,6 @@
 ---
-title: China’s leading producer of frozen aviation meals: Nanjing Weizhou Airline Food
-source: Asian Aviation
+title: "China’s leading producer of frozen aviation meals: Nanjing Weizhou Airline Food"
+source: "Asian Aviation"
 link: https://asianaviation.com/posts/singapores-sats-buys-control-of-nanjing-weizhou-airline-food
 date: 2026-05-06
 added: 2026-05-06T16:53:16Z

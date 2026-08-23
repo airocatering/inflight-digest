@@ -279,6 +279,13 @@ def is_duplicate(tokens, seen_sets, threshold=0.55):
 
 
 # ---------------------------------------------------------------- утилиты
+def yaml_str(text):
+    """В кавычки — заголовок вида «Country: subtitle» ломает YAML во
+    front matter (двоеточие с пробелом внутри незакавыченного значения),
+    GitHub показывает файл с розовым предупреждением наверху."""
+    return '"' + text.replace("\\", "\\\\").replace('"', '\\"') + '"'
+
+
 def clean(text, limit=260):
     text = re.sub(r"<[^>]+>", " ", text or "")
     text = html.unescape(text)
@@ -462,8 +469,8 @@ def main():
             image = pick_image(entry)
 
             body = f"""---
-title: {title}
-source: {source_name}
+title: {yaml_str(title)}
+source: {yaml_str(source_name)}
 link: {link}
 date: {date.isoformat()}
 added: {dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")}

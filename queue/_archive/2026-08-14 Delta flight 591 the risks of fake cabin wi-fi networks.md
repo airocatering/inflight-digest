@@ -1,6 +1,6 @@
 ---
-title: Delta flight 591: the risks of fake cabin wi-fi networks
-source: Aircraft Interiors International
+title: "Delta flight 591: the risks of fake cabin wi-fi networks"
+source: "Aircraft Interiors International"
 link: https://www.aircraftinteriorsinternational.com/industry-opinion/delta-flight-591-the-risks-of-fake-cabin-wi-fi-networks.html
 date: 2026-08-14
 rubric: connectivity

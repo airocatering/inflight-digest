@@ -1,6 +1,6 @@
 ---
-title: Press Release: IFPL celebrates 30 years of engineering excellence
-source: Runway Girl Network
+title: "Press Release: IFPL celebrates 30 years of engineering excellence"
+source: "Runway Girl Network"
 link: https://runwaygirlnetwork.com/2026/08/ifpl-celebrates-30-years-of-engineering-excellence/
 date: 2026-08-18
 rubric: cabin-interior

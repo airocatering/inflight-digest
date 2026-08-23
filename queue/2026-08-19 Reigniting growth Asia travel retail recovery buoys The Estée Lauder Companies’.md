@@ -1,6 +1,6 @@
 ---
-title: Reigniting growth: Asia travel retail recovery buoys The Estée Lauder Companies’ full-year results
-source: Moodie Davitt Report
+title: "Reigniting growth: Asia travel retail recovery buoys The Estée Lauder Companies’ full-year results"
+source: "Moodie Davitt Report"
 link: https://moodiedavittreport.com/reigniting-growth-asia-travel-retail-recovery-buoys-the-estee-lauder-companies-full-year-results/
 date: 2026-08-19
 rubric: duty-free

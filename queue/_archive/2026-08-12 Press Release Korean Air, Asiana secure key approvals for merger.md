@@ -1,6 +1,6 @@
 ---
-title: Press Release: Korean Air, Asiana secure key approvals for merger
-source: Runway Girl Network
+title: "Press Release: Korean Air, Asiana secure key approvals for merger"
+source: "Runway Girl Network"
 link: https://runwaygirlnetwork.com/2026/08/korean-air-and-asiana-airlines-approvals-for-merger/
 date: 2026-08-12
 rubric: cabin-interior

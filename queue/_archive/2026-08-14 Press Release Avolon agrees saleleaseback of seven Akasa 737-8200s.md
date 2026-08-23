@@ -1,6 +1,6 @@
 ---
-title: Press Release: Avolon agrees sale/leaseback of seven Akasa 737-8200s
-source: Runway Girl Network
+title: "Press Release: Avolon agrees sale/leaseback of seven Akasa 737-8200s"
+source: "Runway Girl Network"
 link: https://runwaygirlnetwork.com/2026/08/avolon-agrees-sale-and-leaseback-of-seven-boeing-737-8200/
 date: 2026-08-14
 rubric: cabin-interior

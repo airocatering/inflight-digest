@@ -33,6 +33,14 @@ RUB_TITLE = {
 INK, RED, MUTED, LINE = "#141414", "#E1251B", "#75716A", "#DFDCD5"
 
 
+def unquote_yaml(v):
+    """title: "Country: subtitle" — снимаем кавычки, которые ставит
+    fetch_feeds.py, чтобы такой заголовок не ломал YAML на GitHub."""
+    if len(v) >= 2 and v[0] == v[-1] == '"':
+        v = v[1:-1].replace('\\"', '"').replace("\\\\", "\\")
+    return v
+
+
 def read_queue():
     items = []
     if not os.path.isdir(QUEUE):
@@ -48,7 +56,7 @@ def read_queue():
         for line in m.group(1).splitlines():
             if ":" in line:
                 k, v = line.split(":", 1)
-                meta[k.strip()] = v.strip()
+                meta[k.strip()] = unquote_yaml(v.strip())
         meta["file"] = name
         body = raw.split("---", 2)[-1]
         body = re.sub(r"<!--.*?-->", "", body, flags=re.S).strip()

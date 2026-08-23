@@ -1,6 +1,6 @@
 ---
-title: First look: Qantas’ new inflight entertainment system
-source: Executive Traveller
+title: "First look: Qantas’ new inflight entertainment system"
+source: "Executive Traveller"
 link: https://news.google.com/rss/articles/CBMilgFBVV95cUxQajBxcWR4OGp6UFJPOGRTQ3VRREtfRTBNVXduRWNWTExiUXFKTXUza0Rtc25CM0NLY0dZaS1QNXBDMnZBSldERWc0WVRDNzJUb2hpcVBnNk5Oazk4YUJGZzQwbk5XdEo5SHUxdHJ5c2UtYmVDSklxZWxMVDUwLXNpY2d4VTdIcHpfaE9TRUx4dlYzaFY3X2c?oc=5
 date: 2026-08-12
 rubric: entertainment

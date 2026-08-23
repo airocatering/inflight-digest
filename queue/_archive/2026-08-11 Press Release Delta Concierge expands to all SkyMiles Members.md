@@ -1,6 +1,6 @@
 ---
-title: Press Release: Delta Concierge expands to all SkyMiles Members
-source: Runway Girl Network
+title: "Press Release: Delta Concierge expands to all SkyMiles Members"
+source: "Runway Girl Network"
 link: https://runwaygirlnetwork.com/2026/08/delta-concierge-expands-to-all-skymiles-members/
 date: 2026-08-11
 rubric: cabin-interior

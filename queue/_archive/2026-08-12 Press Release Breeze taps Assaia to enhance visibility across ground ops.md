@@ -1,6 +1,6 @@
 ---
-title: Press Release: Breeze taps Assaia to enhance visibility across ground ops
-source: Runway Girl Network
+title: "Press Release: Breeze taps Assaia to enhance visibility across ground ops"
+source: "Runway Girl Network"
 link: https://runwaygirlnetwork.com/2026/08/breeze-airways-chooses-assaia/
 date: 2026-08-12
 rubric: connectivity

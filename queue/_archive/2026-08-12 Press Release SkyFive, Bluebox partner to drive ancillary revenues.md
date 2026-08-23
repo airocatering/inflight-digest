@@ -1,6 +1,6 @@
 ---
-title: Press Release: SkyFive, Bluebox partner to drive ancillary revenues
-source: Runway Girl Network
+title: "Press Release: SkyFive, Bluebox partner to drive ancillary revenues"
+source: "Runway Girl Network"
 link: https://runwaygirlnetwork.com/2026/08/skyfive-bluebox-partner-to-turn-a2g/
 date: 2026-08-12
 rubric: connectivity
