@@ -13,6 +13,14 @@ QUEUE, POSTS = os.path.join(ROOT, "queue"), os.path.join(ROOT, "posts")
 SITE_URL = "https://airocatering.github.io/inflight-digest"
 NOINDEX = True          # снять, когда наберётся настоящий контент
 EDITOR = "Vlad Mazur"
+PUBLISHER = "Inflight Digest"
+CONTACT_MAIL = "vladyslav.mazur@gmail.com"
+
+# ID формы Formspree. Пока стоит заглушка, форма подписки не рисуется вообще —
+# вместо неё кнопка «написать письмом». Лучше честная почта, чем поле ввода,
+# которое молча выбрасывает адреса подписчиков.
+FORM_ID = "YOUR-FORM-ID"
+FORM_LIVE = bool(FORM_ID) and not FORM_ID.startswith("YOUR-")
 
 CSS = open(os.path.join(HERE, "style.css"), encoding="utf-8").read()
 CSS += """
@@ -164,7 +172,22 @@ def load_all():
             items.append(it)
             if folder == QUEUE:
                 promote.append(name)
-    items.sort(key=lambda x: (x.get("date", ""), x["file"]), reverse=True)
+    # Порядок на доске: свежее — первым, то есть слева вверху; самое старое
+    # оказывается последним, справа внизу. Когда у двух материалов одна и та же
+    # дата (а так бывает почти всегда — за день приходит несколько новостей),
+    # решает `added` — отметка робота о том, когда материал попал в очередь.
+    # Раньше на этом месте стояло имя файла, и порядок получался алфавитный,
+    # то есть случайный: первым мог встать материал, опубликованный раньше всех.
+    def order(x):
+        date = x.get("date", "")
+        # `added` ставит робот. У материала, написанного руками, этой строки
+        # обычно нет — считаем его самым свежим за свой день: вы его только что
+        # написали, значит на доске он должен стоять впереди роботных за ту же
+        # дату, а не проваливаться в конец. "T99" не время, а заведомо большая
+        # строка: любое реальное "…T23:59:59Z" сортируется раньше неё.
+        return (date, x.get("added") or date + "T99", x["file"])
+
+    items.sort(key=order, reverse=True)
     return items, promote
 
 
@@ -177,8 +200,40 @@ def fmt_date(iso):
 
 
 # ---------------------------------------------------------------- каркас
-def head(title, path, desc):
-    robots = '<meta name="robots" content="noindex,nofollow">\n' if NOINDEX else ""
+def ld_json(*blocks):
+    """Разметка schema.org. Именно из неё Google строит расширенные сниппеты —
+    дату, автора, издателя. Без неё новость выглядит в выдаче как обычная
+    страница."""
+    out = [b for b in blocks if b]
+    if not out:
+        return ""
+    data = out[0] if len(out) == 1 else {"@context": "https://schema.org", "@graph":
+                                         [{k: v for k, v in b.items() if k != "@context"}
+                                          for b in out]}
+    return ('<script type="application/ld+json">'
+            + json.dumps(data, ensure_ascii=False, separators=(",", ":"))
+            + "</script>")
+
+
+def org_ld():
+    return {"@context": "https://schema.org", "@type": "NewsMediaOrganization",
+            "@id": f"{SITE_URL}/#org", "name": PUBLISHER, "url": f"{SITE_URL}/",
+            "logo": {"@type": "ImageObject", "url": f"{SITE_URL}/favicon-180.png"},
+            "email": CONTACT_MAIL,
+            "description": "Independent trade news on airline catering, inflight "
+                           "entertainment, cabin interiors and onboard service.",
+            "address": {"@type": "PostalAddress", "addressLocality": "Kyiv",
+                        "addressCountry": "UA"}}
+
+
+def head(title, path, desc, ld="", og_type="website", extra=""):
+    if NOINDEX:
+        robots = '<meta name="robots" content="noindex,nofollow">\n'
+    else:
+        # max-image-preview:large — крупная картинка в выдаче и в Discover,
+        # для новостного сайта это заметная разница в кликах
+        robots = ('<meta name="robots" content="index,follow,max-image-preview:large,'
+                  'max-snippet:-1,max-video-preview:-1">\n')
     url = f"{SITE_URL}/{path}"
     return f'''<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -187,11 +242,13 @@ def head(title, path, desc):
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="favicon-32.png">
 <link rel="apple-touch-icon" href="favicon-180.png">
-<meta property="og:type" content="website"><meta property="og:site_name" content="Inflight Digest">
+<link rel="alternate" type="application/rss+xml" title="Inflight Digest" href="{SITE_URL}/feed.xml">
+<meta property="og:type" content="{og_type}"><meta property="og:site_name" content="Inflight Digest">
+<meta property="og:locale" content="en_GB">{extra}
 <meta property="og:title" content="{title}"><meta property="og:description" content="{desc}">
 <meta property="og:url" content="{url}"><meta property="og:image" content="{SITE_URL}/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="{url}">{FONT}<style>{CSS}</style></head><body>'''
+<link rel="canonical" href="{url}">{ld}{FONT}<style>{CSS}</style></head><body>'''
 
 
 def header(active=None):
@@ -205,28 +262,34 @@ def header(active=None):
 <a class="adv" href="advertise.html">Advertise</a></div></nav>'''
 
 
-SUBSCRIBE = '''<section class="sub"><div class="wrap">
+_SUB_CTA = (f'''<form method="POST" action="https://formspree.io/f/{FORM_ID}">
+<input type="email" name="email" placeholder="you@airline.com" required>
+<button type="submit">Subscribe</button></form>
+<div class="fine">Join <b>&mdash;</b> industry readers &middot; unsubscribe in one click &middot;
+we never share your address</div>''' if FORM_LIVE else f'''<a class="mailbtn"
+href="mailto:{CONTACT_MAIL}?subject=Subscribe%20to%20The%20Monday%20Digest">Email to subscribe</a>
+<div class="fine">One line is enough &mdash; we add you by hand and you can leave any time.</div>''')
+
+SUBSCRIBE = f'''<section class="sub"><div class="wrap">
 <div><span class="badge">Free &middot; every Monday</span>
 <h2 class="serif">The Monday Digest</h2>
 <p>One email a week with everything worth knowing about catering, cabin, IFEC and
 duty free &mdash; picked by a human, not a feed reader. No daily noise.</p></div>
-<div><form method="POST" action="https://formspree.io/f/YOUR-FORM-ID">
-<input type="email" name="email" placeholder="you@airline.com" required>
-<button type="submit">Subscribe</button></form>
-<div class="fine">Join <b>&mdash;</b> industry readers &middot; unsubscribe in one click &middot;
-we never share your address</div></div></div></section>'''
+<div>{_SUB_CTA}</div></div></section>'''
 
 
 def footer():
     rubs = "".join(f'<li><a href="{k}.html">{t}</a></li>' for k, t, _ in RUBRICS)
     return f'''<footer><div class="wrap">{LOGO_W}
 <div class="fcols">
-<div><h4>About</h4><ul><li><a href="#">Editorial policy</a></li>
-<li><a href="#">Sources &amp; attribution</a></li><li><a href="advertise.html">Advertise</a></li>
+<div><h4>About</h4><ul><li><a href="editorial-policy.html">Editorial policy</a></li>
+<li><a href="sources.html">Sources &amp; attribution</a></li>
+<li><a href="advertise.html">Advertise</a></li>
 <li><a href="contact.html">Contact</a></li></ul></div>
 <div><h4>Sections</h4><ul>{rubs}</ul></div>
 <div><h4>More</h4><ul><li><a href="jobs.html">Top Jobs Worldwide</a></li>
-<li><a href="events.html">Events</a></li><li><a href="#">RSS</a></li></ul></div></div>
+<li><a href="events.html">Events</a></li>
+<li><a href="feed.xml">RSS feed</a></li></ul></div></div>
 <div class="fb"><span>&copy; {dt.date.today().year} Inflight Digest &middot;
 headlines link to the original publishers</span><span>Kyiv, Ukraine</span></div>
 </div></footer></body></html>'''
@@ -272,12 +335,21 @@ def board(items, quotes=True):
 
 # ---------------------------------------------------------------- страницы
 def page_index(items):
+    site_ld = {"@context": "https://schema.org", "@type": "WebSite",
+               "@id": f"{SITE_URL}/#site", "url": f"{SITE_URL}/", "name": PUBLISHER,
+               "inLanguage": "en", "publisher": {"@id": f"{SITE_URL}/#org"}}
     return (head("Inflight Digest — airline catering, entertainment, onboard services",
                  "index.html",
                  "Airline catering, inflight entertainment and onboard service news — "
-                 "filtered by a human, published daily.")
+                 "filtered by a human, published daily.",
+                 ld=ld_json(org_ld(), site_ld))
             + header()
-            + f'''<div class="wrap"><div class="lead"><h2>Today's board</h2><div class="l"></div>
+            # h1 на главной был вообще: заголовок сайта — это логотип в SVG, а его
+            # поисковик как текст не читает. Скрываем визуально, но отдаём роботу
+            # и экранным читалкам — дизайн доски при этом не меняется.
+            + f'''<div class="wrap"><h1 class="vh">Inflight Digest &mdash; airline catering,
+inflight entertainment and onboard service news</h1>
+<div class="lead"><h2>Today's board</h2><div class="l"></div>
 <span class="note">{len(items)} published &middot; newest first</span></div>{board(items)}</div>'''
             + SUBSCRIBE + footer())
 
@@ -304,7 +376,29 @@ def page_article(it, items):
               '<figcaption>Illustration by Inflight Digest &mdash; no photograph '
               'was supplied in the source feed.</figcaption>')
     rest = "".join(f"<p>{p}</p>" for p in it["rest"])
-    return (head(f"{it['title']} — Inflight Digest", it["url"], it["stand"][:180])
+    img = it["img"] if it["hotlink"] else f"{SITE_URL}/og-image.png"
+    art_ld = {"@context": "https://schema.org", "@type": "NewsArticle",
+              "headline": it["title"][:110], "description": it["stand"][:300],
+              "datePublished": it.get("date", ""), "dateModified": it.get("date", ""),
+              "inLanguage": "en", "image": [img],
+              "mainEntityOfPage": {"@type": "WebPage", "@id": f"{SITE_URL}/{it['url']}"},
+              "author": {"@type": "Person", "name": EDITOR},
+              "publisher": {"@id": f"{SITE_URL}/#org"},
+              "articleSection": RUB_TITLE[it["rubric"]]}
+    if it.get("link"):
+        art_ld["isBasedOn"] = it["link"]
+    crumb_ld = {"@context": "https://schema.org", "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "Home",
+                     "item": f"{SITE_URL}/index.html"},
+                    {"@type": "ListItem", "position": 2,
+                     "name": RUB_TITLE[it["rubric"]],
+                     "item": f"{SITE_URL}/{it['rubric']}.html"},
+                    {"@type": "ListItem", "position": 3, "name": it["title"]}]}
+    pub = (f'<meta property="article:published_time" content="{it["date"]}">'
+           if it.get("date") else "")
+    return (head(f"{it['title']} — Inflight Digest", it["url"], it["stand"][:180],
+                 ld=ld_json(org_ld(), art_ld, crumb_ld), og_type="article", extra=pub)
             + header(it["rubric"])
             + f'''<div class="wrap">
 <div class="crumb"><a href="index.html">Home</a> &nbsp;/&nbsp;
@@ -433,13 +527,138 @@ def page_events():
             f'flight. Running something we have missed? '
             f'<a href="contact.html">Tell us</a>.</p>')
 
+    ev_ld = {"@context": "https://schema.org", "@type": "ItemList",
+             "name": "Airline catering, cabin and travel retail trade shows",
+             "itemListElement": [
+                 {"@type": "ListItem", "position": i,
+                  "item": {"@type": "Event", "name": e["name"],
+                           "startDate": e["start"], "endDate": e.get("end") or e["start"],
+                           "eventStatus": "https://schema.org/EventScheduled",
+                           "eventAttendanceMode":
+                               "https://schema.org/OfflineEventAttendanceMode",
+                           "location": {"@type": "Place",
+                                        "name": e.get("venue") or e.get("city", ""),
+                                        "address": {"@type": "PostalAddress",
+                                                    "addressLocality": e.get("city", ""),
+                                                    "addressCountry": e.get("country", "")}},
+                           **({"url": e["url"]} if e.get("url") else {})}}
+                 for i, e in enumerate(upcoming, 1)]} if upcoming else None
     return (head("Events — Inflight Digest", "events.html",
                  "Trade shows and conferences in airline catering, cabin interiors, "
-                 "IFEC and travel retail. Past events drop off automatically.")
+                 "IFEC and travel retail. Past events drop off automatically.",
+                 ld=ld_json(org_ld(), ev_ld))
             + header("events")
             + f'''<div class="wrap"><section class="jobhead evhead">
-<div><h1 class="serif">Events</h1><p>{data["intro"]}</p></div></section>
+<div><h1 class="serif">Events</h1><p>{data["intro"]}</p></section>
 {rows}{foot}</div>''' + SUBSCRIBE + footer())
+
+
+def write_feed(items):
+    """RSS. Для отраслевого издания это рабочий канал: по ленте вас забирают
+    агрегаторы, читалки и чужие рассылки — тот же механизм, которым мы сами
+    собираем чужие новости."""
+    now = dt.datetime.now(dt.timezone.utc).strftime("%a, %d %b %Y %H:%M:%S +0000")
+    parts = []
+    for it in items[:40]:
+        try:
+            d = dt.date.fromisoformat(it.get("date", ""))
+            pub = d.strftime("%a, %d %b %Y 08:00:00 +0000")
+        except Exception:
+            pub = now
+        parts.append(
+            "  <item>\n"
+            f"    <title>{H.escape(it['title'])}</title>\n"
+            f"    <link>{SITE_URL}/{it['url']}</link>\n"
+            f"    <guid isPermaLink=\"true\">{SITE_URL}/{it['url']}</guid>\n"
+            f"    <category>{H.escape(RUB_TITLE[it['rubric']])}</category>\n"
+            f"    <pubDate>{pub}</pubDate>\n"
+            f"    <description>{H.escape(it['stand'])}</description>\n"
+            "  </item>\n")
+    xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+           '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n<channel>\n'
+           f"  <title>{PUBLISHER}</title>\n"
+           f"  <link>{SITE_URL}/</link>\n"
+           f'  <atom:link href="{SITE_URL}/feed.xml" rel="self" type="application/rss+xml"/>\n'
+           "  <description>Independent trade news on airline catering, inflight "
+           "entertainment, cabin interiors and onboard service.</description>\n"
+           "  <language>en</language>\n"
+           f"  <lastBuildDate>{now}</lastBuildDate>\n"
+           + "".join(parts) + "</channel>\n</rss>\n")
+    open(os.path.join(ROOT, "feed.xml"), "w", encoding="utf-8").write(xml)
+    return len(parts)
+
+
+def page_doc(key, title, lead, body):
+    """Текстовая страница с подзаголовками — редполитика, источники."""
+    return (head(f"{title} — Inflight Digest", f"{key}.html",
+                 re.sub("<[^>]+>", " ", lead)[:180], ld=ld_json(org_ld()))
+            + header() + f'''<div class="wrap"><section class="rubhead">
+<h1 class="serif">{title}</h1><p>{lead}</p></section>
+<div class="doc">{body}</div></div>''' + SUBSCRIBE + footer())
+
+
+EDITORIAL_POLICY = """
+<h2>Who publishes this</h2>
+<p>Inflight Digest is written and edited by Vlad Mazur in Kyiv, Ukraine, and published by
+him as a registered sole trader. It is not owned by an airline, a caterer, a supplier or a
+trade association. There is one person here, and his name is on every story.</p>
+
+<h2>How stories are chosen</h2>
+<p>Headlines arrive automatically: a script reads the RSS feeds of industry publications
+and a set of standing searches several times a day, and drops candidates into a queue.
+Nothing reaches the site from that queue on its own. Every item is read, judged and
+either published or deleted by hand. Roughly four out of five are deleted &mdash;
+anniversaries, photo galleries, reprinted press releases and &ldquo;top ten&rdquo; lists
+do not make the page.</p>
+<p>What does make it: contracts and tenders, appointments at director level and above,
+new onboard product, incidents and regulatory action, and the supplier side of the
+business that the mainstream aviation press ignores.</p>
+
+<h2>What we publish and what we do not</h2>
+<p>We publish a headline, a short summary in our own words, our own comment where we
+have something to add, and a link to the original. We do not reprint full articles.
+See <a href="sources.html">Sources &amp; attribution</a> for the detail.</p>
+
+<h2>Corrections</h2>
+<p>If something here is wrong, write to <a href="mailto:{mail}">{mail}</a> and it gets
+fixed. Corrections are made on the story itself, with a note saying what changed &mdash;
+we do not quietly edit a page and pretend it always read that way. A subject of a story
+who disputes it gets their reply published alongside it.</p>
+
+<h2>Advertising and independence</h2>
+<p>Advertising is sold separately from editorial and marked as advertising. No advertiser
+sees a story before it runs, and no advertiser has ever been given, or will be given, a
+say in what is covered. If a story concerns a company that advertises here, that fact is
+stated in the story.</p>
+""".replace("{mail}", CONTACT_MAIL)
+
+SOURCES_DOC = """
+<h2>Summary and link, never the full text</h2>
+<p>Every story on this site credits its source publication by name and links to the
+original article. We publish a headline, a short factual summary written in our own
+words, and our own analysis. We do not republish full articles, and we do not reproduce
+long passages of someone else&rsquo;s reporting. If you want the whole story, the link
+takes you to the people who did the work.</p>
+
+<h2>Photographs</h2>
+<p>Where a source supplies a photograph, it is displayed from the publisher&rsquo;s own
+server &mdash; we do not copy images onto ours. If the publisher removes or blocks the
+image, the tile falls back to a plain coloured panel generated here. Illustrations marked
+as ours are generated by this site and free to reuse with credit.</p>
+
+<h2>Where the headlines come from</h2>
+<p>Industry publications whose feeds we read: Runway Girl Network, Aircraft Interiors
+International, PaxEx.aero, APEX, Inflight, TRBusiness, The Moodie Davitt Report and
+TheDesignAir. Alongside them run standing searches on airline catering, inflight
+entertainment and connectivity, executive appointments, food and drink brand deals,
+low-cost carrier menus, and onboard product manufacturing.</p>
+
+<h2>If you are a publisher</h2>
+<p>If you would rather we did not summarise or link to your material, say so at
+<a href="mailto:{mail}">{mail}</a> and we will remove it and stop reading your feed.
+No argument, no delay. If we have credited you incorrectly, tell us and it is corrected
+the same day.</p>
+""".replace("{mail}", CONTACT_MAIL)
 
 
 def page_simple(key, title, text, active=None):
@@ -466,6 +685,14 @@ def main():
         write[it["url"]] = page_article(it, items)
     write["jobs.html"] = page_jobs()
     write["events.html"] = page_events()
+    write["editorial-policy.html"] = page_doc(
+        "editorial-policy", "Editorial policy",
+        "Who writes this, how stories are chosen, and what happens when we get "
+        "something wrong.", EDITORIAL_POLICY)
+    write["sources.html"] = page_doc(
+        "sources", "Sources &amp; attribution",
+        "We summarise and link. Here is exactly what that means, and how to reach us "
+        "if you are the publisher.", SOURCES_DOC)
     write["contact.html"] = page_simple(
         "contact", "Contact",
         'Inflight Digest is written and edited by Vlad Mazur in Kyiv, Ukraine. '
@@ -516,9 +743,30 @@ def main():
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls + "</urlset>\n")
 
+    n_feed = write_feed(items)
+    print(f"в RSS-ленте материалов: {n_feed}")
+
+    # advertise.html свёрстан руками и сборкой не создаётся, поэтому запрет
+    # индексации в нём пришлось бы снимать отдельно — и о нём легко забыть.
+    # Синхронизируем автоматически: одна строка, тот же флаг NOINDEX.
+    adv = os.path.join(ROOT, "advertise.html")
+    if os.path.exists(adv):
+        html = open(adv, encoding="utf-8").read()
+        tag = '<meta name="robots" content="noindex,nofollow">'
+        has = tag in html
+        if NOINDEX and not has:
+            html = html.replace("<title>", tag + "\n<title>", 1)
+            print("  ! advertise.html закрыт от индексации")
+        elif not NOINDEX and has:
+            html = html.replace(tag + "\n", "").replace(tag, "")
+            print("  → advertise.html открыт для индексации")
+        open(adv, "w", encoding="utf-8").write(html)
+
     robots = ("# Draft site — nothing here should be indexed yet.\n"
-              "User-agent: *\nDisallow: /\n\n" if NOINDEX else "User-agent: *\nAllow: /\n\n")
-    open(os.path.join(ROOT, "robots.txt"), "w").write(robots + f"Sitemap: {SITE_URL}/sitemap.xml\n")
+              "User-agent: *\nDisallow: /\n\n" if NOINDEX else
+              "User-agent: *\nAllow: /\n\n")
+    open(os.path.join(ROOT, "robots.txt"), "w").write(
+        robots + f"Sitemap: {SITE_URL}/sitemap.xml\n")
     open(os.path.join(ROOT, ".nojekyll"), "w").write("")
 
     for src in ("favicon.svg", "favicon-32.png", "favicon-180.png", "og-image.png"):
