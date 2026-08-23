@@ -178,7 +178,9 @@ def main():
     user, pwd = os.environ.get("SMTP_USER"), os.environ.get("SMTP_PASS")
     if not (host and user and pwd):
         sys.exit("не заданы SMTP_HOST / SMTP_USER / SMTP_PASS")
-    sender = os.environ.get("MAIL_FROM", user)
+    # не get(..., user): неопределённый секрет GitHub приходит ПУСТОЙ СТРОКОЙ,
+    # а не отсутствует — значение по умолчанию в get() тогда не срабатывает
+    sender = os.environ.get("MAIL_FROM") or user
     subject = f"The Monday Digest — {len(items)} " + ("story" if len(items) == 1 else "stories")
 
     smtp = (smtplib.SMTP_SSL(host, port, timeout=30) if port == 465
