@@ -11,7 +11,7 @@ ROOT = os.path.dirname(HERE)
 QUEUE, POSTS = os.path.join(ROOT, "queue"), os.path.join(ROOT, "posts")
 
 SITE_URL = "https://airocatering.github.io/inflight-digest"
-NOINDEX = True          # снять, когда наберётся настоящий контент
+NOINDEX = False         # сайт открыт для индексации с 23.08.2026
 EDITOR = "Vlad Mazur"
 PUBLISHER = "Inflight Digest"
 CONTACT_MAIL = "vladyslav.mazur@gmail.com"
@@ -226,14 +226,18 @@ def org_ld():
                         "addressCountry": "UA"}}
 
 
-def head(title, path, desc, ld="", og_type="website", extra=""):
+def robots_tag():
+    """Один тег для всего сайта — и для собранных страниц, и для advertise.html,
+    который свёрстан руками. max-image-preview:large даёт крупную картинку в
+    выдаче и в Discover, для новостного сайта это заметная разница в кликах."""
     if NOINDEX:
-        robots = '<meta name="robots" content="noindex,nofollow">\n'
-    else:
-        # max-image-preview:large — крупная картинка в выдаче и в Discover,
-        # для новостного сайта это заметная разница в кликах
-        robots = ('<meta name="robots" content="index,follow,max-image-preview:large,'
-                  'max-snippet:-1,max-video-preview:-1">\n')
+        return '<meta name="robots" content="noindex,nofollow">'
+    return ('<meta name="robots" content="index,follow,max-image-preview:large,'
+            'max-snippet:-1,max-video-preview:-1">')
+
+
+def head(title, path, desc, ld="", og_type="website", extra=""):
+    robots = robots_tag() + "\n"
     url = f"{SITE_URL}/{path}"
     return f'''<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -428,9 +432,6 @@ def page_jobs():
 <div class="why"><b>Why it made the list:</b> {j['why']}</div></div>
 <span class="tag{' new' if j.get('new') else ''}">{'New' if j.get('new') else j['level']}</span></a>'''
                    for j in jobs["roles"])
-    filters = "".join(f'<a class="{"on" if i == 0 else ""}" href="#">{f}</a>'
-                      for i, f in enumerate(["All roles", "Catering", "Cabin &amp; seating",
-                                             "IFEC", "Duty free", "Remote"]))
     notice = (f'<div class="notice">{jobs["notice"]}</div>' if jobs.get("notice") else "")
     return (head("Top Jobs Worldwide — Inflight Digest", "jobs.html",
                  "Hand-picked senior roles in airline catering, cabin product, IFEC and duty free.")
@@ -444,7 +445,7 @@ below, it runs for 30 days.</p>
 <div class="criteria"><span><b>Selected on:</b></span><span>seniority &mdash; lead level and up</span>
 <span>named employer, no blind agency ads</span><span>salary band or a real market rate</span>
 <span>a role you cannot find on every board</span></div>
-<div class="jfilter">{filters}</div>{notice}
+{notice}
 <div class="jobs">{rows}</div></div>''' + SUBSCRIBE + footer())
 
 
@@ -752,15 +753,16 @@ def main():
     adv = os.path.join(ROOT, "advertise.html")
     if os.path.exists(adv):
         html = open(adv, encoding="utf-8").read()
-        tag = '<meta name="robots" content="noindex,nofollow">'
-        has = tag in html
-        if NOINDEX and not has:
-            html = html.replace("<title>", tag + "\n<title>", 1)
-            print("  ! advertise.html закрыт от индексации")
-        elif not NOINDEX and has:
-            html = html.replace(tag + "\n", "").replace(tag, "")
-            print("  → advertise.html открыт для индексации")
-        open(adv, "w", encoding="utf-8").write(html)
+        # Раньше здесь умели только добавить или убрать noindex. Открытая
+        # advertise.html оставалась вообще без тега: индексировалась, но без
+        # max-image-preview — единственная страница сайта не как все.
+        # Теперь просто выставляем ровно тот же тег, что и в head().
+        cleaned = re.sub(r'[ \t]*<meta name="robots"[^>]*>\n?', "", html)
+        fixed = cleaned.replace("<title>", robots_tag() + "\n<title>", 1)
+        if fixed != html:
+            open(adv, "w", encoding="utf-8").write(fixed)
+            print(f"  → advertise.html: "
+                  f"{'закрыт от' if NOINDEX else 'открыт для'} индексации")
 
     robots = ("# Draft site — nothing here should be indexed yet.\n"
               "User-agent: *\nDisallow: /\n\n" if NOINDEX else
