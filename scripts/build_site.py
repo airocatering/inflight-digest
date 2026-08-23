@@ -22,6 +22,12 @@ CONTACT_MAIL = "vladyslav.mazur@gmail.com"
 FORM_ID = "YOUR-FORM-ID"
 FORM_LIVE = bool(FORM_ID) and not FORM_ID.startswith("YOUR-")
 
+# Идентификатор потока Google Analytics 4, вида G-XXXXXXXXXX. Пустая строка —
+# счётчик не ставится вообще, ни одной лишней загрузки. Это не секрет: он и так
+# виден в исходном коде любой страницы, поэтому лежит в репозитории, а не в
+# GitHub Secrets.
+GA_ID = "G-W2BDQ3VTLM"
+
 CSS = open(os.path.join(HERE, "style.css"), encoding="utf-8").read()
 CSS += """
 .credit{font-size:11px;color:var(--muted);margin-top:6px}
@@ -236,6 +242,18 @@ def robots_tag():
             'max-snippet:-1,max-video-preview:-1">')
 
 
+def ga_snippet():
+    """Счётчик GA4. Обёрнут маркерами, чтобы сборка могла его найти и заменить
+    во вручную свёрстанной advertise.html — там же, где синхронизируется robots."""
+    if not GA_ID:
+        return ""
+    return (f'<!-- ga --><script async '
+            f'src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>'
+            f'<script>window.dataLayer=window.dataLayer||[];'
+            f'function gtag(){{dataLayer.push(arguments);}}'
+            f'gtag("js",new Date());gtag("config","{GA_ID}");</script><!-- /ga -->')
+
+
 def head(title, path, desc, ld="", og_type="website", extra=""):
     robots = robots_tag() + "\n"
     url = f"{SITE_URL}/{path}"
@@ -252,7 +270,8 @@ def head(title, path, desc, ld="", og_type="website", extra=""):
 <meta property="og:title" content="{title}"><meta property="og:description" content="{desc}">
 <meta property="og:url" content="{url}"><meta property="og:image" content="{SITE_URL}/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="{url}">{ld}{FONT}<style>{CSS}</style></head><body>'''
+<link rel="canonical" href="{url}">{ld}{FONT}<style>{CSS}</style>
+{ga_snippet()}</head><body>'''
 
 
 def header(active=None):
@@ -758,7 +777,16 @@ def main():
         # max-image-preview — единственная страница сайта не как все.
         # Теперь просто выставляем ровно тот же тег, что и в head().
         cleaned = re.sub(r'[ \t]*<meta name="robots"[^>]*>\n?', "", html)
+        # \n? в конце обязателен: без него перевод строки, добавленный при
+        # вставке, остаётся в файле, и каждая пересборка копит по пустой
+        # строке — файл меняется всегда, значит коммитится каждые 4 часа
+        cleaned = re.sub(r"<!-- ga -->.*?<!-- /ga -->\n?", "", cleaned, flags=re.S)
         fixed = cleaned.replace("<title>", robots_tag() + "\n<title>", 1)
+        if ga_snippet():
+            fixed = fixed.replace("</head>", ga_snippet() + "\n</head>", 1)
+        # подчищаем пустые строки перед </head>: и как страховка от накопления,
+        # и чтобы разово убрать то, что уже успело накопиться до этой правки
+        fixed = re.sub(r"\n{2,}(?=</head>)", "\n", fixed)
         if fixed != html:
             open(adv, "w", encoding="utf-8").write(fixed)
             print(f"  → advertise.html: "
