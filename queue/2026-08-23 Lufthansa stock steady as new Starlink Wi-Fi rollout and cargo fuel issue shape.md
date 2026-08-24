@@ -7,7 +7,7 @@ added: 2026-08-23T16:45:36Z
 rubric: connectivity
 image: https://mdb.ad-hoc-news.de/bild/bild-2672560_1920_1080.webp
 slug: 2026-08-23-lufthansa-stock-steady-as-new-starlink-wi-fi-rollout-and-car
-status: draft
+status: published
 ---
 Lufthansa stock steady as new Starlink Wi-Fi rollout and cargo fuel issue shape outlook Ad-hoc-news.de
 
