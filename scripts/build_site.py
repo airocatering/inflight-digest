@@ -4,7 +4,7 @@
 Читает queue/*.md и posts/*.md. На сайт попадает только то, где стоит
 status: published. Одобренные файлы переезжают из queue/ в posts/.
 """
-import os, re, json, base64, shutil, html as H, datetime as dt
+import os, re, json, base64, shutil, struct, html as H, datetime as dt
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -101,6 +101,61 @@ PALETTES = [("#16202c", "#31465f", "#7ea2c4"), ("#2a1a1e", "#5c2b2f", "#c58b7a")
             ("#241a24", "#4c2f4a", "#b98fb2"), ("#1d2620", "#37503c", "#93bb9a")]
 
 
+def image_size(path):
+    """Ширина и высота растрового файла — читаем только заголовок, не весь
+    файл, без внешних библиотек. Понимает JPEG, PNG, WEBP (VP8/VP8L/VP8X).
+    Не получилось разобрать — None, вызывающий код тогда просто не применяет
+    портретную рамку к статье, ничего не падает."""
+    try:
+        with open(path, "rb") as f:
+            head = f.read(32)
+            if head[:8] == b"\x89PNG\r\n\x1a\n":
+                w, h = struct.unpack(">II", head[16:24])
+                return w, h
+            if head[:4] == b"RIFF" and head[8:12] == b"WEBP":
+                tag = head[12:16]
+                if tag == b"VP8 ":
+                    w, h = struct.unpack("<HH", head[26:30])
+                    return w & 0x3FFF, h & 0x3FFF
+                if tag == b"VP8L":
+                    b0, b1, b2, b3 = head[21], head[22], head[23], head[24]
+                    w = 1 + (((b1 & 0x3F) << 8) | b0)
+                    h = 1 + (((b3 & 0xF) << 10) | (b2 << 2) | (b1 >> 6))
+                    return w, h
+                if tag == b"VP8X":
+                    w = 1 + (head[24] | (head[25] << 8) | (head[26] << 16))
+                    h = 1 + (head[27] | (head[28] << 8) | (head[29] << 16))
+                    return w, h
+                return None
+            if head[:2] == b"\xff\xd8":
+                f.seek(2)
+                while True:
+                    marker = f.read(2)
+                    if len(marker) < 2 or marker[0] != 0xFF:
+                        return None
+                    if marker[1] in (0xC0, 0xC1, 0xC2, 0xC3, 0xC5, 0xC6, 0xC7,
+                                      0xC9, 0xCA, 0xCB, 0xCD, 0xCE, 0xCF):
+                        f.read(3)
+                        h, w = struct.unpack(">HH", f.read(4))
+                        return w, h
+                    seg_len = struct.unpack(">H", f.read(2))[0]
+                    f.seek(seg_len - 2, 1)
+    except (OSError, struct.error, IndexError):
+        return None
+    return None
+
+
+def is_portrait(image_field):
+    """Портретная ли фотография — только для своих файлов в assets/.
+    Внешние (hotlink) картинки не трогаем: это был бы сетевой запрос на
+    этапе сборки ради проверки ориентации, и почти всегда это готовые
+    landscape og:image 1200×630 — рамка 16:9 для них и так подходит."""
+    if not image_field or not image_field.startswith("assets/"):
+        return False
+    dims = image_size(os.path.join(ROOT, image_field))
+    return bool(dims and dims[1] > dims[0])
+
+
 def placeholder(seed, w=1200, h=800):
     i = sum(ord(c) for c in seed)
     a, b, c = PALETTES[i % len(PALETTES)]
@@ -155,6 +210,7 @@ def parse_md(path):
         meta["rubric"] = "cabin-interior"
     meta["img"] = meta["image"] or placeholder(meta["file"])
     meta["hotlink"] = bool(meta["image"])
+    meta["portrait"] = is_portrait(meta["image"])
     paras = [p.strip() for p in body.split("\n\n") if p.strip()]
     meta["stand"] = paras[0] if paras else ""
     meta["rest"] = paras[1:]
@@ -483,7 +539,7 @@ def page_article(it, items):
 <div class="byline"><span>Filed by <b>{EDITOR}</b></span><span class="dot"></span>
 <span>{fmt_date(it.get('date',''))}</span><span class="dot"></span>
 <span>Source: <b>{it.get('source','')}</b></span></div>
-<figure class="figure">{img_tag(it)}{credit}</figure>
+<figure class="figure{' portrait' if it.get('portrait') else ''}">{img_tag(it)}{credit}</figure>
 <div class="body">{rest}
 <div class="srcbox"><div class="l">Read the original</div>
 <a href="{it.get('link','#')}" target="_blank" rel="noopener">{it.get('source','')} &rarr;</a>

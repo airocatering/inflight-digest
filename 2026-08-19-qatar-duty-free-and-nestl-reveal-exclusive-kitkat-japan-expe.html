@@ -146,6 +146,9 @@ border-bottom:1px solid var(--line);margin-bottom:26px}
 .byline .dot{width:3px;height:3px;border-radius:50%;background:var(--red)}
 .figure{margin:0 0 12px}
 .figure img{width:100%;aspect-ratio:16/9;object-fit:cover}
+/* портретное фото в рамке 16:9 показывало только среднюю четверть кадра —
+   у своих (не hotlink) вертикальных снимков своя, более высокая рамка */
+.figure.portrait img{aspect-ratio:3/4}
 .figure figcaption{font-size:12px;color:var(--muted);padding-top:8px;border-bottom:1px solid var(--line);
 padding-bottom:12px;margin-bottom:24px}
 .body p{font-size:17px;line-height:1.68;margin:0 0 20px;max-width:66ch}
