@@ -5,7 +5,7 @@ link: https://news.google.com/rss/articles/CBMimAFBVV95cUxQNW44QW1uMzAtWmxKNE5ae
 date: 2026-08-22
 added: 2026-08-23T04:19:38Z
 rubric: cabin-interior
-image: 
+image: https://www.aerotime.aero/images/2025/07/Delta-Air-Lines-Airbus-A330-200-1200x800.jpg.webp
 slug: 2026-08-22-elon-musk-issues-a-warning-to-delta-it-will-get-much-worse
 status: draft
 ---
