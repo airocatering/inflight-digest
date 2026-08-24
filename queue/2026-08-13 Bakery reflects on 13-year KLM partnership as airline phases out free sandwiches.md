@@ -1,16 +1,14 @@
 ---
-title: Bakery reflects on 13-year KLM partnership as airline phases out free sandwiches
+title: No more free sandwiches on KLM – the story behind the airline’s bakery partner
 source: NL Times
 link: https://nltimes.nl/2026/08/13/bakery-reflects-13-year-klm-partnership-airline-phases-free-sandwiches
 date: 2026-08-13
 added: 2026-08-23T04:19:52Z
 rubric: catering
-image: 
+image: assets/KLM no-more-free-sandwiches.jpeg
 slug: 2026-08-13-bakery-reflects-on-13-year-klm-partnership-as-airline-phases
-status: draft
+status: published
 ---
-Bakery reflects on 13-year KLM partnership as airline phases out free sandwiches NL Times
+Bakkerij Carl Siegert, a historic bakery from Harmelen, supplied KLM with more than 200 million slices of bread during their 13-year partnership. The relationship will end as KLM phases out its iconic free cheese sandwiches on European flights from October 2026, replacing them with a paid “Grand Café KLM” menu.
 
-<!-- Ваш абзац. Что это значит для отрасли — два-три предложения.
-     Без него материал выглядит как перепечатка. Строку с комментарием
-     можно удалить. -->
+Michel Schröder of Bakkerij Carl Siegert said the decision was not a complete surprise, noting that airlines have been rethinking inflight dining and catering models in recent years.
