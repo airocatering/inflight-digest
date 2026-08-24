@@ -437,7 +437,8 @@ def img_tag(it, cls=""):
 
 
 def cell(it, cls=""):
-    return f'''<a class="cell {cls}" href="{it['url']}"><div class="ph">{img_tag(it)}</div>
+    ph_cls = "ph portrait" if it.get("portrait") else "ph"
+    return f'''<a class="cell {cls}" href="{it['url']}"><div class="{ph_cls}">{img_tag(it)}</div>
 <div class="bd"><div class="cat">{RUB_TITLE[it['rubric']]}</div><h3>{it['title']}</h3>
 <p>{it['stand']}</p><div class="m"><b>{it.get('source','')}</b> &middot;
 {fmt_date(it.get('date',''))}</div></div></a>'''

@@ -87,6 +87,11 @@ color:rgba(255,255,255,.55)}
 .cell.big{grid-column:span 2}
 @media(max-width:640px){.cell.big{grid-column:span 1}}
 .cell.big .ph{aspect-ratio:2.4/1}
+/* портретное фото в обычной карточке (3:2) или в широкой топ-карточке
+   (2.4:1, растянутая на 2 колонки) — та же логика, что и в .figure:
+   своя рамка вместо жёсткой обрезки до средней полоски кадра */
+.cell .ph.portrait{aspect-ratio:3/4}
+.cell.big .ph.portrait{aspect-ratio:1/1}
 .cell.big h3{font-size:30px;line-height:1.12;font-weight:700}
 .cell.big p{font-size:15.5px}
 
