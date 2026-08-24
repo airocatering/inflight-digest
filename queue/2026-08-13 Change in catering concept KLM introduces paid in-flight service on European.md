@@ -1,17 +1,14 @@
 ---
 title: "Change in catering concept: KLM introduces paid in-flight service on European flights"
 source: "Aviation.Direct"
-link: https://news.google.com/rss/articles/CBMitAFBVV95cUxPemNLZTFiNlU5S2lyQzJ6ZWxJN2VLN2NwSWJyRkFMX1JQaGFuYl9OTHAxaWxaZFdMeFA0anUxd2psUXV6RHVjOWVKYnNmSmtKYTdKYjdabXM2bVduOGNTUVVURlNmZ0lPY2V4OTRweDVIZXhNQ081bE50T25HZlBndm9UUlZmSVpLOVpZSXFfdTVFVmwza2hKVnFaaXptRHIwbThZUGFoWGVmSlpuRGFTVUd1NXg?oc=5
+link: https://aviation.direct/en/Change-in-catering-concept%3A-KLM-introduces-paid-in-flight-service-on-European-flights
 date: 2026-08-13
 added: 2026-08-23T04:19:52Z
 rubric: catering
-image: 
+image: https://i0.wp.com/aviation.direct/wp-content/uploads/1_KLM-Food-Truck.jpg?fit=1200%2C800&ssl=1
 slug: 2026-08-13-change-in-catering-concept-klm-introduces-paid-in-flight-ser
 status: draft
 ---
-
 Change in catering concept: KLM introduces paid in-flight service on European flights Aviation.Direct
 
-<!-- Ваш абзац. Что это значит для отрасли — два-три предложения.
-     Без него материал выглядит как перепечатка. Строку с комментарием
-     можно удалить. -->
+The menu includes cold dishes such as Poké bowls and Caesar salads, which can be pre-ordered. Standard drinks like coffee, tea, water, and orange juice, as well as the traditional stroopwafel, are included in the ticket price.

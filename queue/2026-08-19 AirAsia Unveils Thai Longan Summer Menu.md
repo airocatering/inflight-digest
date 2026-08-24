@@ -1,16 +1,13 @@
 ---
 title: AirAsia Unveils Thai Longan Summer Menu
 source: safariindia.com
-link: https://news.google.com/rss/articles/CBMickFVX3lxTFBtYjhZbE5aR0licVRhRkZFYWRFNnVhVU9jd2VaaS15NnBvclVlTDlJaUJSN09MMXpZdGJHRG9jaTJUdjRkQjlTWWp2VUUyOGFSYXB4R2ZsQ3ZUOERhYlFMTFkxRUJVbGpqemhfeVU1ZlI5Zw?oc=5
+link: https://safariindia.com/airasia-unveils-thai-longan-summer-menu/
 date: 2026-08-19
 rubric: catering
-image: 
+image: https://safariindia.com/wp-content/uploads/2026/04/A4-Q2-SetMenu-02-1024x512.jpg
 slug: 2026-08-19-airasia-unveils-thai-longan-summer-menu
 status: draft
 ---
-
 AirAsia Unveils Thai Longan Summer Menu safariindia.com
 
-<!-- Ваш абзац. Что это значит для отрасли — два-три предложения.
-     Без него материал выглядит как перепечатка. Строку с комментарием
-     можно удалить. -->
+AirAsia Thailand has introduced a new Santan inflight menu featuring Thai longan, with a focus on supporting local agricultural communities while offering passengers a fresh selection of meals and beverages. The menu is now available on all Thai…

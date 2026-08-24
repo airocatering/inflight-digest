@@ -1,17 +1,14 @@
 ---
 title: Elior UK Wins Five-Year Catering Contract at Air France Heathrow Lounge
 source: Hospitality & Catering News
-link: https://news.google.com/rss/articles/CBMiwAFBVV95cUxNZFdPVldhZVFsZWtqYXVJaVJsX3RfdVRJc2hlbDJrQllVMnJJOC1Eakd6ODRMeFdGQXVnTTZaNDdKOHZpdms1eHcwak5sQjFkTzdsb3NTMWxDV1BUZnNBRGNaOEpiY3lPX3dQNFNkNnd0WVZEa0RzdWdjRTM0VGRKV1ozWFR0czFVVjQ5cmlnV0oxbVpMYkhzcW9XOWNKbzJ4ZUJuNENsNkZRTVdJczlQaFhTelBwMmQtdW5aeTZRSE0?oc=5
+link: https://www.hospitalityandcateringnews.com/2026/08/elior-uk-wins-five-year-catering-contract-at-air-france-heathrow-lounge/
 date: 2026-08-10
 added: 2026-08-23T04:19:57Z
 rubric: catering
-image: 
+image: https://www.hospitalityandcateringnews.com/wp-content/uploads/2026/08/air-france-lounge-london-heathrow.jpg
 slug: 2026-08-10-elior-uk-wins-five-year-catering-contract-at-air-france-heat
 status: draft
 ---
-
 Elior UK Wins Five-Year Catering Contract at Air France Heathrow Lounge Hospitality & Catering News
 
-<!-- Ваш абзац. Что это значит для отрасли — два-три предложения.
-     Без него материал выглядит как перепечатка. Строку с комментарием
-     можно удалить. -->
+The airside lounge opened in Terminal 4 on 7 July 2026 and covers more than 750 sq m, with nearly 150 seats.

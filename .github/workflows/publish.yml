@@ -37,6 +37,35 @@ jobs:
         if: github.event_name != 'push'
         run: python scripts/fetch_feeds.py
 
+      - name: Install Playwright package
+        id: playwright_pkg
+        continue-on-error: true
+        run: |
+          pip install --quiet playwright
+          echo "version=$(python -m playwright --version | awk '{print $2}')" >> "$GITHUB_OUTPUT"
+
+      # Кэш держит сам браузер (десятки-сотни МБ), не pip-пакет — тот ставится
+      # заново каждый раз, это быстро. Ключ — по версии Playwright: если она
+      # сменится, старый кэш просто не подойдёт и скачается свежий бинарник.
+      - name: Cache Playwright browser
+        if: steps.playwright_pkg.outcome == 'success'
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ runner.os }}-${{ steps.playwright_pkg.outputs.version }}
+
+      - name: Install Chromium
+        if: steps.playwright_pkg.outcome == 'success'
+        continue-on-error: true
+        run: python -m playwright install --with-deps chromium
+
+      # Резолвит ссылки Google News на первоисточник для черновиков в queue/.
+      # Не установился Playwright, не открылась страница, не нашлась
+      # картинка — resolve_links.py сам ничего не ломает и не падает, файлы
+      # остаются как были. Поэтому continue-on-error здесь не нужен.
+      - name: Resolve Google News links
+        run: python scripts/resolve_links.py
+
       - name: Build site
         run: python scripts/build_site.py
 

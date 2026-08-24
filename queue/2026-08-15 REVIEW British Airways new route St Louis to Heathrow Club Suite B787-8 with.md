@@ -1,17 +1,14 @@
 ---
 title: "REVIEW: British Airways new route St Louis to Heathrow Club Suite B787-8 with Starlink"
 source: "Turning Left For Less -"
-link: https://news.google.com/rss/articles/CBMivgFBVV95cUxOODNMRE1LaUFGdDh2S0wtSG9HczM0bzlqd1FPWmdIaVBGb0RMNHhjeEs1SUR2ZHVyTnZmQm1aZWNDU0k0ZDc3OEF3Tk9nZXNoNWZIVjB4YTc4UkJ1dzBQZUNGemVFNjhlX0xUQ1U3U2xMeG5CM3pNaVpFUVEzMnlsa3pPSHhWQndoZmVkNUV2a0x5b2ZOWkJURENWLVNCSkRBdmJxRnBlMTZVODlXNlQ1cDVQdTdwbVRoTjhhazJB?oc=5
+link: https://www.turningleftforless.com/review-british-airways-new-route-st-louis-to-heathrow-club-suite-b787-8-with-starlink/
 date: 2026-08-15
 added: 2026-08-23T02:54:47Z
 rubric: connectivity
-image: 
+image: https://www.turningleftforless.com/wp-content/uploads/2026/08/IMG_6701.jpg
 slug: 2026-08-15-review-british-airways-new-route-st-louis-to-heathrow-club-s
 status: draft
 ---
-
 REVIEW: British Airways new route St Louis to Heathrow Club Suite B787-8 with Starlink Turning Left For Less -
 
-<!-- Ваш абзац. Что это значит для отрасли — два-три предложения.
-     Без него материал выглядит как перепечатка. Строку с комментарием
-     можно удалить. -->
+British Airways launched its new service to St Louis, Missouri, in April 2026. They fly four times a week (Tuesdays, Wednesdays, Fridays, and Sundays) during the summer timetable. This seemed like an odd choice, given that St Louis city centre is…
