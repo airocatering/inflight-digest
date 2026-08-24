@@ -298,9 +298,16 @@ def clean(text, limit=260):
 
 
 def slug(text, n=60):
-    """Адрес страницы на сайте — только латиница, цифры и дефисы."""
+    """Адрес страницы на сайте — только латиница, цифры и дефисы.
+    Режем по границе слова: «...new-lond» в адресе выглядит опечаткой,
+    а адрес потом уже не поменять — он уйдёт в поиск и в чужие ссылки."""
     text = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
-    return text[:n].rstrip("-") or "story"
+    if len(text) <= n:
+        return text or "story"
+    cut = text[:n]
+    if "-" in cut:
+        cut = cut[:cut.rindex("-")]
+    return cut.strip("-") or "story"
 
 
 def filename_title(text, n=80):
