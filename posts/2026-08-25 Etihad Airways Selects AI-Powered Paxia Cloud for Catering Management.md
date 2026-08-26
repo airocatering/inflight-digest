@@ -1,3 +1,4 @@
+---
 title: Etihad Airways Selects AI-Powered Paxia Cloud for Catering Management
 source: Paxia, Inc
 link: https://paxiasolutions.com/blog/etihad-airways-selects-paxia-to-transform-end-to-end-catering-management-operations/
