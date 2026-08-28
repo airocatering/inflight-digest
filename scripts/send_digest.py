@@ -14,12 +14,13 @@
 Проверить вёрстку письма, ничего не отправляя:
     DRY_RUN=1 python scripts/send_digest.py
 """
-import os, re, sys, smtplib, html as H, datetime as dt
+import os, re, sys, json, smtplib, html as H, datetime as dt
 from email.message import EmailMessage
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 QUEUE = os.path.join(ROOT, "queue")
+SENT_MARKER = os.path.join(ROOT, "data", "digest_sent.json")
 
 REPO = os.environ.get("GITHUB_REPOSITORY", "airocatering/inflight-digest")
 SITE = "https://airocatering.github.io/inflight-digest"
@@ -78,6 +79,25 @@ def is_fresh(meta, cutoff):
             tzinfo=dt.timezone.utc) >= cutoff
     except ValueError:
         return False
+
+
+def already_sent_today():
+    """Второй cron-слот (страховка на случай, если первый не сработает —
+    GitHub Actions периодически теряет плановые запуски) не должен слать
+    письмо повторно, если первый слот в тот же день уже отправил его."""
+    if not os.path.exists(SENT_MARKER):
+        return False
+    try:
+        data = json.load(open(SENT_MARKER, encoding="utf-8"))
+    except (OSError, ValueError):
+        return False
+    return data.get("date") == dt.datetime.now(dt.timezone.utc).date().isoformat()
+
+
+def mark_sent():
+    os.makedirs(os.path.dirname(SENT_MARKER), exist_ok=True)
+    json.dump({"date": dt.datetime.now(dt.timezone.utc).date().isoformat()},
+              open(SENT_MARKER, "w", encoding="utf-8"))
 
 
 def edit_url(name):
@@ -175,6 +195,10 @@ def main():
         print("вёрстка письма записана в digest-preview.html, отправка пропущена")
         return
 
+    if already_sent_today():
+        print("письмо за сегодня уже отправлено — второй cron-слот, пропускаем")
+        return
+
     # пустой GitHub Secret приходит как "", а не отсутствующая переменная —
     # os.environ.get(..., "465") тогда не подставит дефолт, и int("") упадёт
     # раньше проверки ниже. Поэтому сверяем сырые строки первым делом.
@@ -203,6 +227,7 @@ def main():
             smtp.login(user, pwd)
             smtp.send_message(msg)
     print(f"письмо отправлено на {to}")
+    mark_sent()
 
 
 if __name__ == "__main__":

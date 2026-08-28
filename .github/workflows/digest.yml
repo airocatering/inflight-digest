@@ -4,13 +4,19 @@ on:
   schedule:
     # 02:04 UTC = 05:04 в Киеве летом (UTC+3). Минута :04 (не :00) намеренно —
     # тот же урок из ryanair-monitor: GitHub Actions чаще теряет
-    # scheduled-запуски на круглые минуты из-за общей перегрузки. На :00 этот
-    # workflow не сработал вообще ни разу с момента создания.
-    - cron: "4 2 * * *"
+    # scheduled-запуски на круглые минуты из-за общей перегрузки.
+    #
+    # Второй слот в 05:04 UTC — страховка. Даже :04 не спасает от полного
+    # пропуска планового триггера: за 25–28 августа 2026 было и опоздание на
+    # 70 минут, и полный пропуск дня (следующий прогон сам всплыл только
+    # через 10+ часов). send_digest.py помнит дату последней отправки
+    # (data/digest_sent.json) и не шлёт письмо второй раз за день — так что
+    # если первый слот сработал нормально, второй просто ничего не делает.
+    - cron: "4 2,5 * * *"
   workflow_dispatch:            # кнопка «прислать сейчас»
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   digest:
@@ -30,3 +36,35 @@ jobs:
           SMTP_PASS: ${{ secrets.SMTP_PASS }}
           MAIL_TO:   ${{ secrets.MAIL_TO }}
         run: python scripts/send_digest.py
+
+      - name: Commit sent-date marker
+        run: |
+          git config user.name  "inflight-digest-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/digest_sent.json
+          if git diff --cached --quiet; then
+            echo "Нечего коммитить — маркер не менялся (письмо не отправлялось)."
+            exit 0
+          fi
+          git commit -m "auto: mark digest sent ($(date -u +'%Y-%m-%d %H:%M UTC'))"
+
+          # Тот же приём, что и в publish.yml: параллельный прогон мог
+          # запушить раньше нас. -X theirs при rebase — наша (более свежая)
+          # версия побеждает при конфликте, это единственный файл здесь и
+          # ценность имеет только дата в нём.
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "запушено с попытки $i"
+              exit 0
+            fi
+            echo "попытка $i отклонена, подтягиваю main и перебазируюсь"
+            git fetch origin main
+            if ! git rebase -X theirs origin/main; then
+              git rebase --abort
+              echo "перебазирование не удалось"
+              exit 1
+            fi
+            sleep $((RANDOM % 4 + 1))
+          done
+          echo "не удалось запушить после 5 попыток"
+          exit 1
