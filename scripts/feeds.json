@@ -5,121 +5,6 @@
   "_signal": "Порог «интересности». 2 — отсекает юбилеи, фотогалереи, светскую хронику и спонсорское. 0 — берём всё. Можно переопределить у конкретной ленты полем min_signal.",
   "feeds": [
     {
-      "name": "Google News — All Nippon Airways",
-      "url": "https://news.google.com/rss/search?q=%22All%20Nippon%20Airways%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true
-    },
-    {
-      "name": "Google News — British Airways",
-      "url": "https://news.google.com/rss/search?q=%22British%20Airways%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true
-    },
-    {
-      "name": "Google News — Cathay Pacific",
-      "url": "https://news.google.com/rss/search?q=%22Cathay%20Pacific%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true
-    },
-    {
-      "name": "Google News — Delta",
-      "url": "https://news.google.com/rss/search?q=Delta%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true
-    },
-    {
-      "name": "Google News — EL AL",
-      "url": "https://news.google.com/rss/search?q=%22EL%20AL%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true
-    },
-    {
-      "name": "Google News — Emirates",
-      "url": "https://news.google.com/rss/search?q=Emirates%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true
-    },
-    {
-      "name": "Google News — Etihad",
-      "url": "https://news.google.com/rss/search?q=Etihad%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true
-    },
-    {
-      "name": "Google News — EVA Air",
-      "url": "https://news.google.com/rss/search?q=%22EVA%20Air%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true
-    },
-    {
-      "name": "Google News — Japan Airlines",
-      "url": "https://news.google.com/rss/search?q=%22Japan%20Airlines%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true
-    },
-    {
-      "name": "Google News — Qantas",
-      "url": "https://news.google.com/rss/search?q=Qantas%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true
-    },
-    {
-      "name": "Google News — Ryanair",
-      "url": "https://news.google.com/rss/search?q=Ryanair%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true
-    },
-    {
-      "name": "Google News — Singapore Airlines",
-      "url": "https://news.google.com/rss/search?q=%22Singapore%20Airlines%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true
-    },
-    {
-      "name": "Google News — Swiss Air Lines",
-      "url": "https://news.google.com/rss/search?q=%22Swiss%20Air%20Lines%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true
-    },
-    {
-      "name": "Google News — Turkish Airlines",
-      "url": "https://news.google.com/rss/search?q=%22Turkish%20Airlines%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true
-    },
-    {
-      "name": "Google News — Virgin Atlantic",
-      "url": "https://news.google.com/rss/search?q=%22Virgin%20Atlantic%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true
-    },
-    {
-      "name": "Google News — Qatar Airways",
-      "url": "https://news.google.com/rss/search?q=%22Qatar%20Airways%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true
-    },
-    {
-      "name": "Google News — Lufthansa",
-      "url": "https://news.google.com/rss/search?q=Lufthansa%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true
-    },
-    {
-      "name": "Google News — KLM",
-      "url": "https://news.google.com/rss/search?q=KLM%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true
-    },
-    {
-      "name": "Google News — Korean Air",
-      "url": "https://news.google.com/rss/search?q=%22Korean%20Air%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true
-    },
-    {
-      "name": "Google News — United Airlines",
-      "url": "https://news.google.com/rss/search?q=%22United%20Airlines%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true
-    },
-    {
-      "name": "Google News — American Airlines",
-      "url": "https://news.google.com/rss/search?q=%22American%20Airlines%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true
-    },
-    {
-      "name": "Google News — Air Canada",
-      "url": "https://news.google.com/rss/search?q=%22Air%20Canada%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true
-    },
-    {
-      "name": "Google News — Air France",
-      "url": "https://news.google.com/rss/search?q=%22Air%20France%22%20AND%20%28catering%20OR%20food%20OR%20chef%20OR%20Starlink%20OR%20%22Wi-Fi%22%29&hl=en-US&gl=US&ceid=US:en",
-      "enabled": true
-    },
-    {
       "name": "Google News — Korita Aviation",
       "url": "https://news.google.com/rss/search?q=%22Korita%20Aviation%22&hl=en-US&gl=US&ceid=US:en",
       "enabled": true
@@ -185,28 +70,748 @@
       "enabled": true
     },
     {
-      "name": "Google News — Connectivity и развлечения",
-      "url": "https://news.google.com/rss/search?q=%22airline%20Starlink%22%20OR%20%22inflight%20entertainment%20connectivity%22%20OR%20%22In-Flight%20Entertainment%22%20OR%20%22inflight%20gambling%22%20OR%20%22inflight%20games%22%20OR%20%22inflight%20internet%22%20OR%20%22inflight%20movies%22%20OR%20%22inflight%20amenity%22%20OR%20%22inflight%20advertising%22%20OR%20%22airline%20Wi-Fi%22%20OR%20%22Inflight%20Services%22%20OR%20%22airline%20movies%22&hl=en-US&gl=US&ceid=US:en",
+      "name": "Google News — \"Air China\" catering",
+      "url": "https://news.google.com/rss/search?q=%22Air+China%22+catering&hl=en-US&gl=US&ceid=US:en",
       "enabled": true
     },
     {
-      "name": "Google News — Расходники и оборудование",
-      "url": "https://news.google.com/rss/search?q=%22airline%20galley%20equipment%22%20OR%20%22airline%20blankets%22%20OR%20%22airlines%20cutlery%22%20OR%20%22airlines%20plastic%20cups%22%20OR%20%22airlines%20utensils%22%20OR%20%22airlines%20dinnerware%22%20OR%20%22airlines%20headphones%22%20OR%20%22airlines%20water%20bottles%22%20OR%20%22airlines%20paper%20cups%22%20OR%20%22airlines%20pillows%22%20OR%20%22airline%20napkins%22%20OR%20%22airlines%20tableware%22%20OR%20%22airlines%20trolleys%22%20OR%20%22airlines%20catering%20equipment%22%20OR%20%22airline%20kitchen%22%20OR%20%22airport%20kitchen%22%20OR%20%22airlines%20toiletries%22%20OR%20%22airlines%20catering%20china%22%20OR%20%22airline%20uniform%22%20OR%20%22airlines%20towels%22%20OR%20%22airlines%20coffee%20cups%22&hl=en-US&gl=US&ceid=US:en",
+      "name": "Google News — \"air france\" wi-fi",
+      "url": "https://news.google.com/rss/search?q=%22air+france%22+wi-fi&hl=en-US&gl=US&ceid=US:en",
       "enabled": true
     },
     {
-      "name": "Google News — Напитки и бренды",
-      "url": "https://news.google.com/rss/search?q=%22airline%20pepsi%22%20OR%20%22airline%20coca-cola%22%20OR%20%22airlines%20caviar%22%20OR%20%22airlines%20vodka%22%20OR%20%22airlines%20champagne%22%20OR%20%22airline%20tea%22%20OR%20%22airlines%20coffee%22%20OR%20%22airlines%20juice%22%20OR%20%22airlines%20hot%20drinks%22%20OR%20%22airlines%20wine%22%20OR%20%22airline%20alcohol%22%20OR%20%22airlines%20drinks%22%20OR%20%22airlines%20beer%22%20OR%20%22airlines%20kosher%22%20OR%20%22airlines%20bread%22%20OR%20%22airline%20culinary%22%20OR%20%22airline%20beverages%22&hl=en-US&gl=US&ceid=US:en",
+      "name": "Google News — \"China Eastern Airlines\" catering",
+      "url": "https://news.google.com/rss/search?q=%22China+Eastern+Airlines%22+catering&hl=en-US&gl=US&ceid=US:en",
       "enabled": true
     },
     {
-      "name": "Google News — Бизнес-термины кейтеринга",
-      "url": "https://news.google.com/rss/search?q=%22airline%20catering%20supplier%22%20OR%20%22airline%20catering%20provider%22%20OR%20%22airline%20catering%20logistics%22%20OR%20%22airlines%20catering%20agreement%22%20OR%20%22airport%20catering%20investors%22%20OR%20%22aviation%20sustainability%20catering%22%20OR%20%22airline%20onboard%20services%22%20OR%20%22airline%20passenger%20experience%22&hl=en-US&gl=US&ceid=US:en",
+      "name": "Google News — \"China Southern Airlines\" catering",
+      "url": "https://news.google.com/rss/search?q=%22China+Southern+Airlines%22+catering&hl=en-US&gl=US&ceid=US:en",
       "enabled": true
     },
     {
-      "name": "Google News — Еда и питание в полёте",
-      "url": "https://news.google.com/rss/search?q=%22airline%20hot%20meals%22%20OR%20%22inflight%20catering%22%20OR%20%22airline%20food%22%20OR%20%22airline%20meal%22%20OR%20%22inflight%20meal%22%20OR%20%22airlines%20meals%22%20OR%20%22buy%20on%20board%20menu%22%20OR%20%22buy%20on%20board%20food%22%20OR%20%22airline%20menu%22%20OR%20%22airlines%20menu%22%20OR%20%22inflight%20dining%22%20OR%20%22budget%20airlines%20food%22%20OR%20%22cabin%20crew%20meals%22%20OR%20%22airlines%20special%20meals%22%20OR%20%22airlines%20frozen%20food%22%20OR%20%22airlines%20frozen%20meals%22%20OR%20%22onboard%20meal%20service%22%20OR%20%22airline%20snacks%22%20OR%20%22airlines%20sandwiches%22%20OR%20%22airline%20pre-order%20meals%22%20OR%20%22airline%20catering%22%20OR%20%22airport%20catering%22%20OR%20%22inflight%20duty%20free%22%20OR%20%22airlines%20duty%20free%22%20OR%20%22airline%20amenities%22%20OR%20%22airline%20chef%22%20OR%20%22China%20airline%20catering%22%20OR%20%22hong%20kong%20airport%20catering%22&hl=en-US&gl=US&ceid=US:en",
+      "name": "Google News — \"Hainan Airlines\" catering",
+      "url": "https://news.google.com/rss/search?q=%22Hainan+Airlines%22+catering&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — \"Shenzhen Airlines\" catering",
+      "url": "https://news.google.com/rss/search?q=%22Shenzhen+Airlines%22+catering&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — \"Sichuan Airlines\" catering",
+      "url": "https://news.google.com/rss/search?q=%22Sichuan+Airlines%22+catering&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — \"Singapore Airlines\" catering",
+      "url": "https://news.google.com/rss/search?q=%22Singapore+Airlines%22+catering&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — \"Xiamen Airlines\" catering",
+      "url": "https://news.google.com/rss/search?q=%22Xiamen+Airlines%22+catering&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Air Canada catering",
+      "url": "https://news.google.com/rss/search?q=%22Air+Canada+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Air France catering",
+      "url": "https://news.google.com/rss/search?q=%22Air+France+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airline alcohol",
+      "url": "https://news.google.com/rss/search?q=%22airline+alcohol%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airline amenities",
+      "url": "https://news.google.com/rss/search?q=%22airline+amenities%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airline beverages",
+      "url": "https://news.google.com/rss/search?q=%22airline+beverages%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airline blankets",
+      "url": "https://news.google.com/rss/search?q=%22airline+blankets%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airline catering",
+      "url": "https://news.google.com/rss/search?q=%22airline+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airline catering logistics",
+      "url": "https://news.google.com/rss/search?q=%22airline+catering+logistics%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airline catering provider",
+      "url": "https://news.google.com/rss/search?q=%22airline+catering+provider%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airline catering supplier",
+      "url": "https://news.google.com/rss/search?q=%22airline+catering+supplier%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airline chef",
+      "url": "https://news.google.com/rss/search?q=%22airline+chef%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airline coca-cola",
+      "url": "https://news.google.com/rss/search?q=%22airline+coca-cola%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airline culinary",
+      "url": "https://news.google.com/rss/search?q=%22airline+culinary%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airline food",
+      "url": "https://news.google.com/rss/search?q=%22airline+food%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airline galley equipment",
+      "url": "https://news.google.com/rss/search?q=%22airline+galley+equipment%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airline hot meals",
+      "url": "https://news.google.com/rss/search?q=%22airline+hot+meals%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airline kitchen",
+      "url": "https://news.google.com/rss/search?q=%22airline+kitchen%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airline meal",
+      "url": "https://news.google.com/rss/search?q=%22airline+meal%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airline menu",
+      "url": "https://news.google.com/rss/search?q=%22airline+menu%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airline movies",
+      "url": "https://news.google.com/rss/search?q=%22airline+movies%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airline napkins",
+      "url": "https://news.google.com/rss/search?q=%22airline+napkins%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airline onboard retail",
+      "url": "https://news.google.com/rss/search?q=%22airline+onboard+retail%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airline onboard services",
+      "url": "https://news.google.com/rss/search?q=%22airline+onboard+services%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airline passenger experience",
+      "url": "https://news.google.com/rss/search?q=%22airline+passenger+experience%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airline pepsi",
+      "url": "https://news.google.com/rss/search?q=%22airline+pepsi%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airline pre-order meals",
+      "url": "https://news.google.com/rss/search?q=%22airline+pre-order+meals%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airline snacks",
+      "url": "https://news.google.com/rss/search?q=%22airline+snacks%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airline Starlink",
+      "url": "https://news.google.com/rss/search?q=%22airline+Starlink%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airline tea",
+      "url": "https://news.google.com/rss/search?q=%22airline+tea%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airline uniform",
+      "url": "https://news.google.com/rss/search?q=%22airline+uniform%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airline Wi-Fi",
+      "url": "https://news.google.com/rss/search?q=%22airline+Wi-Fi%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines amenity",
+      "url": "https://news.google.com/rss/search?q=%22airlines+amenity%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines beer",
+      "url": "https://news.google.com/rss/search?q=%22airlines+beer%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines blanket",
+      "url": "https://news.google.com/rss/search?q=%22airlines+blanket%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines bread",
+      "url": "https://news.google.com/rss/search?q=%22airlines+bread%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines catering agreement",
+      "url": "https://news.google.com/rss/search?q=%22airlines+catering+agreement%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines catering china",
+      "url": "https://news.google.com/rss/search?q=%22airlines+catering+china%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines catering equipment",
+      "url": "https://news.google.com/rss/search?q=%22airlines+catering+equipment%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines caviar",
+      "url": "https://news.google.com/rss/search?q=%22airlines+caviar%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines champagne",
+      "url": "https://news.google.com/rss/search?q=%22airlines+champagne%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines coffee",
+      "url": "https://news.google.com/rss/search?q=%22airlines+coffee%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines coffee cups",
+      "url": "https://news.google.com/rss/search?q=%22airlines+coffee+cups%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines cutlery",
+      "url": "https://news.google.com/rss/search?q=%22airlines+cutlery%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines dinnerware",
+      "url": "https://news.google.com/rss/search?q=%22airlines+dinnerware%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines drinks",
+      "url": "https://news.google.com/rss/search?q=%22airlines+drinks%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines duty free",
+      "url": "https://news.google.com/rss/search?q=%22airlines+duty+free%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines free wi-fi",
+      "url": "https://news.google.com/rss/search?q=%22airlines+free+wi-fi%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines frozen food",
+      "url": "https://news.google.com/rss/search?q=%22airlines+frozen+food%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines frozen meals",
+      "url": "https://news.google.com/rss/search?q=%22airlines+frozen+meals%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Airlines gambling",
+      "url": "https://news.google.com/rss/search?q=%22Airlines+gambling%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines headphones",
+      "url": "https://news.google.com/rss/search?q=%22airlines+headphones%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines hot drinks",
+      "url": "https://news.google.com/rss/search?q=%22airlines+hot+drinks%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines hot towels",
+      "url": "https://news.google.com/rss/search?q=%22airlines+hot+towels%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines juice",
+      "url": "https://news.google.com/rss/search?q=%22airlines+juice%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines kitchen",
+      "url": "https://news.google.com/rss/search?q=%22airlines+kitchen%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines kosher",
+      "url": "https://news.google.com/rss/search?q=%22airlines+kosher%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines meals",
+      "url": "https://news.google.com/rss/search?q=%22airlines+meals%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines menu",
+      "url": "https://news.google.com/rss/search?q=%22airlines+menu%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines napkin",
+      "url": "https://news.google.com/rss/search?q=%22airlines+napkin%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines paper cups",
+      "url": "https://news.google.com/rss/search?q=%22airlines+paper+cups%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines pillows",
+      "url": "https://news.google.com/rss/search?q=%22airlines+pillows%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines plastic cups",
+      "url": "https://news.google.com/rss/search?q=%22airlines+plastic+cups%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines sandwiches",
+      "url": "https://news.google.com/rss/search?q=%22airlines+sandwiches%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines special meals",
+      "url": "https://news.google.com/rss/search?q=%22airlines+special+meals%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines starlink",
+      "url": "https://news.google.com/rss/search?q=%22airlines+starlink%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines tableware",
+      "url": "https://news.google.com/rss/search?q=%22airlines+tableware%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines toiletries",
+      "url": "https://news.google.com/rss/search?q=%22airlines+toiletries%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines towels",
+      "url": "https://news.google.com/rss/search?q=%22airlines+towels%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines trolleys",
+      "url": "https://news.google.com/rss/search?q=%22airlines+trolleys%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines uniform",
+      "url": "https://news.google.com/rss/search?q=%22airlines+uniform%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines utensils",
+      "url": "https://news.google.com/rss/search?q=%22airlines+utensils%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines vodka",
+      "url": "https://news.google.com/rss/search?q=%22airlines+vodka%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines water bottles",
+      "url": "https://news.google.com/rss/search?q=%22airlines+water+bottles%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airlines wine",
+      "url": "https://news.google.com/rss/search?q=%22airlines+wine%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airport catering",
+      "url": "https://news.google.com/rss/search?q=%22airport+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airport catering investors",
+      "url": "https://news.google.com/rss/search?q=%22airport+catering+investors%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — airport kitchen",
+      "url": "https://news.google.com/rss/search?q=%22airport+kitchen%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — All Nippon Airways catering",
+      "url": "https://news.google.com/rss/search?q=%22All+Nippon+Airways+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — amazon airlines wi-fi",
+      "url": "https://news.google.com/rss/search?q=%22amazon+airlines+wi-fi%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — American Airlines catering",
+      "url": "https://news.google.com/rss/search?q=%22American+Airlines+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — aviation sustainability catering",
+      "url": "https://news.google.com/rss/search?q=%22aviation+sustainability+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — British airways catering",
+      "url": "https://news.google.com/rss/search?q=%22British+airways+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — budget airlines food",
+      "url": "https://news.google.com/rss/search?q=%22budget+airlines+food%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — buy on board food",
+      "url": "https://news.google.com/rss/search?q=%22buy+on+board+food%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — buy on board menu",
+      "url": "https://news.google.com/rss/search?q=%22buy+on+board+menu%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — cabin crew meals",
+      "url": "https://news.google.com/rss/search?q=%22cabin+crew+meals%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Cathay Pacific catering",
+      "url": "https://news.google.com/rss/search?q=%22Cathay+Pacific+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — China airline catering",
+      "url": "https://news.google.com/rss/search?q=%22China+airline+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — DElta catering",
+      "url": "https://news.google.com/rss/search?q=%22DElta+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — deSter tableware",
+      "url": "https://news.google.com/rss/search?q=%22deSter+tableware%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — EL AL catering",
+      "url": "https://news.google.com/rss/search?q=%22EL+AL+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Emirates catering",
+      "url": "https://news.google.com/rss/search?q=%22Emirates+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Etihad catering",
+      "url": "https://news.google.com/rss/search?q=%22Etihad+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — EVA Air catering",
+      "url": "https://news.google.com/rss/search?q=%22EVA+Air+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — hong kong airport catering",
+      "url": "https://news.google.com/rss/search?q=%22hong+kong+airport+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — In-Flight Entertainment",
+      "url": "https://news.google.com/rss/search?q=%22In-Flight+Entertainment%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — In-flight food",
+      "url": "https://news.google.com/rss/search?q=%22In-flight+food%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — inflight advertising",
+      "url": "https://news.google.com/rss/search?q=%22inflight+advertising%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — inflight amenity",
+      "url": "https://news.google.com/rss/search?q=%22inflight+amenity%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — inflight catering",
+      "url": "https://news.google.com/rss/search?q=%22inflight+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — inflight dining",
+      "url": "https://news.google.com/rss/search?q=%22inflight+dining%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — inflight duty free",
+      "url": "https://news.google.com/rss/search?q=%22inflight+duty+free%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — inflight entertainment connectivity",
+      "url": "https://news.google.com/rss/search?q=%22inflight+entertainment+connectivity%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — inflight gambling",
+      "url": "https://news.google.com/rss/search?q=%22inflight+gambling%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — inflight games",
+      "url": "https://news.google.com/rss/search?q=%22inflight+games%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — inflight internet",
+      "url": "https://news.google.com/rss/search?q=%22inflight+internet%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — inflight meal",
+      "url": "https://news.google.com/rss/search?q=%22inflight+meal%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — inflight meals",
+      "url": "https://news.google.com/rss/search?q=%22inflight+meals%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — inflight movies",
+      "url": "https://news.google.com/rss/search?q=%22inflight+movies%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Inflight Services",
+      "url": "https://news.google.com/rss/search?q=%22Inflight+Services%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Japan Airlines Catering",
+      "url": "https://news.google.com/rss/search?q=%22Japan+Airlines+Catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — KLM catering",
+      "url": "https://news.google.com/rss/search?q=%22KLM+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Korean Air catering",
+      "url": "https://news.google.com/rss/search?q=%22Korean+Air+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — kosher inflight",
+      "url": "https://news.google.com/rss/search?q=%22kosher+inflight%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Lufthansa catering",
+      "url": "https://news.google.com/rss/search?q=%22Lufthansa+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — onboard meal service",
+      "url": "https://news.google.com/rss/search?q=%22onboard+meal+service%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — onboard meal services",
+      "url": "https://news.google.com/rss/search?q=%22onboard+meal+services%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Paxia Cloud",
+      "url": "https://news.google.com/rss/search?q=%22Paxia+Cloud%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Qantas Airways catering",
+      "url": "https://news.google.com/rss/search?q=%22Qantas+Airways+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Qantas catering",
+      "url": "https://news.google.com/rss/search?q=%22Qantas+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Qatar Airways catering",
+      "url": "https://news.google.com/rss/search?q=%22Qatar+Airways+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Ryanair catering",
+      "url": "https://news.google.com/rss/search?q=%22Ryanair+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Ryanair onboard retail",
+      "url": "https://news.google.com/rss/search?q=%22Ryanair+onboard+retail%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — sia airlines catering",
+      "url": "https://news.google.com/rss/search?q=%22sia+airlines+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Singapore airlines catering",
+      "url": "https://news.google.com/rss/search?q=%22Singapore+airlines+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Swiss Air Lines catering",
+      "url": "https://news.google.com/rss/search?q=%22Swiss+Air+Lines+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Turkish Airlines catering",
+      "url": "https://news.google.com/rss/search?q=%22Turkish+Airlines+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — United Airlines catering",
+      "url": "https://news.google.com/rss/search?q=%22United+Airlines+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Virgin Atlantic catering",
+      "url": "https://news.google.com/rss/search?q=%22Virgin+Atlantic+catering%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — Virgin Atlantic food",
+      "url": "https://news.google.com/rss/search?q=%22Virgin+Atlantic+food%22&hl=en-US&gl=US&ceid=US:en",
+      "enabled": true
+    },
+    {
+      "name": "Google News — 机上餐食",
+      "url": "https://news.google.com/rss/search?q=%22%E6%9C%BA%E4%B8%8A%E9%A4%90%E9%A3%9F%22&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "enabled": true
+    },
+    {
+      "name": "Google News — 航空配餐",
+      "url": "https://news.google.com/rss/search?q=%22%E8%88%AA%E7%A9%BA%E9%85%8D%E9%A4%90%22&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "enabled": true
+    },
+    {
+      "name": "Google News — 航空配餐供应商",
+      "url": "https://news.google.com/rss/search?q=%22%E8%88%AA%E7%A9%BA%E9%85%8D%E9%A4%90%E4%BE%9B%E5%BA%94%E5%95%86%22&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "enabled": true
+    },
+    {
+      "name": "Google News — 航空食品",
+      "url": "https://news.google.com/rss/search?q=%22%E8%88%AA%E7%A9%BA%E9%A3%9F%E5%93%81%22&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "enabled": true
+    },
+    {
+      "name": "Google News — 航空食品公司",
+      "url": "https://news.google.com/rss/search?q=%22%E8%88%AA%E7%A9%BA%E9%A3%9F%E5%93%81%E5%85%AC%E5%8F%B8%22&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "enabled": true
+    },
+    {
+      "name": "Google News — 航空餐食",
+      "url": "https://news.google.com/rss/search?q=%22%E8%88%AA%E7%A9%BA%E9%A4%90%E9%A3%9F%22&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "enabled": true
+    },
+    {
+      "name": "Google News — 航食",
+      "url": "https://news.google.com/rss/search?q=%22%E8%88%AA%E9%A3%9F%22&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "enabled": true
+    },
+    {
+      "name": "Google News — 航食供应商",
+      "url": "https://news.google.com/rss/search?q=%22%E8%88%AA%E9%A3%9F%E4%BE%9B%E5%BA%94%E5%95%86%22&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "enabled": true
+    },
+    {
+      "name": "Google News — 航食公司",
+      "url": "https://news.google.com/rss/search?q=%22%E8%88%AA%E9%A3%9F%E5%85%AC%E5%8F%B8%22&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "enabled": true
+    },
+    {
+      "name": "Google News — 航食采购",
+      "url": "https://news.google.com/rss/search?q=%22%E8%88%AA%E9%A3%9F%E9%87%87%E8%B4%AD%22&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
       "enabled": true
     }
   ]
