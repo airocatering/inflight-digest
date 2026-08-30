@@ -1,17 +1,14 @@
 ---
 title: "Royal Jordanian, Air China sign MoU to expand air transport cooperation - The Jordan News Agency"
 source: "وكالة الانباء الاردنية"
-link: https://news.google.com/rss/articles/CBMioAFBVV95cUxPa09vaThvQnBmTldvSmRDVzdqbHF1dDNTVHVvR3VtUzRBazVocHFBTW9XbVNHZ3dDTUNRVHhROXdOM0toamZ0QjhQd19iSUkzWk9HellBUDlSdEZ5TUJ3ZFNMeldDMkJZZE9PRnhkQWs3VXdaMHE1ellIQkNoRUNnZ05HN1ZnZkVRNVBOaUx3LVJuXzBNZXZHXzZTdkU1Zmpf?oc=5
+link: https://petra.gov.jo/en/news/royal-jordanian-air-china-sign-mou-to-expand-air-transport-cooperation
 date: 2026-08-22
 added: 2026-08-30T05:53:13Z
 rubric: cabin-interior
-image: 
+image: https://petra.gov.jo//storage/media/2026/08/22/06a00ad9-a5f4-4c04-b5b0-1fff97ff701c.jpg
 slug: 2026-08-22-royal-jordanian-air-china-sign-mou-to-expand-air-transport
 status: draft
 ---
-
 Royal Jordanian, Air China sign MoU to expand air transport cooperation - The Jordan News Agency وكالة الانباء الاردنية
 
-<!-- Ваш абзац. Что это значит для отрасли — два-три предложения.
-     Без него материал выглядит как перепечатка. Строку с комментарием
-     можно удалить. -->
+Amman, Aug. 22 (Petra) -- Royal Jordanian Airlines and Air China signed a memorandum of understanding in Beijing on the sidelines of His Majesty King Abdullah II’s visit to China.

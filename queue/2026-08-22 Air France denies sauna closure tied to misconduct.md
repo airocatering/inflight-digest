@@ -1,17 +1,14 @@
 ---
 title: "Air France denies sauna closure tied to misconduct"
 source: "insideflyer.com"
-link: https://news.google.com/rss/articles/CBMijgFBVV95cUxPZGk4YjZpYnlxTFZGX3ZLaVEtLTB2TWJVbUM3QThVdXEwQTJwcVRaTFFVZ2pGTTNPZnY0T21ieFRZVS1RdXNPV3dBb1k0OXBSTU1NNGtqSi1CUkptQkVpMkRsUU9ySzZBdC1LMUxqN1RsZWNIb0JEZVNfczdMTDdVam1iY2I3Qzc0aWFldUlR?oc=5
+link: https://www.insideflyer.com/posts/air-france-denies-sauna-closure-tied-to-misconduct/
 date: 2026-08-22
 added: 2026-08-30T05:53:14Z
 rubric: cabin-interior
-image: 
+image: https://images.insideflyer.com/img/57/56/57564dfc88c70a3e1f1d0fb4074726c5a116daa31aa55f57579678119b695cec-1200.webp
 slug: 2026-08-22-air-france-denies-sauna-closure-tied-to-misconduct
 status: draft
 ---
-
 Air France denies sauna closure tied to misconduct insideflyer.com
 
-<!-- Ваш абзац. Что это значит для отрасли — два-три предложения.
-     Без него материал выглядит как перепечатка. Строку с комментарием
-     можно удалить. -->
+Air France says its Paris lounge sauna closed in September 2025 due to low usage and standardization, not passenger misconduct. A lounge manager previously told a reporter sexual activity prompted the shutdown. The airline’s website still lists…
