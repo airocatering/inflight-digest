@@ -182,6 +182,13 @@ STOPWORDS = {
  "they", "his", "her", "their", "more", "than", "but", "not", "new", "now",
 }
 
+# Простое явное правило поверх остального: 4 общих значащих слова (без
+# стоп-слов) — считаем дублем, даже если остальные проверки ниже почему-то
+# не сработали. Меньше — рискованно: заголовки в этой нише часто содержат
+# имя авиакомпании («Qatar Airways» — уже 2 слова бесплатно), и третье
+# случайное совпадение может склеить два разных сюжета про одну компанию.
+MIN_COMMON_WORDS = 4
+
 # Слова, которые есть в половине ленты: для сходства бесполезны, потому что
 # «airline catering» встречается и в жалобе на антисанитарию, и в контракте.
 DOMAIN_STOP = {
@@ -258,6 +265,8 @@ def is_duplicate(tokens, seen_sets, threshold=0.55):
         if not old:
             continue
         common = len(tokens & old)
+        if common >= MIN_COMMON_WORDS:
+            return old
         if common:
             union = len(tokens | old)
             smaller = min(len(tokens), len(old))
