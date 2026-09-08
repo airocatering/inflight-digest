@@ -96,11 +96,27 @@ def _has(word, text):
     а «ife» — внутри «life» и «different»."""
     rx = _WORD_RE.get(word)
     if rx is None:
+        # Слова в списках хранятся как попало — то в базовой форме («expand»),
+        # то уже с окончанием («launches», «expands», «unveils»,
+        # «introduces»). (?:e?s)? раньше только ДОБАВЛЯЛ окончание поверх
+        # того, что уже в списке, — «launches» никогда не совпадал с
+        # заголовком «...to Launch...» в базовой форме, и наоборот. Сначала
+        # снимаем «s»/«es», если оно есть, потом обычным образом делаем его
+        # необязательным — тогда работает в обе стороны на любом исходном
+        # написании.
+        stem = word
+        if stem[-4:-2] in ("ch", "sh") and stem.endswith("es") and len(stem) > 5:
+            stem = stem[:-2]                    # launches -> launch, washes -> wash
+        elif stem.endswith("es") and stem[-3] in "sxz" and len(stem) > 4:
+            stem = stem[:-2]                    # fixes -> fix, buzzes -> buzz
+        elif stem.endswith("s") and not stem.endswith("ss") and len(stem) > 3:
+            stem = stem[:-1]                    # introduces -> introduce, expands -> expand,
+                                                 # unveils -> unveil (слово уже на "e" — снимаем
+                                                 # только "s", не трогая саму "e")
         # дефис тоже считаем границей: иначе «service» находится
-        # внутри «in-service». Множественное число ловим отдельно:
-        # «film» должен срабатывать на «films».
+        # внутри «in-service».
         rx = _WORD_RE[word] = re.compile(
-            r"(?<![\w-])" + re.escape(word) + r"(?:e?s)?(?![\w-])")
+            r"(?<![\w-])" + re.escape(stem) + r"(?:e?s)?(?![\w-])")
     return bool(rx.search(text))
 
 
