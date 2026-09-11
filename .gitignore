@@ -13,3 +13,7 @@ Thumbs.db
 # локальный превью письма (DRY_RUN=1 python scripts/send_digest.py)
 digest-preview.html
 newsletter-preview.html
+
+# скомпилированный python — workflow публикации делает git add -A
+__pycache__/
+*.pyc
