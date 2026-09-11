@@ -158,14 +158,27 @@ SIGNAL_WORDS = {
      "results", "revenue", "profit", "earnings", "guidance", "retrofit", "orders",
      "selects", "chooses", "replaces", "trials", "pilot programme",
      "dispute", "audit", "warns", "warning", "delays", "cancels",
-     "apologises", "apologizes", "criticised", "criticized", "faces"],
- 1: ["new", "adds", "upgrade", "redesign", "returns", "resumes", "extends"],
+     "apologises", "apologizes", "criticised", "criticized", "faces",
+     # Обычные новостные глаголы, без которых половина реальных новостей
+     # набирала 0 — столько же, сколько откровенный мусор. «chef» сюда
+     # пробовали и убрали: цепляется за LSG Sky Chefs, название крупного
+     # отраслевого кейтеринга, оно в заголовках постоянно.
+     "offer", "offers", "tests", "testing", "goes live", "starts", "begins",
+     "rises", "climbs", "jumps", "falls", "drops", "seizure", "demands",
+     "emergency", "standardise", "standardize"],
+ 1: ["new", "adds", "upgrade", "redesign", "returns", "resumes", "extends",
+     "updates", "increase", "increases", "menu", "dining", "meal service"],
 }
 NOISE_WORDS = ["webinar", "sponsored", "advertorial", "promoted", "in pictures",
                "photo gallery", "gallery", "podcast", "watch:", "video:", "opinion:",
                "comment:", "top 10", "top ten", "best of", "roundup", "round-up",
                "week in review", "newsletter", "subscribe", "anniversary", "celebrates",
-               "congratulates", "wishes", "season's greetings", "birthday"]
+               "congratulates", "wishes", "season's greetings", "birthday",
+               # отчёты аналитических контор: шаблонная генерация под любой
+               # рынок, новостной ценности нет
+               "cagr", "market overview", "market size", "market report",
+               "market research", "market positioned", "going to boom",
+               "forecast period", "market outlook", "youtube"]
 
 
 def signal_score(title, summary=""):
