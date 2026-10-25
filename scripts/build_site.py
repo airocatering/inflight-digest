@@ -785,8 +785,6 @@ stated in the story.</p>
 
 SPONSOR_DOC = """
 <p class="adlabel">Sponsored</p>
-<img class="sponsorlogo" src="assets/sponsor-kiosk-dlya-mam.png" alt="KIOSK для MAM"
-width="600" height="600" loading="lazy">
 <p>This page is a paid placement. It was written with the sponsor and is not an
 editorial story. No sponsor sees a story before it runs, and none has any say in
 what this site covers &mdash; see the <a href="editorial-policy.html">editorial
