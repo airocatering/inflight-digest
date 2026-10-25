@@ -785,10 +785,11 @@ stated in the story.</p>
 
 SPONSOR_DOC = """
 <p class="adlabel">Sponsored</p>
-<p>This page is a paid placement. It was written with the sponsor and is not an
-editorial story. No sponsor sees a story before it runs, and none has any say in
-what this site covers &mdash; see the <a href="editorial-policy.html">editorial
-policy</a>.</p>
+<p>Inflight Digest and KIOSK для MAM share an owner. This page is a commercial
+placement, not an editorial story, and you should read it knowing that. What it
+does not change is how stories are chosen: no advertiser, this one included, sees
+a story before it runs or has any say in what gets covered &mdash; see the
+<a href="editorial-policy.html">editorial policy</a>.</p>
 
 <h2>Who the sponsor is</h2>
 <p>KIOSK для MAM is a baby store in Kyiv. It supplies Ukrainian families with the
