@@ -233,15 +233,22 @@ font-size:11px}
 .doc a:hover{text-decoration:underline}
 .doc ul{margin:0 0 14px;padding-left:18px}
 .doc li{font-size:15.5px;line-height:1.68;color:#3d3d3d;margin-bottom:5px}
-/* плашка «реклама» над текстом: редполитика обещает читателю, что
+/* врезка-дисклеймер над текстом: редполитика обещает читателю, что
    коммерческий материал помечен, а не выглядит как редакционный.
    Селектор обязательно с .doc: правило .doc p задаёт серый #3d3d3d и по
-   специфичности бьёт одиночный .adlabel — текст становился серым на чёрном */
-.doc .adlabel{display:inline-block;background:var(--ink);color:#fff;font-size:10px;
-font-weight:800;letter-spacing:.13em;text-transform:uppercase;padding:4px 8px;margin-bottom:14px}
-/* написание бренда как в логотипе: геометрический гротеск, не наша антиква.
-   «MAM» латиницей — так его пишет владелец, кириллическое «МАМ» неверно */
-.brand{font-family:Jost,Inter,system-ui,sans-serif;font-weight:600;letter-spacing:.01em}
+   специфичности перебило бы одиночный класс */
+.doc .disclosure{margin:0 0 22px;padding:12px 16px;border-left:3px solid var(--ink);
+background:#EDEAE3;font-size:14.5px;line-height:1.6;color:#3d3d3d}
+.doc hr{border:0;border-top:1px solid var(--line);margin:26px 0 20px}
+/* Название бренда набираем Inter: он уже подключён для всего сайта и покрывает
+   латиницу и кириллицу, поэтому «KIOSK» и «для MAM» гарантированно идут одной
+   гарнитурой. Селектор с .rubhead h1 — иначе 52px из .rubhead h1 (0-1-1)
+   перебьют одиночный .brand (0-1-0), та же ловушка, что была с плашкой выше.
+   «MAM» латиницей — так пишет владелец, кириллическое «МАМ» неверно */
+.rubhead h1.brand{font-family:Inter,system-ui,-apple-system,sans-serif;font-weight:700;
+font-size:40px;line-height:1.15;letter-spacing:-.015em}
+@media(max-width:640px){.rubhead h1.brand{font-size:28px}}
+.brand{font-family:Inter,system-ui,-apple-system,sans-serif;font-weight:700}
 
 /* запасной вариант подписки, пока не подключена форма */
 .mailbtn{display:inline-block;background:var(--red);color:#fff;padding:15px 26px;
