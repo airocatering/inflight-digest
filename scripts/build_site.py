@@ -452,9 +452,10 @@ SPONSOR_CELL = '''<a class="cell sponsor" href="sponsor-kiosk-dlya-mam.html">
 <div class="ph"><img src="assets/sponsor-kiosk-dlya-mam.png" alt="KIOSK для MAM"
 width="600" height="600" loading="lazy"></div>
 <div class="bd"><div class="cat">Sponsored</div>
-<h3><span class="brand">KIOSK для MAM</span> backs this board</h3>
-<p>A Kyiv baby store keeps Inflight Digest free to read. Their Oh My Baby Book
-memory albums ship worldwide &mdash; everything else for babies, anywhere in Ukraine.</p>
+<h3><span class="brand">KIOSK для MAM</span> keeps this site free</h3>
+<p>A Kyiv baby store since 2014. Gifts for a newborn, delivered anywhere in Ukraine.
+And Oh My Baby Book &mdash; the best gift for a newborn, made in Ukraine &mdash;
+ships worldwide.</p>
 <div class="m"><b>kioskdlyamam.com.ua</b> &middot; Kyiv</div></div></a>'''
 
 EDITORIAL_CELL = ('<div class="cell ink"><div class="q serif">Every story here was read '
