@@ -792,7 +792,7 @@ a story before it runs or has any say in what gets covered &mdash; see the
 <a href="editorial-policy.html">editorial policy</a>.</p>
 
 <h2>Who the sponsor is</h2>
-<p>KIOSK для MAM is a baby store in Kyiv, trading since 2014. It supplies Ukrainian families with the
+<p>KIOSK для MAM is a baby store in Kyiv, open since 2014. It supplies Ukrainian families with the
 things a child needs in the first years, and it ships one of its products a great
 deal further than that: Oh My Baby Book, a memory album designed, illustrated and
 printed in Ukraine, goes out from Kyiv to any country in the world.</p>
