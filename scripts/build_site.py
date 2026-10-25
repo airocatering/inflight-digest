@@ -857,15 +857,6 @@ paid the parcel goes out and you get a tracking number. Write the recipient's
 address and contact details in English in the order comment. The shop answers in
 English.</p>
 
-<h2>If you are abroad and the family is not</h2>
-<p>The commonest case runs the other way: the buyer is in Berlin or Toronto and the
-baby is in Kyiv. Then it is ordinary delivery inside Ukraine, paid with a foreign
-card. The parcel is packed as a present, with a greeting card carrying your text,
-and it arrives showing neither the price nor the name of the shop.</p>
-<p>If the baby has not arrived yet, or the colour is anybody's guess, a gift
-certificate does the same job &mdash; and that is the next thing worth knowing
-about.</p>
-
 <h2>Gift certificates, when you are the one abroad</h2>
 <p>This is the other thing Ukrainians living outside the country buy most often.
 You want to give something to a child in Ukraine, you are not there to choose it,
