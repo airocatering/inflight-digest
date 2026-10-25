@@ -862,8 +862,23 @@ English.</p>
 baby is in Kyiv. Then it is ordinary delivery inside Ukraine, paid with a foreign
 card. The parcel is packed as a present, with a greeting card carrying your text,
 and it arrives showing neither the price nor the name of the shop.</p>
-<p>If the baby has not arrived yet, or the colour is anybody's guess, there is a
-gift certificate valid for six months.</p>
+<p>If the baby has not arrived yet, or the colour is anybody's guess, a gift
+certificate does the same job &mdash; and that is the next thing worth knowing
+about.</p>
+
+<h2>Gift certificates, when you are the one abroad</h2>
+<p>This is the other thing Ukrainians living outside the country buy most often.
+You want to give something to a child in Ukraine, you are not there to choose it,
+and you have no idea what the family has already been given twice. A certificate
+hands the choice to the people actually holding the baby.</p>
+<p>There are six denominations &mdash; 3,000, 5,000, 7,500, 15,000, 30,000 and
+45,000 UAH &mdash; and they are spent across a catalogue of roughly 7,000 items
+for ages nought to eight: cots and nursery furniture, mattresses and bedding,
+bottles and teats, bathing and feeding kit, nappies, or the book above.</p>
+<p>Visa and Mastercard from any bank are accepted, the shop answers in English,
+and an order is put through within 30 minutes. The denominations are here:
+<a href="https://kioskdlyamam.com.ua/podarunkovi-sertyfikaty" target="_blank"
+rel="noopener">gift certificates</a>.</p>
 
 <p><b><a href="https://kioskdlyamam.com.ua/" target="_blank"
 rel="noopener">kioskdlyamam.com.ua</a></b> &mdash; Oh My Baby Book, and the rest of
