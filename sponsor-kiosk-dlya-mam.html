@@ -12,7 +12,7 @@
 <meta property="og:title" content="KIOSK для MAM — Inflight Digest"><meta property="og:description" content="A baby store in Kyiv, and the sponsor of this site. It ships Oh My Baby Book &mdash; a Ukrainian-made memory album for a newborn &mdash; worldwide.">
 <meta property="og:url" content="https://airocatering.github.io/inflight-digest/sponsor-kiosk-dlya-mam.html"><meta property="og:image" content="https://airocatering.github.io/inflight-digest/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://airocatering.github.io/inflight-digest/sponsor-kiosk-dlya-mam.html"><script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsMediaOrganization","@id":"https://airocatering.github.io/inflight-digest/#org","name":"Inflight Digest","url":"https://airocatering.github.io/inflight-digest/","logo":{"@type":"ImageObject","url":"https://airocatering.github.io/inflight-digest/favicon-180.png"},"email":"vladyslav.mazur@gmail.com","description":"Independent trade news on airline catering, inflight entertainment, cabin interiors and onboard service.","address":{"@type":"PostalAddress","addressLocality":"Kyiv","addressCountry":"UA"}}</script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif&family=Jost:wght@500;600&display=swap" rel="stylesheet"><style>
+<link rel="canonical" href="https://airocatering.github.io/inflight-digest/sponsor-kiosk-dlya-mam.html"><script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsMediaOrganization","@id":"https://airocatering.github.io/inflight-digest/#org","name":"Inflight Digest","url":"https://airocatering.github.io/inflight-digest/","logo":{"@type":"ImageObject","url":"https://airocatering.github.io/inflight-digest/favicon-180.png"},"email":"vladyslav.mazur@gmail.com","description":"Independent trade news on airline catering, inflight entertainment, cabin interiors and onboard service.","address":{"@type":"PostalAddress","addressLocality":"Kyiv","addressCountry":"UA"}}</script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif&display=swap" rel="stylesheet"><style>
 :root{--ink:#141414;--red:#E1251B;--wash:#F3F1EC;--line:#DFDCD5;--muted:#75716A}
 *{box-sizing:border-box}body{margin:0;background:var(--wash);color:var(--ink);
 font-family:Inter,system-ui,sans-serif;font-size:16px;-webkit-font-smoothing:antialiased}
@@ -247,15 +247,22 @@ font-size:11px}
 .doc a:hover{text-decoration:underline}
 .doc ul{margin:0 0 14px;padding-left:18px}
 .doc li{font-size:15.5px;line-height:1.68;color:#3d3d3d;margin-bottom:5px}
-/* плашка «реклама» над текстом: редполитика обещает читателю, что
+/* врезка-дисклеймер над текстом: редполитика обещает читателю, что
    коммерческий материал помечен, а не выглядит как редакционный.
    Селектор обязательно с .doc: правило .doc p задаёт серый #3d3d3d и по
-   специфичности бьёт одиночный .adlabel — текст становился серым на чёрном */
-.doc .adlabel{display:inline-block;background:var(--ink);color:#fff;font-size:10px;
-font-weight:800;letter-spacing:.13em;text-transform:uppercase;padding:4px 8px;margin-bottom:14px}
-/* написание бренда как в логотипе: геометрический гротеск, не наша антиква.
-   «MAM» латиницей — так его пишет владелец, кириллическое «МАМ» неверно */
-.brand{font-family:Jost,Inter,system-ui,sans-serif;font-weight:600;letter-spacing:.01em}
+   специфичности перебило бы одиночный класс */
+.doc .disclosure{margin:0 0 22px;padding:12px 16px;border-left:3px solid var(--ink);
+background:#EDEAE3;font-size:14.5px;line-height:1.6;color:#3d3d3d}
+.doc hr{border:0;border-top:1px solid var(--line);margin:26px 0 20px}
+/* Название бренда набираем Inter: он уже подключён для всего сайта и покрывает
+   латиницу и кириллицу, поэтому «KIOSK» и «для MAM» гарантированно идут одной
+   гарнитурой. Селектор с .rubhead h1 — иначе 52px из .rubhead h1 (0-1-1)
+   перебьют одиночный .brand (0-1-0), та же ловушка, что была с плашкой выше.
+   «MAM» латиницей — так пишет владелец, кириллическое «МАМ» неверно */
+.rubhead h1.brand{font-family:Inter,system-ui,-apple-system,sans-serif;font-weight:700;
+font-size:40px;line-height:1.15;letter-spacing:-.015em}
+@media(max-width:640px){.rubhead h1.brand{font-size:28px}}
+.brand{font-family:Inter,system-ui,-apple-system,sans-serif;font-weight:700}
 
 /* запасной вариант подписки, пока не подключена форма */
 .mailbtn{display:inline-block;background:var(--red);color:#fff;padding:15px 26px;
@@ -403,95 +410,80 @@ font-size:15px;line-height:1.6;color:#555}
 <a class="adv" href="advertise.html">Advertise</a></div></nav><div class="wrap"><section class="rubhead">
 <h1 class="brand">KIOSK для MAM</h1><p>A baby store in Kyiv, and the sponsor of this site. It ships Oh My Baby Book &mdash; a Ukrainian-made memory album for a newborn &mdash; worldwide.</p></section>
 <div class="doc">
-<p class="adlabel">Sponsored</p>
-<p>Inflight Digest and KIOSK для MAM share an owner. This page is a commercial
-placement, not an editorial story.</p>
+<blockquote class="disclosure"><b>Sponsored.</b> Inflight Digest and KIOSK для MAM
+share an owner. This page is a commercial placement, not an editorial story.</blockquote>
 
-<h2>Who the sponsor is</h2>
-<p>KIOSK для MAM is a baby store in Kyiv, open since 2014. It supplies Ukrainian families with the
-things a child needs in the first years, and it ships one of its products a great
-deal further than that: Oh My Baby Book, a memory album designed, illustrated and
-printed in Ukraine, goes out from Kyiv to any country in the world.</p>
+<p>Most readers of this site spend their working life between countries. Which means
+that sooner or later a colleague, a cousin or a former crewmate has a baby — and you
+are three time zones away with a week to find something.</p>
 
-<h2>The gift nobody outgrows</h2>
-<p>Most things given at a birth are outgrown inside six months. A memory album is
-not one of them. Oh My Baby Book is a journal parents keep adding to for years:
-the first ultrasound scan, the first lock of hair, the first word, a handprint.
-Twenty years on it is the most valuable object in the house.</p>
-<p>It is a Ukrainian product rather than a translated import &mdash; drawn and
-printed in Ukraine, with KIOSK для MAM as its official distributor.</p>
-<p>It also solves the problem every guest at a birth has. Clothes are the wrong
-size, toys are surplus, cosmetics the mother has already bought herself. A memory
-album is needed by every family, cannot be duplicated by another guest, and looks
-like a present rather than a consumable.</p>
+<p>KIOSK для MAM has been selling baby goods in Kyiv since 2014. Two of the things it
+does are useful if you are the one who is far away.</p>
 
-<h2>What is inside</h2>
-<ul>
-<li>121 pages, from pregnancy to the child's fifth birthday</li>
-<li>53 captioned slots for photographs</li>
-<li>17 photo-session cards &mdash; months 1 to 11, then years 1 to 5</li>
-<li>Space for the ultrasound scan, the first lock of hair, hand and foot prints</li>
-<li>A page for a letter to the child's future self, one from each parent</li>
-<li>Filling instructions, so nobody has to guess what goes where</li>
-</ul>
-<p>Thick board cover, foil stamping, a sewn block, assembled by hand &mdash; built
-to survive years of being leafed through. The pages are paced so that parents come
-back to the book once a month, not sit over it for hours.</p>
+<h2>If the baby is anywhere in the world</h2>
 
-<h2>Editions, price, personalisation</h2>
-<p>2,950 UAH, whatever the colour and whatever the language. Pink, beige or olive;
-blue, beige or olive. The text inside is Ukrainian, Russian or English &mdash; the
-English Edition exists for families living abroad, and the contents are identical
-in all three.</p>
-<p>A name or a short phrase can go on the cover in any of the three languages:
-150 UAH for one word, 200 for two, 300 for three, made within three working days.
-Without personalisation the book ships the day it is ordered. Two things are often
-added to the order: Oh My Baby Notes, a pregnancy planner, at 1,950 UAH, and the
-Hello Baby! greeting card at 160 UAH.</p>
-<p>Every version sits in one place &mdash; <a
-href="https://kioskdlyamam.com.ua/oh-my-baby-book" target="_blank"
-rel="noopener">the Oh My Baby Book section</a>: the boys' colours and the girls'
-colours, and the Ukrainian, English and Russian editions side by side. The <a
+<p><b>Oh My Baby Book</b> is a newborn memory album, designed, illustrated and printed
+in Ukraine. KIOSK для MAM is its official distributor and ships it from Kyiv to any
+country.</p>
+
+<p>Almost everything given at a birth is outgrown within six months. This is the
+exception. Parents keep adding to it for years — the first scan, the first lock of
+hair, the first word, a handprint. In twenty years it is the thing the family would
+run back into a burning house for.</p>
+
+<p>It also solves the guest's problem. Clothes are the wrong size, toys are surplus,
+and the mother bought the cosmetics herself. Nobody can give the same album twice,
+and it looks like a present rather than a supply run.</p>
+
+<p>Inside: 121 pages covering pregnancy to the child's fifth birthday, 53 captioned
+slots for photographs, 17 photo cards for months one to eleven and years one to five,
+space for the scan, the lock of hair and the hand and foot prints, and a page where
+each parent writes a letter to the child's future self. There are instructions, so
+nobody has to guess.</p>
+
+<p>Thick board cover, foil stamping, a sewn block, assembled by hand.</p>
+
+<p><b>2,950 UAH</b> in any colour — pink, blue, beige or olive — with the text inside
+in Ukrainian, Russian or English. The <a
 href="https://kioskdlyamam.com.ua/oh-my-baby-book/oh-my-baby-book-english-edition-anglijska-mova-new-design"
-target="_blank" rel="noopener">English Edition in the new design</a> has a page of
-its own &mdash; that is the one to send abroad.</p>
+target="_blank" rel="noopener">English Edition</a> is the one to send abroad. A name
+can be stamped on the cover for 150 UAH, which adds three working days; without it the
+book goes out the same day.</p>
 
-<h2>Shipped worldwide from Kyiv</h2>
-<p>Ukrainian families are spread across Europe and North America now, and they
-still send each other presents when a baby arrives. The book travels by Nova Poshta
-to any country.</p>
-<ul>
-<li>Poland &mdash; &euro;15, up to 7 days</li>
-<li>Europe &mdash; from &euro;32, up to 7 days</li>
-<li>United States &mdash; $30, 10&ndash;14 days</li>
-<li>Canada &mdash; $40, 10&ndash;16 days</li>
-<li>Israel and elsewhere &mdash; quoted on request</li>
-</ul>
-<p>How it works: you place the order, the exact shipping cost is calculated on the
-day, and a payment link comes back &mdash; Visa or Mastercard, any bank. Once it is
-paid the parcel goes out and you get a tracking number. Write the recipient's
-address and contact details in English in the order comment. The shop answers in
-English.</p>
+<p>Shipping by Nova Poshta: Poland €15, rest of Europe from €32, United States $30,
+Canada $40, all within seven to sixteen days. Other countries quoted on request.</p>
 
-<h2>Gift certificates, when you are the one abroad</h2>
-<p>This is what gets bought from abroad most often &mdash; by Ukrainians with
-family back home, and just as often by their friends and colleagues who have never
-set foot in Ukraine. The problem is the same either way: you want to give something
-to a child in Kyiv or Lviv, you are not there to choose it, and you have no idea
-what the family has already been given twice. A certificate hands the choice to the
-people actually holding the baby.</p>
-<p>There are six denominations &mdash; 3,000, 5,000, 7,500, 15,000, 30,000 and
-45,000 UAH &mdash; and they are spent across a catalogue of roughly 7,000 items
-for ages nought to eight: cots and nursery furniture, mattresses and bedding,
-bottles and teats, bathing and feeding kit, nappies, or the book above.</p>
-<p>Visa and Mastercard from any bank are accepted, the shop answers in English,
-and an order is put through within 30 minutes. The denominations are here:
-<a href="https://kioskdlyamam.com.ua/podarunkovi-sertyfikaty" target="_blank"
-rel="noopener">gift certificates</a>.</p>
+<p>You order, the shop calculates the exact shipping that day and sends back a payment
+link — Visa or Mastercard, any bank. Then the parcel goes out with a tracking number.
+Put the recipient's address in English in the order comment. They answer in English.</p>
 
-<p><b><a href="https://kioskdlyamam.com.ua/" target="_blank"
-rel="noopener">kioskdlyamam.com.ua</a></b> &mdash; Oh My Baby Book, and the rest of
-the shop, deliver across Ukraine and worldwide.</p>
+<p>Everything is in one place: <a href="https://kioskdlyamam.com.ua/oh-my-baby-book"
+target="_blank" rel="noopener">the Oh My Baby Book section</a>.</p>
+
+<h2>If the baby is in Ukraine</h2>
+
+<p>This is the more common case, and it has a different answer.</p>
+
+<p>You want to send something to a family in Kyiv or Lviv. You are not there to choose
+it, you don't know what they have already been given twice, and shipping a cot from
+abroad is absurd. A <b>gift certificate</b> hands the choice to the people actually
+holding the baby.</p>
+
+<p>Six values — 3,000, 5,000, 7,500, 15,000, 30,000 and 45,000 UAH — spent across
+roughly 7,000 items for newborns and children up to eight: cots and nursery furniture,
+mattresses and bedding, bottles, bathing and feeding kit, nappies, or the album
+above.</p>
+
+<p>Visa and Mastercard from any bank. Orders are processed within 30 minutes. The shop
+answers in English.</p>
+
+<p><a href="https://kioskdlyamam.com.ua/podarunkovi-sertyfikaty" target="_blank"
+rel="noopener">Gift certificates →</a></p>
+
+<hr>
+
+<p><a href="https://kioskdlyamam.com.ua/" target="_blank"
+rel="noopener">kioskdlyamam.com.ua</a> — delivery across Ukraine, and worldwide.</p>
 </div></div><section class="sub"><div class="wrap">
 <div><span class="badge">Free &middot; every Monday</span>
 <h2 class="serif">The Monday Digest</h2>
