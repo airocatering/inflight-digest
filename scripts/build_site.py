@@ -83,7 +83,10 @@ NAV = [(k, t) for k, t, _ in RUBRICS] + [("jobs", "Top Jobs"), ("events", "Event
 FONT = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
         '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800'
-        '&family=Instrument+Serif&display=swap" rel="stylesheet">')
+        '&family=Instrument+Serif'
+        # Jost — геометрический гротеск под начертание в логотипе KIOSK для MAM,
+        # с кириллицей: в названии бренда латиница и «для» стоят рядом
+        '&family=Jost:wght@500;600&display=swap" rel="stylesheet">')
 
 
 def asset(name):
@@ -444,6 +447,24 @@ def cell(it, cls=""):
 {fmt_date(it.get('date',''))}</div></div></a>'''
 
 
+# Рекламная ячейка в сетке — формат, который сайт сам продаёт на странице
+# Advertise: фото, заголовок, 25 слов, пометка Sponsored, первый-второй ряд.
+# Пометка обязательна: редполитика обещает читателю, что реклама продаётся
+# отдельно от редакции и маркируется.
+SPONSOR_CELL = '''<a class="cell sponsor" href="sponsor-kiosk-dlya-mam.html">
+<div class="ph"><img src="assets/sponsor-kiosk-dlya-mam.png" alt="KIOSK для MAM"
+width="600" height="600" loading="lazy"></div>
+<div class="bd"><div class="cat">Sponsored</div>
+<h3><span class="brand">KIOSK для MAM</span> backs this board</h3>
+<p>A Kyiv baby store keeps Inflight Digest free to read. Their Oh My Baby Book
+memory albums ship worldwide &mdash; everything else for babies, anywhere in Ukraine.</p>
+<div class="m"><b>kioskdlyamam.com.ua</b> &middot; Kyiv</div></div></a>'''
+
+EDITORIAL_CELL = ('<div class="cell ink"><div class="q serif">Every story here was read '
+                  'by a human before it went live.</div>'
+                  '<div class="who">Editorial policy</div></div>')
+
+
 def board(items, quotes=True):
     if not items:
         return ('<div class="empty"><b>Nothing here yet.</b> Stories land in this section '
@@ -455,9 +476,9 @@ def board(items, quotes=True):
         out.append(cell(it, "big" if (lead and i == 0) else ("alt" if i % 2 else "")))
         n += 1
         if quotes and n == 4:
-            out.append('<div class="cell ink"><div class="q serif">Every story here was read '
-                       'by a human before it went live.</div>'
-                       '<div class="who">Editorial policy</div></div>')
+            out.append(SPONSOR_CELL)
+        if quotes and n == 8:
+            out.append(EDITORIAL_CELL)
     # узкая сетка задаётся классом, а не инлайн-стилем: инлайн перебивает
     # медиазапросы и ломает вёрстку на телефоне
     cls = f" n{len(items)}" if len(items) < 3 else ""
@@ -716,12 +737,14 @@ def write_feed(items):
     return len(parts)
 
 
-def page_doc(key, title, lead, body):
-    """Текстовая страница с подзаголовками — редполитика, источники."""
+def page_doc(key, title, lead, body, h1cls="serif"):
+    """Текстовая страница с подзаголовками — редполитика, источники.
+    h1cls меняем только там, где заголовок — чужой логотип и его нельзя
+    набирать нашей антиквой (страница спонсора)."""
     return (head(f"{title} — Inflight Digest", f"{key}.html",
                  re.sub("<[^>]+>", " ", lead)[:180], ld=ld_json(org_ld()))
             + header() + f'''<div class="wrap"><section class="rubhead">
-<h1 class="serif">{title}</h1><p>{lead}</p></section>
+<h1 class="{h1cls}">{title}</h1><p>{lead}</p></section>
 <div class="doc">{body}</div></div>''' + SUBSCRIBE + footer())
 
 
@@ -759,6 +782,87 @@ sees a story before it runs, and no advertiser has ever been given, or will be g
 say in what is covered. If a story concerns a company that advertises here, that fact is
 stated in the story.</p>
 """.replace("{mail}", CONTACT_MAIL)
+
+SPONSOR_DOC = """
+<p class="adlabel">Sponsored</p>
+<img class="sponsorlogo" src="assets/sponsor-kiosk-dlya-mam.png" alt="KIOSK для MAM"
+width="600" height="600" loading="lazy">
+<p>This page is a paid placement. It was written with the sponsor and is not an
+editorial story. No sponsor sees a story before it runs, and none has any say in
+what this site covers &mdash; see the <a href="editorial-policy.html">editorial
+policy</a>.</p>
+
+<h2>Who the sponsor is</h2>
+<p>KIOSK для MAM is a baby store in Kyiv. It supplies Ukrainian families with the
+things a child needs in the first years, and it ships one of its products a great
+deal further than that: Oh My Baby Book, a memory album designed, illustrated and
+printed in Ukraine, goes out from Kyiv to any country in the world.</p>
+
+<h2>The gift nobody outgrows</h2>
+<p>Most things given at a birth are outgrown inside six months. A memory album is
+not one of them. Oh My Baby Book is a journal parents keep adding to for years:
+the first ultrasound scan, the first lock of hair, the first word, a handprint.
+Twenty years on it is the most valuable object in the house.</p>
+<p>It is a Ukrainian product rather than a translated import &mdash; drawn and
+printed in Ukraine, with KIOSK для MAM as its official distributor.</p>
+<p>It also solves the problem every guest at a birth has. Clothes are the wrong
+size, toys are surplus, cosmetics the mother has already bought herself. A memory
+album is needed by every family, cannot be duplicated by another guest, and looks
+like a present rather than a consumable.</p>
+
+<h2>What is inside</h2>
+<ul>
+<li>121 pages, from pregnancy to the child's fifth birthday</li>
+<li>53 captioned slots for photographs</li>
+<li>17 photo-session cards &mdash; months 1 to 11, then years 1 to 5</li>
+<li>Space for the ultrasound scan, the first lock of hair, hand and foot prints</li>
+<li>A page for a letter to the child's future self, one from each parent</li>
+<li>Filling instructions, so nobody has to guess what goes where</li>
+</ul>
+<p>Thick board cover, foil stamping, a sewn block, assembled by hand &mdash; built
+to survive years of being leafed through. The pages are paced so that parents come
+back to the book once a month, not sit over it for hours.</p>
+
+<h2>Editions, price, personalisation</h2>
+<p>2,950 UAH, whatever the colour and whatever the language. Pink, beige or olive;
+blue, beige or olive. The text inside is Ukrainian, Russian or English &mdash; the
+English Edition exists for families living abroad, and the contents are identical
+in all three.</p>
+<p>A name or a short phrase can go on the cover in any of the three languages:
+150 UAH for one word, 200 for two, 300 for three, made within three working days.
+Without personalisation the book ships the day it is ordered. Two things are often
+added to the order: Oh My Baby Notes, a pregnancy planner, at 1,950 UAH, and the
+Hello Baby! greeting card at 160 UAH.</p>
+
+<h2>Shipped worldwide from Kyiv</h2>
+<p>Ukrainian families are spread across Europe and North America now, and they
+still send each other presents when a baby arrives. The book travels by Nova Poshta
+to any country.</p>
+<ul>
+<li>Poland &mdash; &euro;15, up to 7 days</li>
+<li>Europe &mdash; from &euro;32, up to 7 days</li>
+<li>United States &mdash; $30, 10&ndash;14 days</li>
+<li>Canada &mdash; $40, 10&ndash;16 days</li>
+<li>Israel and elsewhere &mdash; quoted on request</li>
+</ul>
+<p>How it works: you place the order, the exact shipping cost is calculated on the
+day, and a payment link comes back &mdash; Visa or Mastercard, any bank. Once it is
+paid the parcel goes out and you get a tracking number. Write the recipient's
+address and contact details in English in the order comment. The shop answers in
+English.</p>
+
+<h2>If you are abroad and the family is not</h2>
+<p>The commonest case runs the other way: the buyer is in Berlin or Toronto and the
+baby is in Kyiv. Then it is ordinary delivery inside Ukraine, paid with a foreign
+card. The parcel is packed as a present, with a greeting card carrying your text,
+and it arrives showing neither the price nor the name of the shop.</p>
+<p>If the baby has not arrived yet, or the colour is anybody's guess, there is a
+gift certificate valid for six months.</p>
+
+<p><b><a href="https://kioskdlyamam.com.ua/" target="_blank"
+rel="noopener">kioskdlyamam.com.ua</a></b> &mdash; Oh My Baby Book, and the rest of
+the shop, deliver across Ukraine and worldwide.</p>
+"""
 
 SOURCES_DOC = """
 <h2>Summary and link, never the full text</h2>
@@ -821,6 +925,11 @@ def main():
         "sources", "Sources &amp; attribution",
         "We summarise and link. Here is exactly what that means, and how to reach us "
         "if you are the publisher.", SOURCES_DOC)
+    write["sponsor-kiosk-dlya-mam.html"] = page_doc(
+        "sponsor-kiosk-dlya-mam", "KIOSK для MAM",
+        "A baby store in Kyiv, and the sponsor of this site. It ships Oh My Baby "
+        "Book &mdash; a Ukrainian-made memory album for a newborn &mdash; worldwide.",
+        SPONSOR_DOC, h1cls="brand")
     write["contact.html"] = page_simple(
         "contact", "Contact",
         'Inflight Digest is written and edited by Vlad Mazur in Kyiv, Ukraine. '
