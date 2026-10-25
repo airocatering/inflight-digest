@@ -252,8 +252,10 @@ font-size:11px}
 .doc ul{margin:0 0 14px;padding-left:18px}
 .doc li{font-size:15.5px;line-height:1.68;color:#3d3d3d;margin-bottom:5px}
 /* плашка «реклама» над текстом: редполитика обещает читателю, что
-   коммерческий материал помечен, а не выглядит как редакционный */
-.adlabel{display:inline-block;background:var(--ink);color:#fff;font-size:10px;
+   коммерческий материал помечен, а не выглядит как редакционный.
+   Селектор обязательно с .doc: правило .doc p задаёт серый #3d3d3d и по
+   специфичности бьёт одиночный .adlabel — текст становился серым на чёрном */
+.doc .adlabel{display:inline-block;background:var(--ink);color:#fff;font-size:10px;
 font-weight:800;letter-spacing:.13em;text-transform:uppercase;padding:4px 8px;margin-bottom:14px}
 /* написание бренда как в логотипе: геометрический гротеск, не наша антиква.
    «MAM» латиницей — так его пишет владелец, кириллическое «МАМ» неверно */
