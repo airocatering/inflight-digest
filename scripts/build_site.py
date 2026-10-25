@@ -832,6 +832,13 @@ in all three.</p>
 Without personalisation the book ships the day it is ordered. Two things are often
 added to the order: Oh My Baby Notes, a pregnancy planner, at 1,950 UAH, and the
 Hello Baby! greeting card at 160 UAH.</p>
+<p>Every version sits in one place &mdash; <a
+href="https://kioskdlyamam.com.ua/oh-my-baby-book" target="_blank"
+rel="noopener">the Oh My Baby Book section</a>: the boys' colours and the girls'
+colours, and the Ukrainian, English and Russian editions side by side. The <a
+href="https://kioskdlyamam.com.ua/oh-my-baby-book/oh-my-baby-book-english-edition-anglijska-mova-new-design"
+target="_blank" rel="noopener">English Edition in the new design</a> has a page of
+its own &mdash; that is the one to send abroad.</p>
 
 <h2>Shipped worldwide from Kyiv</h2>
 <p>Ukrainian families are spread across Europe and North America now, and they
